@@ -1,0 +1,4 @@
+C1
+1. OB 30 Network 11 -  do wyjaśnienie czy usunąć 
+2. Dopisać funkcję wyłączenia pompowni od minimum na magistrali jeśli puste i nie uruchomione zbiorniki. 
+3. Warunek wyłącenia pomp jeśli puste zbiorniki i minimum na magistrali  

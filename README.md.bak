@@ -1,0 +1,30 @@
+# [TIA Portal Projects V16 rev 04 EC Moszczenica](http://electronic.pythonanywhere.com/)
+
+
+## Description
+Control of industrial facilities - EC Moszczenica rev 04 (2023 r.)
+
+PLC-Pompownia S7 1200 CPU 1515 (Controller at the water pumping station)
+
+PLC- Zasuwy S7  1200 CPU 1515 (Reserve water tank controller)
+
+The controllers control the filling and emptying of the tanks in specific cycles and maintain the set pressure on the municipal network during emptying.
+
+
+
+## Download and Installation
+
+python-snap7 support Python 2.7 and 3.4+, Windows Linux and OS X.
+* [Download ](https://pypi.org/project/python-snap7/)
+* Install snap7: Please read the online [installation documentation](https://python-snap7.readthedocs.io/en/latest/installation.html).
+
+
+
+## About
+
+Development for S7 1200 CPU units rev 04. Controlled objects are; water pumping station with PI regulator, reserve water tanks.
+
+
+## Copyright and License
+
+Copyright 2023 Electronic | Radosław Tecmer [RT](http://electronic.pythonanywhere.com/#about) license.# Control_MoszczenicaEC
