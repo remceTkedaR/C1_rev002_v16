@@ -1,0 +1,93 @@
+﻿FUNCTION "08_C_ParsowanieDataTime_Zadanych_" : Void
+TITLE = Persowanie danych data i time
+{ S7_Optimized_Access := 'TRUE' }
+AUTHOR : rtecmer
+VERSION : 0.1
+//Funkcja składa z wartości podanego czasu formie Real zmienne DTL przekazywane dale do układu sterowania zbiornikami i pompami
+
+BEGIN
+	(*
+	//=============================================================================
+	//(JZWiK S.A Radosław Tecmer)
+	//(c)Copyright (2022) All Rights Reserved
+	//-----------------------------------------------------------------------------
+	//Testowane z:   (system docelowy z  FW 4.4)
+	//Pakiet inżynierski:   TIA Portal (V16 Update 5)
+	//Ograniczenia:  ( - )
+	//Wymagania:  (minimalne S7-1200 CPU 1215C FW 4.2 .)
+	//Funkcjonalnośc: (Persowanie danych wchodzących w formie Real do danych DTL
+	                    Dane: czasy, sterowania zbiornikami i pracą pomp)
+	//-----------------------------------------------------------------------------
+	//Zmainy wprowadzone:
+	//Wersja  Data       Osoba wprowadzająca zmiany - ekspert
+	//01.00.00 09.03.2022 (Tecmer Radosław - twórca) Pieresza wersja 01.00.00
+	//=============================================================================
+	*)
+	
+	
+	REGION start_napełnianie
+	  // przekazanie z bloku SCADA do bloku danych programu PLC
+	  "db10datablock".instHourStart_Filling.HOUR := INT_TO_USINT("dbHoldRegSlave_to_MT101".instHourStart_Filling);
+	  "db10datablock".instHourStart_Filling.MINUTE := INT_TO_USINT("dbHoldRegSlave_to_MT101".instMinutStart_Filling);
+	
+	  
+	END_REGION
+	
+	REGION Stop_napełnianie
+	  // przekazanie z bloku SCADA do bloku danych programu PLC
+	  "db10datablock".instHourStop_Filling.HOUR := INT_TO_USINT("dbHoldRegSlave_to_MT101".instHourStop_Filling);
+	  "db10datablock".instHourStop_Filling.MINUTE := INT_TO_USINT("dbHoldRegSlave_to_MT101".instMinutStopt_Filling);
+	  
+	  
+	END_REGION
+	
+	REGION Start_przetłaczanie_1
+	  //
+	  "db10datablock".instHourStart_City.HOUR := INT_TO_USINT("dbHoldRegSlave_to_MT101".instHourStart_City);
+	  "db10datablock".instHourStart_City.MINUTE := INT_TO_USINT("dbHoldRegSlave_to_MT101".instMinutStart_City);
+	 
+	;
+	  
+	END_REGION
+	
+	REGION Stop_przetłaczanie_1
+	  // przekazanie z bloku SCADA do bloku danych programu PLC
+	  "db10datablock".instHourStop_City.HOUR := INT_TO_USINT("dbHoldRegSlave_to_MT101".instHourStop_City);
+	  "db10datablock".instHourStop_City.MINUTE := INT_TO_USINT("dbHoldRegSlave_to_MT101".instMinutStopt_City);
+	  
+	
+	  
+	END_REGION
+	
+	REGION Start_dosilanie_1
+	  // przekazanie z bloku SCADA do bloku danych programu PLC
+	  "db10datablock".instHourStart_Replen.HOUR := INT_TO_USINT("dbHoldRegSlave_to_MT101".instHourStart_Replen);
+	  "db10datablock".instHourStart_Replen.MINUTE := INT_TO_USINT("dbHoldRegSlave_to_MT101".instMinutStart_Replen);
+	
+	
+	END_REGION
+	
+	REGION Stop_dosilanie_1
+	  // przekazanie z bloku SCADA do bloku danych programu PLC
+	  "db10datablock".instHourStop_Replen.HOUR := INT_TO_USINT("dbHoldRegSlave_to_MT101".instHourStop_Replen);
+	  "db10datablock".instHourStop_Replen.MINUTE := INT_TO_USINT("dbHoldRegSlave_to_MT101".instMinutStopt_Replen);
+	
+	  // przekazanie do bloku danych wysyłanych 
+	
+	END_REGION
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+END_FUNCTION
+

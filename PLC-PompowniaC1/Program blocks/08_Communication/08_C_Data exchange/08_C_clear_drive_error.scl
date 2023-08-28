@@ -1,0 +1,102 @@
+﻿FUNCTION "08_C_clear_drive_error" : Void
+TITLE = Modbus RTU Master do Slave przetwarzanie 
+{ S7_Optimized_Access := 'TRUE' }
+AUTHOR : rtecmer
+VERSION : 0.1
+//Funkcja przetwarz przekazane sygnały kasowania alarmów z mastera Modbus RTU (MT101) i wykonuje operację
+
+BEGIN
+	(*
+	//=============================================================================
+	//(JZWiK S.A Radosław Tecmer)
+	//(c)Copyright (2021) All Rights Reserved
+	//-----------------------------------------------------------------------------
+	//Testowane z:   (system docelowy z  FW 4.2)
+	//Pakiet inżynierski:   TIA Portal (V14 Sp1 Update 9)
+	//Ograniczenia:  ( - )
+	//Wymagania:  (minimalne S7-1200 CPU 1214 FW 3.2 .)
+	//Funkcjonalnośc: (Pzetwarzanie sygnałów z MT101 protokołem Modbus RTU. 
+	                    Kasowanie alarów)
+	//-----------------------------------------------------------------------------
+	//Zmainy wprowadzone:
+	//Wersja  Data       Osoba wprowadzająca zmiany - ekspert
+	//01.00.00 17.11.2021 (Tecmer Radosław - twórca) Pieresza wersja 01.00.00
+	//=============================================================================
+	*)
+	
+	//--- Kasowanie Alarmu Napędów
+	
+	//Ustawienie bitu Reset dla Drive Motor 1
+	%DB100.DBX0.6 := %DB100.DBX51.0;
+	IF %DB100.DBX1.0 = FALSE AND %DB100.DBX51.0 = TRUE  THEN
+	  // ustaw automat
+	  %DB100.DBX0.7 := TRUE;
+	  // Kasowanie bitu RESET Driver i Modbus bit Reset
+	  %DB100.DBX0.0 := FALSE;
+	  %DB100.DBX51.0 := False;
+	  ;
+	END_IF;
+	
+	//Ustawienie bitu Reset dla Drive Motor 2
+	%DB100.DBX2.6 := %DB100.DBX51.1;
+	IF %DB100.DBX1.0 = FALSE AND %DB100.DBX51.1 =TRUE  THEN
+	  // ustaw automat
+	  %DB100.DBX2.7 := TRUE;
+	  // Kasowanie bitu RESET Driver i Modbus bit Reset
+	  %DB100.DBX2.0 := FALSE;
+	  %DB100.DBX51.1 := False;
+	  ;
+	END_IF;
+	
+	//Ustawienie bitu Reset dla Drive Motor 3
+	%DB100.DBX4.6 := %DB100.DBX51.2;
+	IF %DB100.DBX4.0 = FALSE AND  %DB100.DBX51.2 = TRUE THEN
+	  // ustaw automat
+	  %DB100.DBX4.7 := TRUE;
+	  // Kasowanie bitu RESET Driver i Modbus bit Reset
+	  %DB100.DBX4.0 := FALSE;
+	  %DB100.DBX51.2 := False;
+	  ;
+	END_IF;
+	
+	//Ustawienie bitu Reset dla Drive Motor 4
+	%DB100.DBX6.6 := %DB100.DBX51.3;
+	IF %DB100.DBX6.0 = FALSE AND %DB100.DBX51.3 = TRUE THEN
+	  // ustaw automat
+	  %DB100.DBX6.7 := TRUE;
+	  // Kasowanie bitu RESET Driver i Modbus bit Reset
+	  %DB100.DBX6.0 := FALSE;
+	  %DB100.DBX51.3 := False;
+	  ;
+	END_IF;
+	
+	
+	//Ustawienie bitu Reset dla Drive Z11
+	%DB100.DBX28.6 := %DB100.DBX50.6;
+	IF %DB100.DBX28.0 = FALSE AND %DB100.DBX50.6 = TRUE THEN
+	  // ustaw automat
+	  %DB100.DBX28.7 := TRUE;
+	  // Kasowanie bitu RESET Driver i Modbus bit Reset
+	  %DB100.DBX28.0 := FALSE;
+	  %DB100.DBX50.6 := False;
+	  ;
+	END_IF;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+END_FUNCTION
+

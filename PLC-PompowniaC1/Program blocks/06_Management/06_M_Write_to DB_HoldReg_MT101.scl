@@ -1,0 +1,70 @@
+﻿FUNCTION "06_M_Write_to DB_HoldReg_MT101" : Void
+{ S7_Optimized_Access := 'TRUE' }
+AUTHOR : rtecmer
+VERSION : 0.1
+
+BEGIN
+	(*
+	//=============================================================================
+	//(JZWiK S.A Radosław Tecmer)
+	//(c)Copyright (2021) All Rights Reserved
+	//-----------------------------------------------------------------------------
+	//Testowane z:   (system docelowy z  FW 4.2)
+	//Pakiet inżynierski:   TIA Portal (V14 Sp1 Update 9)
+	//Ograniczenia:  ( - )
+	//Wymagania:  (minimalne S7-1200 CPU 1214 FW 3.2 .)
+	//Funkcjonalnośc: (Kopiowanie bloków danych )
+	//-----------------------------------------------------------------------------
+	//Zmainy wprowadzone:
+	//Wersja  Data       Osoba wprowadzająca zmiany - ekspert
+	//01.00.00 17.11.2021 (Tecmer Radosław - twórca) Pieresza wersja 01.00.00
+	//=============================================================================
+	*)
+	
+	
+	
+	REGION  Stacja Zasów Status Napędów
+	  // PLC Zasówy z modbus TCP
+	  "db10datablock".instvValveZ1 := "db10datablock".instvValveZ1;
+	
+	  
+	  // Do instancji SCADA na MT101
+	  "dbHoldRegSlave_to_MT101".instvValveZ1 := "db10datablock".instvValveZ1;
+	
+	  
+	END_REGION
+	
+	
+	
+	REGION Analogi
+	  // Przekazanie
+	  "dbHoldRegSlave_to_MT101".instB5bar_act := "db10datablock".instB5_bar_act_magistrala;
+	  "dbHoldRegSlave_to_MT101".instB6bar_act := "db10datablock".instB6_bar_act_miasto;
+	  "dbHoldRegSlave_to_MT101".instB7bar_act := "db10datablock".instB7_bar_act_pompownia;
+	  "dbHoldRegSlave_to_MT101".instB8bar_act := "dbdane".act_Value_B8;
+	  "dbHoldRegSlave_to_MT101".instFlowDN225_act := "db10datablock".instFlowDN225_act_Q1;
+	  "dbHoldRegSlave_to_MT101".instFlowDN225_sum := "db10datablock".instSumFlowDN225_Q1;
+	  "dbHoldRegSlave_to_MT101".instFlowDN500_act := "db10datablock".instFlowDN500_act_Q2;
+	  "dbHoldRegSlave_to_MT101".instFlowDN500_sum := "db10datablock".instSumFlowDN500_Q2;
+	  "dbHoldRegSlave_to_MT101".instCurrent_Inverter := REAL_TO_INT("db10datablock".inst_act_Current_Inverters);
+	  "dbHoldRegSlave_to_MT101".instHz_Inverter := REAL_TO_INT("db10datablock".act_Hz_Inverter_1);
+	  
+	
+	  // Miasto DN225
+	  // aktualny
+	  
+	  "dbHoldRegSlave_to_MT101".instFlowDN225_act := "dbModbusRTU_Reg"."Przepływomierz nr1 pompownia".ID6_przeływu_VF_Adres_0;
+	  //Suma
+	  "dbHoldRegSlave_to_MT101".instFlowDN225_sum := "dbModbusRTU_Reg"."Przepływomierz nr1 pompownia".ID6_objętość_VF_Adres_2;
+	END_REGION
+	
+	
+	
+	
+	
+	
+	
+	
+	
+END_FUNCTION
+

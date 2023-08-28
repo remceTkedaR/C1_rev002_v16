@@ -1,0 +1,50 @@
+﻿FUNCTION "00_S_SclScaleLinearInt" : Int
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      x : Int;
+      yMin : Int;   // Granica minimalnej wartości fizycznej
+      yMax : Int;   // Granica maxymalnej wartości fizycznej
+      x0 : Int;   // Minimalna wartość dla danego przetornika ADC zgodnie z dokumentacją Siemens
+      y0 : Int;   // Minimalna wartość wartości fizycznej (procesowej)
+      x1 : Int;   // Maxymalna wartość dla danego przetornika ADC zgodnie z dokumentacją Siemens
+      y1 : Int;   // Maxymalna wartość wartości fizycznej (procesowej)
+   END_VAR
+
+   VAR_TEMP 
+      tempYwert : Real;
+      tempX0real : Real;
+      tempX1real : Real;
+      tempY0real : Real;
+      tempY1real : Real;
+      tempXreal : Real;
+      tempYminReal : Real;
+      tempYmaxReal : Real;
+   END_VAR
+
+
+BEGIN
+	#tempX0real := INT_TO_REAL(#x0);
+	#tempX1real := INT_TO_REAL(#x1);
+	#tempY0real := INT_TO_REAL(#y0);
+	#tempY1real := INT_TO_REAL(#y1);
+	#tempXreal := INT_TO_REAL(#x);
+	#tempYminReal := INT_TO_REAL(#yMin);
+	#tempYmaxReal := INT_TO_REAL(#yMax);
+	
+	IF (#x1 - #x0) = 0 OR (#x - #x0) = 0 OR (#y1 - #y0) = 0 OR #yMin > #yMax
+	THEN
+	    #tempYwert := 0;
+	ELSE
+	    #tempYwert := (#tempY1real - #tempY0real) / (#tempX1real - #tempX0real) * (#tempXreal - #tempX0real) + #tempY0real;
+	END_IF;
+	
+	IF #tempYwert < #tempYminReal THEN
+	    #"00_S_SclScaleLinearInt" := 0;
+	ELSIF #tempYwert > #tempYmaxReal THEN
+	    #"00_S_SclScaleLinearInt" := #yMax;
+	ELSE
+	    #"00_S_SclScaleLinearInt" := REAL_TO_INT(#tempYwert);
+	END_IF;
+END_FUNCTION
+

@@ -1,0 +1,72 @@
+﻿FUNCTION_BLOCK "SetActivePump"
+TITLE = SetActivePump 
+{ S7_Optimized_Access := 'TRUE' }
+AUTHOR : rtecmer
+VERSION : 0.1
+//Funkacja ustawia aktywną pompę do pracy jak wiodąca na podstawie czasu pracy. Funkcja pozwala na wrównywanie liczników pracy
+   VAR_IN_OUT 
+      ActivePump : Int;   // numer aktywnej pompy - wiodącej
+      pumpNum : Int;
+   END_VAR
+
+
+BEGIN
+	(*
+	//=============================================================================
+	//(JZWiK S.A Radosław Tecmer)
+	//(c)Copyright (2021) All Rights Reserved
+	//-----------------------------------------------------------------------------
+	//Testowane z:   (system docelowy z  FW 4.4)
+	//Pakiet inżynierski:   TIA Portal (V14 Sp1 Update 9)
+	//Ograniczenia:  ( - )
+	//Wymagania:  (minimalne S7-1200 CPU 1215C FW 4.2 .)
+	//Funkcjonalnośc: (Funkcja ustawia wskazany znacznik Set_HWork_Px 
+	//                 jesli spełnione są warunki aktywując pompę wiodącą)
+	//-----------------------------------------------------------------------------
+	//Zmainy wprowadzone:
+	//Wersja  Data       Osoba wprowadzająca zmiany - ekspert
+	//01.00.00 23.09.2023 (Tecmer Radosław - twórca) Pieresza wersja 01.00.00
+	//=============================================================================
+	*)
+	"Set_HWork_P1" := FALSE;
+	"Set_HWork_P2" := FALSE;
+	"Set_HWork_P3" := FALSE;
+	"Set_HWork_P4" := FALSE;
+	
+	
+	CASE "dbdane".chosenPump OF
+	  1:
+	    IF "IsReady_P1" AND "bitH_Aut_Man_P1" AND ("IsRunInverter_P1" = FALSE) THEN
+	      "Set_HWork_P1" := TRUE;
+	      #ActivePump := 1;
+	    END_IF;
+	  2:
+	    IF "IsReady_P2" AND "bitH_Aut_Man_P2"AND ("IsRunInverter_P2" = FALSE) THEN
+	      "Set_HWork_P2" := TRUE;
+	      #ActivePump := 2;
+	    END_IF;
+	  3:
+	    IF "IsReady_P3" AND "bitH_Aut_Man_P3" AND ("IsRunInverter_P3" = FALSE) THEN
+	      "Set_HWork_P3" := TRUE;
+	      #ActivePump := 3;
+	    END_IF;
+	  4:
+	    IF "IsReady_P4" AND "bitH_Aut_Man_P4" AND ("IsRunInverter_P4" = FALSE) THEN
+	      "Set_HWork_P4" := TRUE;
+	      #ActivePump := 4;
+	    END_IF;
+	  ELSE
+	    // W przypadku niepoprawnej wartości pumpNum, wyłącz wszystkie pompy
+	    "Set_HWork_P1" := FALSE;
+	    "Set_HWork_P2":= FALSE;
+	    "Set_HWork_P3" := FALSE;
+	    "Set_HWork_P4" := FALSE;
+	END_CASE;
+	
+	// Aktualizacja zmiennej globalnej
+	#pumpNum := "dbdane".chosenPump;
+	#ActivePump := #pumpNum;
+	
+	
+END_FUNCTION_BLOCK
+

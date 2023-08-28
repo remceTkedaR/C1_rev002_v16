@@ -1,0 +1,108 @@
+﻿FUNCTION "00_S_Convertion_Time_to_Int" : Void
+{ S7_Optimized_Access := 'TRUE' }
+AUTHOR : RTecmer
+FAMILY : 'HMI(XM)'
+VERSION : 0.1
+//Przekazywanie zmiennych między urządzeniami
+
+BEGIN
+	(*
+	//=============================================================================
+	//(JZWiK S.A Radosław Tecmer)
+	//(c)Copyright (2021) All Rights Reserved
+	//-----------------------------------------------------------------------------
+	//Testowane z:   (system docelowy z  FW 4.2)
+	//Pakiet inżynierski:   TIA Portal (V14 Sp1 Update 9)
+	//Ograniczenia:  ( - )
+	//Wymagania:  (minimalne S7-1200 CPU 1214 FW 3.2 .)
+	//Funkcjonalnośc: (KOnwerja zmiennych formatu Time of Day na Int )
+	//-----------------------------------------------------------------------------
+	//Zmainy wprowadzone:
+	//Wersja  Data       Osoba wprowadzająca zmiany - ekspert
+	//01.00.00 17.02.2022 (Tecmer Radosław - twórca) Pieresza wersja 01.00.00
+	//=============================================================================
+	*)
+	
+	// Aktualny czas
+	"00_S_Clock Converter"(HOUR:="Data_Czas_synch".Time_Local_read.HOUR,
+	                    MINUTE:="Data_Czas_synch".Time_Local_read.MINUTE,
+	                    SECOND:="Data_Czas_synch".Time_Local_read.SECOND,
+	                    Czas_Liczba_conv_Real=>"db10datablock".actTime,
+	                    Zegar_H=>"db10datablock".actHour,
+	                    Zegar_M=>"db10datablock".actMinut,
+	                    Zegar_S=>"db10datablock".actSec);
+	
+	
+	// Godzina start napełniania
+	"00_S_Clock Converter"(HOUR:="db10datablock".instHourStart_Filling.HOUR,
+	                    MINUTE:="db10datablock".instHourStart_Filling.MINUTE,
+	                    SECOND:="db10datablock".instHourStart_Filling.SECOND,
+	                    Czas_Liczba_conv_Real=>"dbmanagement".instHourStart_Filling,
+	                    Zegar_H=>"db10datablock".instHourStart_Filling_1,
+	                    Zegar_M=>"db10datablock".instMinutStart_Filling,
+	                    Zegar_S=>"db10datablock".instSecStart_Filling_1);
+	
+	
+	// Godzina stop napełniania
+	"00_S_Clock Converter"(HOUR := "db10datablock".instHourStop_Filling.HOUR,
+	                    MINUTE := "db10datablock".instHourStop_Filling.MINUTE,
+	                    SECOND := "db10datablock".instHourStop_Filling.SECOND,
+	                    Czas_Liczba_conv_Real => "dbmanagement".instHourStop_Filling,
+	                    Zegar_H=>"db10datablock".instHourStop_Filling_1,
+	                    Zegar_M=>"db10datablock".instMinutStopt_Filling,
+	                    Zegar_S=>"db10datablock".instSecStop_Filling_1);
+	
+	// Godzina start przetłaczanie miasto DN225
+	"00_S_Clock Converter"(HOUR := "db10datablock".instHourStart_City.HOUR,
+	                    MINUTE := "db10datablock".instHourStart_City.MINUTE,
+	                    SECOND := "db10datablock".instHourStart_City.SECOND,
+	                    Czas_Liczba_conv_Real => "dbmanagement".instHourStart_City,
+	                    Zegar_H=>"db10datablock".instHourStart_City_1,
+	                    Zegar_M=>"db10datablock".instMinutStart_City,
+	                    Zegar_S=>"db10datablock".instSecStart_City_1);
+	
+	
+	// Godzina stop przetłaczanie miasto DN225
+	"00_S_Clock Converter"(HOUR := "db10datablock".instHourStop_City.HOUR,
+	                    MINUTE := "db10datablock".instHourStop_City.MINUTE,
+	                    SECOND := "db10datablock".instHourStop_City.SECOND,
+	                    Czas_Liczba_conv_Real => "dbmanagement".instHourStop_City,
+	                    Zegar_H=>"db10datablock".instHourStop_City_1,
+	                    Zegar_M=>"db10datablock".instMinutStopt_City,
+	                    Zegar_S=>"db10datablock".instSecStop_City_1);
+	
+	
+	// Godzina start dosilanie DN500
+	"00_S_Clock Converter"(HOUR := "db10datablock".instHourStart_Replen.HOUR,
+	                    MINUTE := "db10datablock".instHourStart_Replen.MINUTE,
+	                    SECOND := "db10datablock".instHourStart_Replen.SECOND,
+	                    Czas_Liczba_conv_Real => "dbmanagement".instHourStart_Replen,
+	                    Zegar_H=>"db10datablock".instHourStart_Replen_1,
+	                    Zegar_M=>"db10datablock".instMinutStart_Replen,
+	                    Zegar_S=>"db10datablock".instSecStart_Replen_1);
+	
+	
+	
+	
+	
+	// Godzina stop dosilanie DN500
+	"00_S_Clock Converter"(HOUR :="db10datablock".instHourStop_Replen.HOUR,
+	                    MINUTE :="db10datablock".instHourStop_Replen.MINUTE,
+	                    SECOND :="db10datablock".instHourStop_Replen.SECOND,
+	                    Czas_Liczba_conv_Real => "dbmanagement".instHourStop_Replen,
+	                    Zegar_H=>"db10datablock".instHourStop_Replen_1,
+	                    Zegar_M=>"db10datablock".instMinutStopt_Replen,
+	                    Zegar_S=>"db10datablock".instSecStop_Replen_1);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+END_FUNCTION
+

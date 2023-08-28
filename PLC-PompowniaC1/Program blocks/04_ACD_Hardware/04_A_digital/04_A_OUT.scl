@@ -1,0 +1,114 @@
+﻿FUNCTION "04_A_OUT" : Void
+TITLE = OUT 
+{ S7_Optimized_Access := 'TRUE' }
+AUTHOR : rtecmer
+VERSION : 0.1
+//Mapowamie i wyzwalanie wyjść 
+
+BEGIN
+	(*
+	//=============================================================================
+	//(JZWiK S.A Radosław Tecmer)
+	//(c)Copyright (2021) All Rights Reserved
+	//-----------------------------------------------------------------------------
+	//Testowane z:   (system docelowy z  FW 4.4)
+	//Pakiet inżynierski:   TIA Portal (V14 Sp1 Update 9)
+	//Ograniczenia:  ( - )
+	//Wymagania:  (minimalne S7-1200 CPU 1215C FW 4.2 .)
+	//Funkcjonalnośc: (Sterowania napędami poprzez przekazanie wartości na 
+	//                  wyjście sterownika )
+	//-----------------------------------------------------------------------------
+	//Zmainy wprowadzone:
+	//Wersja  Data       Osoba wprowadzająca zmiany - ekspert
+	//01.00.00 19.01.2022 (Tecmer Radosław - twórca) Pieresza wersja 01.00.00
+	//=============================================================================
+	*)
+	
+	
+	
+	REGION Sygnalizacja Awarii
+	  
+	  // Wyjścia przekaźnikowe sygnalizacja awarii
+	  //Pomp Zasuw Falownika Soft-start
+	  "Q0.7" := "CMD_faultInverter";
+	  "Q0.4" := "CMD_faultP1";
+	  "Q0.5" := "CMD_faultP2";
+	  "Q2.6" := "CMD_faultP3";
+	  "Q2.7" := "CMD_faultP4";
+	  
+	END_REGION
+	
+	REGION "inverter"
+	  // Start stop inverter
+	  "Q0.6" := "CMD_start_stop_inverter";
+	  
+	END_REGION
+	
+	
+	REGION Styczniki P1
+	  // Uruchamianie wyjść sterujących stycznik pompoy falownik, sieć
+	
+	  "Q0.0" := "CMD_inverter_P1";
+	  "Q0.1" := "CMD_network_P1";
+	  
+	  
+	 
+	END_REGION
+	
+	REGION Styczniki P2
+	  // Uruchamianie wyjść sterujących stycznik pompoy falownik, sieć
+	
+	  "Q0.2" := "CMD_inverter_P2";
+	  "Q0.3" := "CMD_network_P2";
+	  
+	  
+	  
+	END_REGION
+	
+	REGION Styczniki P3
+	  // Uruchamianie wyjść sterujących stycznik pompoy falownik, sieć
+	
+	  "Q0.4" := "CMD_inverter_P3";
+	  "Q0.5" := "CMD_network_P3";
+	  
+	  
+	  
+	END_REGION
+	
+	
+	
+	REGION Zasuwa Z11
+	  // Przekazanie wartości
+	  //Otwieranie
+	  "Q2.0" := "CMD_Open_Z11";
+	  //Zamykanie
+	  "Q2.1" := "CMD_Close_Z11";
+	
+	  
+	END_REGION
+	
+	
+	  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 
+	
+	
+	
+	
+	 
+	 
+	
+	 
+	 
+	 
+END_FUNCTION
+

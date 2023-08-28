@@ -1,0 +1,94 @@
+﻿FUNCTION_BLOCK "FindPumpWithMinWorkTime"
+TITLE = FindPumpWithMinWorkTime
+{ S7_Optimized_Access := 'TRUE' }
+AUTHOR : rtecmer
+VERSION : 0.1
+//Funkcja poszukuje pompy z najniższym licznikiem
+   VAR_IN_OUT 
+      chosenPump : Int;   // wybrana pompa numer
+   END_VAR
+
+   VAR 
+      minTime : Real;   // mniejszy licznik
+   END_VAR
+
+
+BEGIN
+	(*
+	//=============================================================================
+	//(JZWiK S.A Radosław Tecmer)
+	//(c)Copyright (2021) All Rights Reserved
+	//-----------------------------------------------------------------------------
+	//Testowane z:   (system docelowy z  FW 4.4)
+	//Pakiet inżynierski:   TIA Portal (V14 Sp1 Update 9)
+	//Ograniczenia:  ( - )
+	//Wymagania:  (minimalne S7-1200 CPU 1215C FW 4.2 .)
+	//Funkcjonalnośc: (Funkcja poszukuje pompy z najniższym stanem licznika pracy 
+	//                  wcelu sterowania wyrównywaniem czasu pracy napedów. 
+	//                  Przekazuje do bloku danych wcelu udostępnienia funkcji
+	//                  SetActivePump.)
+	//-----------------------------------------------------------------------------
+	//Zmainy wprowadzone:
+	//Wersja  Data       Osoba wprowadzająca zmiany - ekspert
+	//01.00.00 23.08.2023 (Tecmer Radosław - twórca) Pieresza wersja 01.00.00
+	//=============================================================================
+	*)
+	
+	#minTime := 2147483647;
+	#chosenPump := 0;
+	
+	IF "IsReady_P1" AND "bitH_Aut_Man_P1"AND ("IsRunNetwork_P1" = FALSE) THEN
+	  IF "hourWork_setData".Sum_sek_hur_P1 < #minTime THEN
+	    #minTime := "hourWork_setData".Sum_sek_hur_P1;
+	    #chosenPump := 1;
+	  END_IF;
+	END_IF;
+	
+	IF "IsReady_P2" AND "bitH_Aut_Man_P2" AND ("IsRunNetwork_P2" = FALSE) THEN
+	  IF "hourWork_setData".Sum_sek_hur_P2 < #minTime THEN
+	    #minTime := "hourWork_setData".Sum_sek_hur_P2;
+	    #chosenPump := 2;
+	  END_IF;
+	END_IF;
+	
+	IF "IsReady_P3" AND "bitH_Aut_Man_P3" AND ("IsRunNetwork_P3" = FALSE) THEN
+	  IF "hourWork_setData".Sum_sek_hur_P3 < #minTime THEN
+	    #minTime := "hourWork_setData".Sum_sek_hur_P3;
+	    #chosenPump := 3;
+	  END_IF;
+	END_IF;
+	
+	IF "IsReady_P4" AND "bitH_Aut_Man_P4" AND ("IsRunNetwork_P4" = FALSE) THEN
+	  IF "hourWork_setData".Sum_sek_hur_P4 < #minTime THEN
+	    #minTime := "hourWork_setData".Sum_sek_hur_P4;
+	    #chosenPump := 4;
+	  END_IF;
+	END_IF;
+	
+	IF #chosenPump = 0 THEN
+	  // Sprawdz czy jakiaś pracuje na sieci
+	  IF "IsRunNetwork_P1" = TRUE THEN
+	    // Statement section IF
+	    "setCMD_SP1" := FALSE;
+	    ;
+	  END_IF;
+	  IF "IsRunNetwork_P2" = TRUE THEN
+	    // Statement section IF
+	    "setCMD_SP2" := FALSE;
+	    ;
+	  END_IF;
+	  IF "IsRunNetwork_P3" = TRUE THEN
+	    // Statement section IF
+	    "setCMD_SP3" := FALSE;
+	    ;
+	  END_IF;
+	  
+	  ;
+	END_IF;
+	
+	
+	
+	RETURN;
+	
+END_FUNCTION_BLOCK
+
