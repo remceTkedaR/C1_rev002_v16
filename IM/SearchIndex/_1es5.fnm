@@ -1,0 +1,22 @@
+þÿÿÿî###id###VisulizationRootBrowsableId###TargetIdAcknowledgementGroupText-###SearchableNonTechnicalFieldNamesOfDocument###ParentIds###ImmediateParentId###ReferenceFieldIdsInvalidAttempts	ValidDaysWarningDaysGenerationsMinNumPsswd
+ServerName
+PortNumberWindowsDomainNameStationNamePartnerNameNodeNameDisplayNameAcknowledgementModelAlarmLogIdEmailAddressAcknowledgedText
+ComingText	GoingTextCommonAlarmClass
+TriggerTag
+AlarmClassDelayTimeUnitHysteresisModeInfoText	AlarmText###SearchFilterIds	Functions	LimitMode
+LimitValueAcknowledgementBitAddressAcknowledgementTagPlcAcknowledgementBitAddressTriggerBitAddressCommentPathRestartOptionsStorageMediaThresholdBehaviorAcquisitionModeLoggingCycle
+ProcessTagProcessTagTypeNameToleranceOptionJobEvent	CycleUnit	CycleTimePictureTextNumber	ShortName
+LogoutTimeTitleLanguageAuthorVersionConstant nameEvent class###UpdatableParentIdInterfaceMember_NameInterfaceMember_DatatypeInterfaceMember_ValueInterfaceMember_CommentNetwork titleNetwork commentLADFBD CodeSCL CodeInstance DBUser-defined IDNameInFunctionalViewNameInDBFullNameInDBDatatypeAddressValueGroupUnit	BackColor	GridColorTemplateBackFillStyleBorderBackColorBorderColor	EdgeStyleFirstGradientColorFlashing
+FocusColorFont	ForeColorHorizontalAlignmentHorizontalPictureAlignmentLayerMiddleGradientColorModePictureAutoSizingSecondGradientColorTextOffTextOnTextOrientationVerticalAlignmentVerticalPictureAlignmentAdaptPicture
+AutoSizingTransparentColorAboveUpperLimitColorBelowLowerLimitColor
+DataFormatFormatPatternProcessValuePropertyNameTagValueForPropertyTagPageUITypeEditorBitPositionUITypeEditorTagExpressionRangeFromToAuthorizationHelpTextPictureListScrollBarOrientationUITypeEditorStartvalueUITypeEditorEndvalueColorEndStyle	FillStyleLineEndShapeStyle
+StartStyleStyleEvenRowBackColorSelectBackColorSelectForeColorTextListButtonBackColorButtonBackFillStyleButtonBorderBackColorButtonBorderColorButtonEdgeStyleButtonFirstGradientColorButtonMiddleGradientColorButtonSecondGradientColorGridlineAxisGridlineColorGridlineFillColorGridlineStyle
+RulerColor
+ScaleColorTableBackColorTableEvenRowBackColor	TableFontTableForeColorTableGridlineColorTableHeaderBackColorTableHeaderBackFillStyleTableHeaderBorderBackColorTableHeaderBorderColorTableHeaderEdgeStyleTableHeaderFirstGradientColorTableHeaderFontTableHeaderForeColorTableHeaderMiddleGradientColorTableHeaderSecondGradientColorTimeAxisModeTimeAxisSide	PictureOnCaptionColorCaptionFontCaptionTextInnerBackColorOffInnerBackColorOn
+PictureOffSwitchOrientationAlarmSourceButtonBarStyleColumnTextAckGroupColumnTextAlarmStateColumnTextAlarmTextColumnTextClassNameColumnTextDateColumnTextDeviceColumnTextDiagnosableColumnTextNumberColumnTextTime
+FilterTextSelectionBackColorSelectionForeColorSortByTimeDirectionViewTypeCaptionDataTypeTagAddressPanelInfoAddressAccessModeAcquisitionTriggerModeAcquisitionCycleConfirmationTypeCoding
+ConnectionPlcNameControllerTagLimitHighConstantLimitHighLowConstantLimitLowHighConstantLimitLowConstant	JobNumber
+StartValueFamilyScrollbarBackgroundColorScrollbarForegroundColor
+LineColor1
+LineColor2OperatableAreaColor
+VisibilityPreCodeHeaderCodeFooterAlarmLowerLimitColorAlarmUpperLimitColorBarBackColorBarEdgeStyleBarOrientationScalePositionSegmentColoringWarningLowerLimitColorWarningUpperLimitColor###ReconstitutionDataIDAssociatedCultureFieldIdAssociatedProjectVersion!AssociatedIndexDataVersionFieldId,AssociatedTechnicalFieldNamesHashCodeFieldId-AssociatedTechnicalFieldContentVersionFieldIdIndexAtomStore
