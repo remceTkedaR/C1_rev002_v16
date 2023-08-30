@@ -1,4 +1,11 @@
 C1
 1. OB 30 Network 11 -  do wyjaśnienie czy usunąć 
-2. Dopisać funkcję wyłączenia pompowni od minimum na magistrali jeśli puste i nie uruchomione zbiorniki. 
-3. Warunek wyłącenia pomp jeśli puste zbiorniki i minimum na magistrali  
+________________________________________________
+
+2023-08-30
+1. Przeniesienie zmiennej "actTime" z DB10/network 90 do DB32 Data_Cas_synch  DB32/40.0
+ 	Funkcja 00_S_Convertion_Time_to_Int FC6/ linia 22 podmieniana na nową lokalizację zmiennej "actTime "
+	Funkcja	06_M_control strategy Z11 FB31 podmiana "actTime" na nową lokalizację	
+
+
+			
