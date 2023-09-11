@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2023-08-28T09:37:27.8450551Z</Created>
+    <Created>2023-09-11T12:14:50.3136772Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -106,7 +106,7 @@
     <Access Scope="LiteralConstant" UId="25">
       <Constant>
         <ConstantType>UInt</ConstantType>
-        <ConstantValue>1000</ConstantValue>
+        <ConstantValue>800</ConstantValue>
       </Constant>
     </Access>
     <Access Scope="GlobalVariable" UId="26">
@@ -686,7 +686,7 @@ STATUS - %DB79.DBX2.2 "dbTags_slave_RTU".modbusCommLoad.status
               <MultilingualTextItem ID="26" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>Znacznik dodatkowego kompresora dla funkcji FB8 I</Text>
+                  <Text>Znacznik dodatkowej pompy dla funkcji FB8 I</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -969,7 +969,40 @@ Przełączenie na Input PID  (wejście wartościci zadanej) wyłaczenie wejścia
       </SW.Blocks.CompileUnit>
       <SW.Blocks.CompileUnit ID="3C" CompositionName="CompileUnits">
         <AttributeList>
-          <NetworkSource />
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="dbtags_Sterowanie" />
+        <Component Name="SetupControlPompownia" />
+        <Component Name="setBarMinMainLine" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="dbHoldRegSlave_to_MT101" />
+        <Component Name="instSetBarMinB9" />
+      </Symbol>
+    </Access>
+    <Part Name="Move" UId="23" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="24">
+      <Powerrail />
+      <NameCon UId="23" Name="en" />
+    </Wire>
+    <Wire UId="25">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="26">
+      <NameCon UId="23" Name="out1" />
+      <IdentCon UId="22" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
@@ -1000,7 +1033,7 @@ Przełączenie na Input PID  (wejście wartościci zadanej) wyłaczenie wejścia
               <MultilingualTextItem ID="42" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text />
+                  <Text>zadane minimalne ciśnienie magistrali </Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1572,7 +1605,7 @@ Przełączenie na Input PID  (wejście wartościci zadanej) wyłaczenie wejścia
               <MultilingualTextItem ID="65" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>Zasuwa Z11 Tryb Automat</Text>
+                  <Text>Zasuwa Z1 Tryb Automat</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1735,12 +1768,11 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
-    <Access Scope="GlobalVariable" UId="21">
-      <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="Paramaetry _Zbiorniki" />
-        <Component Name="set_strategia_sterowania" />
-      </Symbol>
+    <Access Scope="LiteralConstant" UId="21">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>3</ConstantValue>
+      </Constant>
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
@@ -1809,7 +1841,7 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
               <MultilingualTextItem ID="77" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>0- wyłaczone, 1- dosilanie, 2- przetłaczanie, 3- automat,  4- ręczne</Text>
+                  <Text>0- wyłaczone,  3- automat,  4- ręczne</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2129,137 +2161,47 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
       <SW.Blocks.CompileUnit ID="97" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><StructuredText xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StructuredText/v3">
-  <Token Text="CASE" UId="21" />
-  <Blank Num="1" UId="22" />
-  <Access Scope="GlobalVariable" UId="23">
-    <Symbol UId="24">
-      <Component Name="dbHoldRegSlave_to_MT101" UId="25" />
-      <Token Text="." UId="26" />
-      <Component Name="instSygSter_1" UId="27" />
+  <Access Scope="GlobalVariable" UId="21">
+    <Symbol UId="22">
+      <Component Name="dbHoldRegSlave_to_MT101" UId="23" />
+      <Token Text="." UId="24" />
+      <Component Name="instSetbarDN225_B6" UId="25" />
     </Symbol>
   </Access>
+  <Blank Num="1" UId="26" />
+  <Token Text=":=" UId="27" />
   <Blank Num="1" UId="28" />
-  <Token Text="OF" UId="29" />
-  <NewLine Num="1" UId="30" />
-  <Blank Num="2" UId="31" />
-  <Access Scope="LiteralConstant" UId="32">
-    <Constant UId="33">
-      <ConstantValue UId="35">1</ConstantValue>
-    </Constant>
+  <Access Scope="GlobalVariable" UId="29">
+    <Symbol UId="30">
+      <Component Name="dbtags_Sterowanie" UId="31" />
+      <Token Text="." UId="32" />
+      <Component Name="SetupControlPompownia" UId="33" />
+      <Token Text="." UId="34" />
+      <Component Name="set_barDN225_B6" UId="35" />
+    </Symbol>
   </Access>
-  <Token Text=":" UId="36" />
+  <Token Text=";" UId="36" />
   <NewLine Num="1" UId="37" />
-  <Blank Num="4" UId="38" />
-  <Access Scope="GlobalVariable" UId="39">
-    <Symbol UId="40">
-      <Component Name="dbdane" UId="41" />
-      <Token Text="." UId="42" />
-      <Component Name="Setpoint_SV" UId="43" />
+  <Access Scope="GlobalVariable" UId="38">
+    <Symbol UId="39">
+      <Component Name="dbdane" UId="40" />
+      <Token Text="." UId="41" />
+      <Component Name="Setpoint_SV" UId="42" />
     </Symbol>
   </Access>
-  <Blank Num="1" UId="44" />
-  <Token Text=":=" UId="45" />
-  <Blank Num="1" UId="46" />
-  <Access Scope="GlobalVariable" UId="47">
-    <Symbol UId="48">
-      <Component Name="dbtags_Sterowanie" UId="49" />
-      <Token Text="." UId="50" />
-      <Component Name="SetupControlPompownia" UId="51" />
-      <Token Text="." UId="52" />
-      <Component Name="set_barDN500_B5" UId="53" />
+  <Blank Num="1" UId="43" />
+  <Token Text=":=" UId="44" />
+  <Blank Num="1" UId="45" />
+  <Access Scope="GlobalVariable" UId="46">
+    <Symbol UId="47">
+      <Component Name="dbtags_Sterowanie" UId="48" />
+      <Token Text="." UId="49" />
+      <Component Name="SetupControlPompownia" UId="50" />
+      <Token Text="." UId="51" />
+      <Component Name="set_barDN225_B6" UId="52" />
     </Symbol>
   </Access>
-  <Blank Num="1" UId="54" />
-  <Token Text=";" UId="55" />
-  <NewLine Num="1" UId="56" />
-  <Blank Num="2" UId="57" />
-  <Access Scope="LiteralConstant" UId="58">
-    <Constant UId="59">
-      <ConstantValue UId="61">2</ConstantValue>
-    </Constant>
-  </Access>
-  <Token Text=":" UId="62" />
-  <NewLine Num="1" UId="63" />
-  <Blank Num="4" UId="64" />
-  <Access Scope="GlobalVariable" UId="65">
-    <Symbol UId="66">
-      <Component Name="dbdane" UId="67" />
-      <Token Text="." UId="68" />
-      <Component Name="Setpoint_SV" UId="69" />
-    </Symbol>
-  </Access>
-  <Blank Num="1" UId="70" />
-  <Token Text=":=" UId="71" />
-  <Blank Num="1" UId="72" />
-  <Access Scope="GlobalVariable" UId="73">
-    <Symbol UId="74">
-      <Component Name="dbtags_Sterowanie" UId="75" />
-      <Token Text="." UId="76" />
-      <Component Name="SetupControlPompownia" UId="77" />
-      <Token Text="." UId="78" />
-      <Component Name="set_barDN225_B6" UId="79" />
-    </Symbol>
-  </Access>
-  <Token Text=";" UId="80" />
-  <NewLine Num="1" UId="81" />
-  <Blank Num="2" UId="82" />
-  <Access Scope="LiteralConstant" UId="83">
-    <Constant UId="84">
-      <ConstantValue UId="86">3</ConstantValue>
-    </Constant>
-  </Access>
-  <Token Text=":" UId="87" />
-  <NewLine Num="1" UId="88" />
-  <Blank Num="4" UId="89" />
-  <Access Scope="GlobalVariable" UId="90">
-    <Symbol UId="91">
-      <Component Name="dbdane" UId="92" />
-      <Token Text="." UId="93" />
-      <Component Name="Setpoint_SV" UId="94" />
-    </Symbol>
-  </Access>
-  <Blank Num="1" UId="95" />
-  <Token Text=":=" UId="96" />
-  <Blank Num="1" UId="97" />
-  <Access Scope="GlobalVariable" UId="98">
-    <Symbol UId="99">
-      <Component Name="dbdane" UId="100" />
-      <Token Text="." UId="101" />
-      <Component Name="Setpoint_bar_automat" UId="102" />
-    </Symbol>
-  </Access>
-  <Blank Num="1" UId="103" />
-  <Token Text=";" UId="104" />
-  <NewLine Num="1" UId="105" />
-  <Blank Num="4" UId="106" />
-  <NewLine Num="1" UId="107" />
-  <Blank Num="2" UId="108" />
-  <Token Text="ELSE" UId="109" />
-  <NewLine Num="1" UId="110" />
-  <Blank Num="4" UId="111" />
-  <Access Scope="GlobalVariable" UId="112">
-    <Symbol UId="113">
-      <Component Name="dbdane" UId="114" />
-      <Token Text="." UId="115" />
-      <Component Name="Setpoint_SV" UId="116" />
-    </Symbol>
-  </Access>
-  <Blank Num="1" UId="117" />
-  <Token Text=":=" UId="118" />
-  <Blank Num="1" UId="119" />
-  <Access Scope="LiteralConstant" UId="120">
-    <Constant UId="121">
-      <ConstantValue UId="123">0.0</ConstantValue>
-    </Constant>
-  </Access>
-  <Token Text=";" UId="124" />
-  <NewLine Num="1" UId="125" />
-  <Blank Num="4" UId="126" />
-  <Token Text=";" UId="127" />
-  <NewLine Num="1" UId="128" />
-  <Token Text="END_CASE" UId="129" />
-  <Token Text=";" UId="130" />
-  <NewLine Num="1" UId="131" />
+  <Token Text=";" UId="53" />
 </StructuredText></NetworkSource>
           <ProgrammingLanguage>SCL</ProgrammingLanguage>
         </AttributeList>
@@ -2317,80 +2259,86 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
     </Access>
     <Access Scope="GlobalVariable" UId="23">
       <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="Paramaetry _Zbiorniki" />
-        <Component Name="set_poziom_opróżniania" />
+        <Component Name="dbHoldRegSlave_to_MT101" />
+        <Component Name="instLevelSetFilling" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="24">
       <Symbol>
-        <Component Name="dbHold_RRG" />
+        <Component Name="dbtags_Sterowanie" />
+        <Component Name="Paramaetry _Zbiorniki" />
         <Component Name="set_poziom_opróżniania" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="25">
       <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="Paramaetry _Zbiorniki" />
-        <Component Name="set_bity_sterowania_napęami_1" />
+        <Component Name="dbHold_RRG" />
+        <Component Name="set_poziom_opróżniania" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="26">
       <Symbol>
-        <Component Name="dbHold_RRG" />
-        <Component Name="set_res_bity_sterowania_napęami_1" />
+        <Component Name="dbHoldRegSlave_to_MT101" />
+        <Component Name="instLevelSetEmptying" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="27">
       <Symbol>
         <Component Name="dbtags_Sterowanie" />
         <Component Name="Paramaetry _Zbiorniki" />
-        <Component Name="set_bity_sterowania_napęami_2" />
+        <Component Name="set_bity_sterowania_napęami_1" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="28">
       <Symbol>
         <Component Name="dbHold_RRG" />
-        <Component Name="set_res_bity_sterowania_napęami_2" />
+        <Component Name="set_res_bity_sterowania_napęami_1" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="29">
       <Symbol>
         <Component Name="dbtags_Sterowanie" />
         <Component Name="Paramaetry _Zbiorniki" />
-        <Component Name="set_bity_tryb_napędów_1" />
+        <Component Name="set_bity_sterowania_napęami_2" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="30">
       <Symbol>
         <Component Name="dbHold_RRG" />
-        <Component Name="set_res_bity_tryb_napędów_1" />
+        <Component Name="set_res_bity_sterowania_napęami_2" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="31">
       <Symbol>
         <Component Name="dbtags_Sterowanie" />
         <Component Name="Paramaetry _Zbiorniki" />
-        <Component Name="set_bity_tryb_napędów_2" />
+        <Component Name="set_bity_tryb_napędów_1" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="32">
       <Symbol>
         <Component Name="dbHold_RRG" />
+        <Component Name="set_res_bity_tryb_napędów_1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="33">
+      <Symbol>
+        <Component Name="dbtags_Sterowanie" />
+        <Component Name="Paramaetry _Zbiorniki" />
+        <Component Name="set_bity_tryb_napędów_2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="34">
+      <Symbol>
+        <Component Name="dbHold_RRG" />
         <Component Name="set_res_bity_tryb_napędów_2" />
       </Symbol>
     </Access>
-    <Part Name="Move" UId="33" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
-    </Part>
-    <Part Name="Move" UId="34" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
-    </Part>
     <Part Name="Move" UId="35" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
     </Part>
     <Part Name="Move" UId="36" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
     </Part>
     <Part Name="Move" UId="37" DisabledENO="true">
       <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
@@ -2398,79 +2346,93 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
     <Part Name="Move" UId="38" DisabledENO="true">
       <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
     </Part>
+    <Part Name="Move" UId="39" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    </Part>
+    <Part Name="Move" UId="40" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    </Part>
   </Parts>
   <Wires>
-    <Wire UId="39">
-      <Powerrail />
-      <NameCon UId="33" Name="en" />
-    </Wire>
-    <Wire UId="40">
-      <IdentCon UId="21" />
-      <NameCon UId="33" Name="in" />
-    </Wire>
     <Wire UId="41">
-      <NameCon UId="33" Name="eno" />
-      <NameCon UId="34" Name="en" />
-    </Wire>
-    <Wire UId="42">
-      <NameCon UId="33" Name="out1" />
-      <IdentCon UId="22" />
-    </Wire>
-    <Wire UId="43">
-      <IdentCon UId="23" />
-      <NameCon UId="34" Name="in" />
-    </Wire>
-    <Wire UId="44">
-      <NameCon UId="34" Name="eno" />
+      <Powerrail />
       <NameCon UId="35" Name="en" />
     </Wire>
-    <Wire UId="45">
-      <NameCon UId="34" Name="out1" />
-      <IdentCon UId="24" />
-    </Wire>
-    <Wire UId="46">
-      <IdentCon UId="25" />
+    <Wire UId="42">
+      <IdentCon UId="21" />
       <NameCon UId="35" Name="in" />
     </Wire>
-    <Wire UId="47">
+    <Wire UId="43">
       <NameCon UId="35" Name="eno" />
       <NameCon UId="36" Name="en" />
     </Wire>
-    <Wire UId="48">
+    <Wire UId="44">
       <NameCon UId="35" Name="out1" />
-      <IdentCon UId="26" />
+      <IdentCon UId="22" />
     </Wire>
-    <Wire UId="49">
-      <IdentCon UId="27" />
+    <Wire UId="45">
+      <NameCon UId="35" Name="out2" />
+      <IdentCon UId="23" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="24" />
       <NameCon UId="36" Name="in" />
     </Wire>
-    <Wire UId="50">
+    <Wire UId="47">
       <NameCon UId="36" Name="eno" />
       <NameCon UId="37" Name="en" />
     </Wire>
-    <Wire UId="51">
+    <Wire UId="48">
       <NameCon UId="36" Name="out1" />
-      <IdentCon UId="28" />
+      <IdentCon UId="25" />
     </Wire>
-    <Wire UId="52">
-      <IdentCon UId="29" />
+    <Wire UId="49">
+      <NameCon UId="36" Name="out2" />
+      <IdentCon UId="26" />
+    </Wire>
+    <Wire UId="50">
+      <IdentCon UId="27" />
       <NameCon UId="37" Name="in" />
     </Wire>
-    <Wire UId="53">
+    <Wire UId="51">
       <NameCon UId="37" Name="eno" />
       <NameCon UId="38" Name="en" />
     </Wire>
-    <Wire UId="54">
+    <Wire UId="52">
       <NameCon UId="37" Name="out1" />
-      <IdentCon UId="30" />
+      <IdentCon UId="28" />
     </Wire>
-    <Wire UId="55">
-      <IdentCon UId="31" />
+    <Wire UId="53">
+      <IdentCon UId="29" />
       <NameCon UId="38" Name="in" />
     </Wire>
-    <Wire UId="56">
+    <Wire UId="54">
+      <NameCon UId="38" Name="eno" />
+      <NameCon UId="39" Name="en" />
+    </Wire>
+    <Wire UId="55">
       <NameCon UId="38" Name="out1" />
+      <IdentCon UId="30" />
+    </Wire>
+    <Wire UId="56">
+      <IdentCon UId="31" />
+      <NameCon UId="39" Name="in" />
+    </Wire>
+    <Wire UId="57">
+      <NameCon UId="39" Name="eno" />
+      <NameCon UId="40" Name="en" />
+    </Wire>
+    <Wire UId="58">
+      <NameCon UId="39" Name="out1" />
       <IdentCon UId="32" />
+    </Wire>
+    <Wire UId="59">
+      <IdentCon UId="33" />
+      <NameCon UId="40" Name="in" />
+    </Wire>
+    <Wire UId="60">
+      <NameCon UId="40" Name="out1" />
+      <IdentCon UId="34" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -2504,7 +2466,7 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
               <MultilingualTextItem ID="A4" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>Inicjacja parametrów nastwa zbirników  z Modbus TCP </Text>
+                  <Text>Inicjacja parametrów nastwa zbirników poziomy </Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2530,48 +2492,68 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
     </Access>
     <Access Scope="GlobalVariable" UId="23">
       <Symbol>
+        <Component Name="dbHoldRegSlave_to_MT101" />
+        <Component Name="instSygSter_1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
         <Component Name="dbtags_Sterowanie" />
         <Component Name="Paramaetry _Zbiorniki" />
         <Component Name="set_sterowanie_cyklem" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="24">
+    <Access Scope="GlobalVariable" UId="25">
       <Symbol>
         <Component Name="dbHold_RRG" />
         <Component Name="set_sterowanie_cyklem" />
       </Symbol>
     </Access>
-    <Part Name="Move" UId="25" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="dbHoldRegSlave_to_MT101" />
+        <Component Name="instSygSter_2" />
+      </Symbol>
+    </Access>
+    <Part Name="Move" UId="27" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
     </Part>
-    <Part Name="Move" UId="26" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    <Part Name="Move" UId="28" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
     </Part>
   </Parts>
   <Wires>
-    <Wire UId="27">
-      <Powerrail />
-      <NameCon UId="25" Name="en" />
-    </Wire>
-    <Wire UId="28">
-      <IdentCon UId="21" />
-      <NameCon UId="25" Name="in" />
-    </Wire>
     <Wire UId="29">
-      <NameCon UId="25" Name="eno" />
-      <NameCon UId="26" Name="en" />
+      <Powerrail />
+      <NameCon UId="27" Name="en" />
     </Wire>
     <Wire UId="30">
-      <NameCon UId="25" Name="out1" />
-      <IdentCon UId="22" />
+      <IdentCon UId="21" />
+      <NameCon UId="27" Name="in" />
     </Wire>
     <Wire UId="31">
-      <IdentCon UId="23" />
-      <NameCon UId="26" Name="in" />
+      <NameCon UId="27" Name="eno" />
+      <NameCon UId="28" Name="en" />
     </Wire>
     <Wire UId="32">
-      <NameCon UId="26" Name="out1" />
+      <NameCon UId="27" Name="out1" />
+      <IdentCon UId="22" />
+    </Wire>
+    <Wire UId="33">
+      <NameCon UId="27" Name="out2" />
+      <IdentCon UId="23" />
+    </Wire>
+    <Wire UId="34">
       <IdentCon UId="24" />
+      <NameCon UId="28" Name="in" />
+    </Wire>
+    <Wire UId="35">
+      <NameCon UId="28" Name="out1" />
+      <IdentCon UId="25" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="28" Name="out2" />
+      <IdentCon UId="26" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -2605,7 +2587,7 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
               <MultilingualTextItem ID="AB" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text />
+                  <Text>Strategia  i cykl</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2633,32 +2615,29 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
     </Access>
     <Access Scope="GlobalVariable" UId="23">
       <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="Zbiorniki_Godziny" />
-        <Component Name="start_napełnianie" />
-        <Component Name="MINUTE" />
+        <Component Name="dbHoldRegSlave_to_MT101" />
+        <Component Name="instHourStart_Filling" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="24">
       <Symbol>
-        <Component Name="dbHold_RRG" />
+        <Component Name="dbtags_Sterowanie" />
+        <Component Name="Zbiorniki_Godziny" />
         <Component Name="start_napełnianie" />
         <Component Name="MINUTE" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="25">
       <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="Zbiorniki_Godziny" />
-        <Component Name="Stop_napełnianie" />
-        <Component Name="HOUR" />
+        <Component Name="dbHold_RRG" />
+        <Component Name="start_napełnianie" />
+        <Component Name="MINUTE" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="26">
       <Symbol>
-        <Component Name="dbHold_RRG" />
-        <Component Name="Stop_napełnianie" />
-        <Component Name="HOUR" />
+        <Component Name="dbHoldRegSlave_to_MT101" />
+        <Component Name="instMinutStart_Filling" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="27">
@@ -2666,77 +2645,120 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
         <Component Name="dbtags_Sterowanie" />
         <Component Name="Zbiorniki_Godziny" />
         <Component Name="Stop_napełnianie" />
-        <Component Name="MINUTE" />
+        <Component Name="HOUR" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="28">
       <Symbol>
         <Component Name="dbHold_RRG" />
         <Component Name="Stop_napełnianie" />
+        <Component Name="HOUR" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="dbHoldRegSlave_to_MT101" />
+        <Component Name="instHourStop_Filling" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="dbtags_Sterowanie" />
+        <Component Name="Zbiorniki_Godziny" />
+        <Component Name="Stop_napełnianie" />
         <Component Name="MINUTE" />
       </Symbol>
     </Access>
-    <Part Name="Move" UId="29" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="dbHold_RRG" />
+        <Component Name="Stop_napełnianie" />
+        <Component Name="MINUTE" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="32">
+      <Symbol>
+        <Component Name="dbHoldRegSlave_to_MT101" />
+        <Component Name="instMinutStopt_Filling" />
+      </Symbol>
+    </Access>
+    <Part Name="Move" UId="33" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
     </Part>
-    <Part Name="Move" UId="30" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    <Part Name="Move" UId="34" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
     </Part>
-    <Part Name="Move" UId="31" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    <Part Name="Move" UId="35" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
     </Part>
-    <Part Name="Move" UId="32" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    <Part Name="Move" UId="36" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
     </Part>
   </Parts>
   <Wires>
-    <Wire UId="33">
-      <Powerrail />
-      <NameCon UId="29" Name="en" />
-    </Wire>
-    <Wire UId="34">
-      <IdentCon UId="21" />
-      <NameCon UId="29" Name="in" />
-    </Wire>
-    <Wire UId="35">
-      <NameCon UId="29" Name="eno" />
-      <NameCon UId="30" Name="en" />
-    </Wire>
-    <Wire UId="36">
-      <NameCon UId="29" Name="out1" />
-      <IdentCon UId="22" />
-    </Wire>
     <Wire UId="37">
-      <IdentCon UId="23" />
-      <NameCon UId="30" Name="in" />
+      <Powerrail />
+      <NameCon UId="33" Name="en" />
     </Wire>
     <Wire UId="38">
-      <NameCon UId="30" Name="eno" />
-      <NameCon UId="31" Name="en" />
+      <IdentCon UId="21" />
+      <NameCon UId="33" Name="in" />
     </Wire>
     <Wire UId="39">
-      <NameCon UId="30" Name="out1" />
-      <IdentCon UId="24" />
+      <NameCon UId="33" Name="eno" />
+      <NameCon UId="34" Name="en" />
     </Wire>
     <Wire UId="40">
-      <IdentCon UId="25" />
-      <NameCon UId="31" Name="in" />
+      <NameCon UId="33" Name="out1" />
+      <IdentCon UId="22" />
     </Wire>
     <Wire UId="41">
-      <NameCon UId="31" Name="eno" />
-      <NameCon UId="32" Name="en" />
+      <NameCon UId="33" Name="out2" />
+      <IdentCon UId="23" />
     </Wire>
     <Wire UId="42">
-      <NameCon UId="31" Name="out1" />
-      <IdentCon UId="26" />
+      <IdentCon UId="24" />
+      <NameCon UId="34" Name="in" />
     </Wire>
     <Wire UId="43">
-      <IdentCon UId="27" />
-      <NameCon UId="32" Name="in" />
+      <NameCon UId="34" Name="eno" />
+      <NameCon UId="35" Name="en" />
     </Wire>
     <Wire UId="44">
-      <NameCon UId="32" Name="out1" />
+      <NameCon UId="34" Name="out1" />
+      <IdentCon UId="25" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="34" Name="out2" />
+      <IdentCon UId="26" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="27" />
+      <NameCon UId="35" Name="in" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="35" Name="eno" />
+      <NameCon UId="36" Name="en" />
+    </Wire>
+    <Wire UId="48">
+      <NameCon UId="35" Name="out1" />
       <IdentCon UId="28" />
+    </Wire>
+    <Wire UId="49">
+      <NameCon UId="35" Name="out2" />
+      <IdentCon UId="29" />
+    </Wire>
+    <Wire UId="50">
+      <IdentCon UId="30" />
+      <NameCon UId="36" Name="in" />
+    </Wire>
+    <Wire UId="51">
+      <NameCon UId="36" Name="out1" />
+      <IdentCon UId="31" />
+    </Wire>
+    <Wire UId="52">
+      <NameCon UId="36" Name="out2" />
+      <IdentCon UId="32" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -2770,7 +2792,7 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
               <MultilingualTextItem ID="B2" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>Napełnianie</Text>
+                  <Text>Napełnianie  czasy </Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2778,171 +2800,6 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
         </ObjectList>
       </SW.Blocks.CompileUnit>
       <SW.Blocks.CompileUnit ID="B3" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
-  <Parts>
-    <Access Scope="GlobalVariable" UId="21">
-      <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="Zbiorniki_Godziny" />
-        <Component Name="Start_przetłaczanie_1" />
-        <Component Name="HOUR" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="22">
-      <Symbol>
-        <Component Name="dbHold_RRG" />
-        <Component Name="Start_przetłaczanie_1" />
-        <Component Name="HOUR" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="23">
-      <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="Zbiorniki_Godziny" />
-        <Component Name="Start_przetłaczanie_1" />
-        <Component Name="MINUTE" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="24">
-      <Symbol>
-        <Component Name="dbHold_RRG" />
-        <Component Name="Start_przetłaczanie_1" />
-        <Component Name="MINUTE" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="25">
-      <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="Zbiorniki_Godziny" />
-        <Component Name="Stop_przetłaczanie_1" />
-        <Component Name="HOUR" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="26">
-      <Symbol>
-        <Component Name="dbHold_RRG" />
-        <Component Name="Stop_przetłaczanie_1" />
-        <Component Name="HOUR" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="27">
-      <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="Zbiorniki_Godziny" />
-        <Component Name="Stop_przetłaczanie_1" />
-        <Component Name="MINUTE" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="28">
-      <Symbol>
-        <Component Name="dbHold_RRG" />
-        <Component Name="Stop_przetłaczanie_1" />
-        <Component Name="MINUTE" />
-      </Symbol>
-    </Access>
-    <Part Name="Move" UId="29" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
-    </Part>
-    <Part Name="Move" UId="30" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
-    </Part>
-    <Part Name="Move" UId="31" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
-    </Part>
-    <Part Name="Move" UId="32" DisabledENO="true">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
-    </Part>
-  </Parts>
-  <Wires>
-    <Wire UId="33">
-      <Powerrail />
-      <NameCon UId="29" Name="en" />
-    </Wire>
-    <Wire UId="34">
-      <IdentCon UId="21" />
-      <NameCon UId="29" Name="in" />
-    </Wire>
-    <Wire UId="35">
-      <NameCon UId="29" Name="eno" />
-      <NameCon UId="30" Name="en" />
-    </Wire>
-    <Wire UId="36">
-      <NameCon UId="29" Name="out1" />
-      <IdentCon UId="22" />
-    </Wire>
-    <Wire UId="37">
-      <IdentCon UId="23" />
-      <NameCon UId="30" Name="in" />
-    </Wire>
-    <Wire UId="38">
-      <NameCon UId="30" Name="eno" />
-      <NameCon UId="31" Name="en" />
-    </Wire>
-    <Wire UId="39">
-      <NameCon UId="30" Name="out1" />
-      <IdentCon UId="24" />
-    </Wire>
-    <Wire UId="40">
-      <IdentCon UId="25" />
-      <NameCon UId="31" Name="in" />
-    </Wire>
-    <Wire UId="41">
-      <NameCon UId="31" Name="eno" />
-      <NameCon UId="32" Name="en" />
-    </Wire>
-    <Wire UId="42">
-      <NameCon UId="31" Name="out1" />
-      <IdentCon UId="26" />
-    </Wire>
-    <Wire UId="43">
-      <IdentCon UId="27" />
-      <NameCon UId="32" Name="in" />
-    </Wire>
-    <Wire UId="44">
-      <NameCon UId="32" Name="out1" />
-      <IdentCon UId="28" />
-    </Wire>
-  </Wires>
-</FlgNet></NetworkSource>
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
-        <ObjectList>
-          <MultilingualText ID="B4" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="B5" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="B6" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="B7" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="B8" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="B9" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text>Przetłaczanie</Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="BA" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -2981,6 +2838,46 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
+          <MultilingualText ID="B4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="B5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="B6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="B7" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="B8" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="B9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text>załącz/ wyłą filtrowanie przez kolmana analogów</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="BA" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
           <MultilingualText ID="BB" CompositionName="Comment">
             <ObjectList>
               <MultilingualTextItem ID="BC" CompositionName="Items">
@@ -3008,7 +2905,7 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
               <MultilingualTextItem ID="C0" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>załącz/ wyłą filtrowanie przez kolmana analogów</Text>
+                  <Text />
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -3055,55 +2952,15 @@ Ustawienie przełacznika tryb pracy na Aut </Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="C8" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource />
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
+      <MultilingualText ID="C8" CompositionName="Title">
         <ObjectList>
-          <MultilingualText ID="C9" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="CA" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="CB" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="CC" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="CD" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="CE" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <MultilingualText ID="CF" CompositionName="Title">
-        <ObjectList>
-          <MultilingualTextItem ID="D0" CompositionName="Items">
+          <MultilingualTextItem ID="C9" CompositionName="Items">
             <AttributeList>
               <Culture>en-US</Culture>
               <Text />
             </AttributeList>
           </MultilingualTextItem>
-          <MultilingualTextItem ID="D1" CompositionName="Items">
+          <MultilingualTextItem ID="CA" CompositionName="Items">
             <AttributeList>
               <Culture>pl-PL</Culture>
               <Text>"Complete Restart"</Text>

@@ -24,7 +24,8 @@ BEGIN
 	"dbdane".PV_analaog_B6 := "IW64":P;
 	// ciśnienie magistrala
 	"dbdane".PV_analaog_B7 := "IW66":P;
-	//ciśnienie ssania
+	
+	//zbiornik nr 3
 	"dbdane".actSignalTank3 := "IW164":P;
 	
 	// poziom w zbiorniku 1

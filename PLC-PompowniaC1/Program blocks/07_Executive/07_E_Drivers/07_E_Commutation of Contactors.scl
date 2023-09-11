@@ -28,7 +28,7 @@ BEGIN
 	
 	REGION Pompa P1 
 	  // sterowanie stycznikami falownik
-	  IF ("CB_CMD_P1" = 1)AND ("IsReady_Inverter"=1) AND ("IsReady_P1" = 1) AND
+	  IF ("CB_CMD_P1" = 1)AND ("IsReady_Inverter"=1) AND ("IsReady_P1" = 1) AND NOT "IsCurrentOverloadInverter" AND
 	    ("setCMD_FP1" = 1) AND
 	    ("CMD_network_P1" = 0) AND
 	    ("CMD_inverter_P2" = 0) AND ("CMD_inverter_P3" = 0) AND ("CMD_inverter_P4" = 0)
@@ -74,7 +74,7 @@ BEGIN
 	
 	REGION Pompa P2
 	  // sterowanie stycznikami falownik
-	  IF ("CB_CMD_P2" = 1)AND ("IsReady_Inverter"=1) AND ("IsReady_P2" = 1) AND
+	  IF ("CB_CMD_P2" = 1)AND ("IsReady_Inverter"=1) AND ("IsReady_P2" = 1) AND NOT "IsCurrentOverloadInverter" AND
 	    ("setCMD_FP2" = 1) AND
 	    ("CMD_network_P2" = 0) AND
 	    ("CMD_inverter_P1" = 0) AND ("CMD_inverter_P3" = 0) AND ("CMD_inverter_P4" = 0)
@@ -120,7 +120,7 @@ BEGIN
 	
 	REGION Pompa P3
 	  // sterowanie stycznikami falownik
-	  IF ("CB_CMD_P3" = 1)AND ("IsReady_Inverter"=1) AND ("IsReady_P3" = 1) AND
+	  IF ("CB_CMD_P3" = 1)AND ("IsReady_Inverter"=1) AND ("IsReady_P3" = 1) AND NOT "IsCurrentOverloadInverter" AND
 	    ("setCMD_FP3" = 1) AND
 	    ("CMD_network_P3" = 0) AND
 	    ("CMD_inverter_P2" = 0) AND ("CMD_inverter_P1" = 0) AND ("CMD_inverter_P4" = 0) 
@@ -167,7 +167,7 @@ BEGIN
 	
 	REGION Pompa P4
 	  // sterowanie stycznikami falownik
-	  IF ("CB_CMD_P4" = 1)AND ("IsReady_Inverter"=1) AND ("IsReady_P4" = 1) AND
+	  IF ("CB_CMD_P4" = 1)AND ("IsReady_Inverter"=1) AND ("IsReady_P4" = 1) AND NOT "IsCurrentOverloadInverter" AND
 	    ("setCMD_FP4" = 1) AND
 	    ("CMD_network_P4" = 0) AND
 	    ("CMD_inverter_P2" = 0) AND ("CMD_inverter_P1" = 0) AND ("CMD_inverter_P3" = 0)

@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2023-08-28T09:37:39.5315993Z</Created>
+    <Created>2023-09-11T12:14:54.5832318Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -140,12 +140,10 @@ Algorytm przewiduje sterowanie nadrzędne w trybie automatycznym przez sterownik
         <Component Name="FirstScan" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="33">
-      <Symbol>
-        <Component Name="dbTimersForDrivers" />
-        <Component Name="TimerP1" />
-        <Component Name="PT" />
-      </Symbol>
+    <Access Scope="TypedConstant" UId="33">
+      <Constant>
+        <ConstantValue>T#10M</ConstantValue>
+      </Constant>
     </Access>
     <Access Scope="Address" UId="34">
       <Address Area="DB" Type="Byte" BlockNumber="100" BitOffset="0" />

@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2023-08-28T09:37:43.441746Z</Created>
+    <Created>2023-09-11T12:14:55.2039995Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -80,8 +80,8 @@
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
-        <Component Name="db10datablock" />
-        <Component Name="instFlowDN225_act_Q1" />
+        <Component Name="dbdane" />
+        <Component Name="Wielkość_przeływu_Q1" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="22">
@@ -504,7 +504,108 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
       </SW.Blocks.CompileUnit>
       <SW.Blocks.CompileUnit ID="20" CompositionName="CompileUnits">
         <AttributeList>
-          <NetworkSource />
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="dbdane" />
+        <Component Name="OUT_PER" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="22">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>0.0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LiteralConstant" UId="23">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>50.0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LiteralConstant" UId="24">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>0.0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LiteralConstant" UId="25">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LiteralConstant" UId="26">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>27648</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LiteralConstant" UId="27">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>50.0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="dbdane" />
+        <Component Name="OUT_PURE_Real" />
+      </Symbol>
+    </Access>
+    <Call UId="29">
+      <CallInfo Name="00_S_SclScaleLinearIntToReal" BlockType="FC">
+        <Parameter Name="x" Section="Input" Type="Int" />
+        <Parameter Name="yMin" Section="Input" Type="Real" />
+        <Parameter Name="yMax" Section="Input" Type="Real" />
+        <Parameter Name="y0" Section="Input" Type="Real" />
+        <Parameter Name="x0" Section="Input" Type="Int" />
+        <Parameter Name="x1" Section="Input" Type="Int" />
+        <Parameter Name="y1" Section="Input" Type="Real" />
+        <Parameter Name="Ret_Val" Section="Return" Type="Real" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="30">
+      <Powerrail />
+      <NameCon UId="29" Name="en" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="21" />
+      <NameCon UId="29" Name="x" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="22" />
+      <NameCon UId="29" Name="yMin" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="23" />
+      <NameCon UId="29" Name="yMax" />
+    </Wire>
+    <Wire UId="34">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="y0" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="25" />
+      <NameCon UId="29" Name="x0" />
+    </Wire>
+    <Wire UId="36">
+      <IdentCon UId="26" />
+      <NameCon UId="29" Name="x1" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="27" />
+      <NameCon UId="29" Name="y1" />
+    </Wire>
+    <Wire UId="38">
+      <NameCon UId="29" Name="Ret_Val" />
+      <IdentCon UId="28" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
@@ -535,7 +636,7 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
               <MultilingualTextItem ID="26" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text />
+                  <Text>Skalowanie wartości  Hz to SCADA  PID</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -543,6 +644,46 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
         </ObjectList>
       </SW.Blocks.CompileUnit>
       <SW.Blocks.CompileUnit ID="27" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="28" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="29" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="2B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="2C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="2E" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -563,12 +704,11 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
         <ConstantValue>0.0</ConstantValue>
       </Constant>
     </Access>
-    <Access Scope="GlobalVariable" UId="24">
-      <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="SetupControlPompownia" />
-        <Component Name="r_Pv_Hlm" />
-      </Symbol>
+    <Access Scope="LiteralConstant" UId="24">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>10.0</ConstantValue>
+      </Constant>
     </Access>
     <Access Scope="GlobalVariable" UId="25">
       <Symbol>
@@ -666,15 +806,15 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="28" CompositionName="Comment">
+          <MultilingualText ID="2F" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="29" CompositionName="Items">
+              <MultilingualTextItem ID="30" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="2A" CompositionName="Items">
+              <MultilingualTextItem ID="31" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Pomiar z czujnika B6 poziom "Przetłaczanie" - wylot za zasuwą</Text>
@@ -682,15 +822,15 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="2B" CompositionName="Title">
+          <MultilingualText ID="32" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="2C" CompositionName="Items">
+              <MultilingualTextItem ID="33" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="2D" CompositionName="Items">
+              <MultilingualTextItem ID="34" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Ciśnienie kierunek miasto</Text>
@@ -700,7 +840,7 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="2E" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="35" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -721,12 +861,11 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
         <ConstantValue>0.0</ConstantValue>
       </Constant>
     </Access>
-    <Access Scope="GlobalVariable" UId="24">
-      <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="SetupControlPompownia" />
-        <Component Name="r_Pv_Hlm" />
-      </Symbol>
+    <Access Scope="LiteralConstant" UId="24">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>10.0</ConstantValue>
+      </Constant>
     </Access>
     <Access Scope="GlobalVariable" UId="25">
       <Symbol>
@@ -824,165 +963,6 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="2F" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="30" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="31" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text>Pomiar z czujnika B7  "Pompownia" - na wlocie do pompowni </Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="32" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="33" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="34" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text>Ciśnienie magistrala strafa 1</Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="35" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
-  <Parts>
-    <Access Scope="GlobalVariable" UId="21">
-      <Symbol>
-        <Component Name="AlwaysTRUE" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="22">
-      <Symbol>
-        <Component Name="dbdane" />
-        <Component Name="actSignalTank3" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="23">
-      <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="Zbiorniki_sondy" />
-        <Component Name="Pv.LIm_Tank3" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="24">
-      <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="Zbiorniki_sondy" />
-        <Component Name="Pv.HIm_Tank3" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="25">
-      <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="Zbiorniki_sondy" />
-        <Component Name="Pv.LIm_Tank3" />
-      </Symbol>
-    </Access>
-    <Access Scope="LiteralConstant" UId="26">
-      <Constant>
-        <ConstantType>Int</ConstantType>
-        <ConstantValue>0</ConstantValue>
-      </Constant>
-    </Access>
-    <Access Scope="LiteralConstant" UId="27">
-      <Constant>
-        <ConstantType>Int</ConstantType>
-        <ConstantValue>27648</ConstantValue>
-      </Constant>
-    </Access>
-    <Access Scope="GlobalVariable" UId="28">
-      <Symbol>
-        <Component Name="dbtags_Sterowanie" />
-        <Component Name="Zbiorniki_sondy" />
-        <Component Name="Pv.HIm_Tank3" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="29">
-      <Symbol>
-        <Component Name="dbdane" />
-        <Component Name="actValu_Tank3" />
-      </Symbol>
-    </Access>
-    <Part Name="Contact" UId="30" />
-    <Call UId="31">
-      <CallInfo Name="00_S_SclScaleLinearIntToReal" BlockType="FC">
-        <Parameter Name="x" Section="Input" Type="Int" />
-        <Parameter Name="yMin" Section="Input" Type="Real" />
-        <Parameter Name="yMax" Section="Input" Type="Real" />
-        <Parameter Name="y0" Section="Input" Type="Real" />
-        <Parameter Name="x0" Section="Input" Type="Int" />
-        <Parameter Name="x1" Section="Input" Type="Int" />
-        <Parameter Name="y1" Section="Input" Type="Real" />
-        <Parameter Name="Ret_Val" Section="Return" Type="Real" />
-      </CallInfo>
-    </Call>
-  </Parts>
-  <Wires>
-    <Wire UId="32">
-      <Powerrail />
-      <NameCon UId="30" Name="in" />
-    </Wire>
-    <Wire UId="33">
-      <IdentCon UId="21" />
-      <NameCon UId="30" Name="operand" />
-    </Wire>
-    <Wire UId="34">
-      <NameCon UId="30" Name="out" />
-      <NameCon UId="31" Name="en" />
-    </Wire>
-    <Wire UId="35">
-      <IdentCon UId="22" />
-      <NameCon UId="31" Name="x" />
-    </Wire>
-    <Wire UId="36">
-      <IdentCon UId="23" />
-      <NameCon UId="31" Name="yMin" />
-    </Wire>
-    <Wire UId="37">
-      <IdentCon UId="24" />
-      <NameCon UId="31" Name="yMax" />
-    </Wire>
-    <Wire UId="38">
-      <IdentCon UId="25" />
-      <NameCon UId="31" Name="y0" />
-    </Wire>
-    <Wire UId="39">
-      <IdentCon UId="26" />
-      <NameCon UId="31" Name="x0" />
-    </Wire>
-    <Wire UId="40">
-      <IdentCon UId="27" />
-      <NameCon UId="31" Name="x1" />
-    </Wire>
-    <Wire UId="41">
-      <IdentCon UId="28" />
-      <NameCon UId="31" Name="y1" />
-    </Wire>
-    <Wire UId="42">
-      <NameCon UId="31" Name="Ret_Val" />
-      <IdentCon UId="29" />
-    </Wire>
-  </Wires>
-</FlgNet></NetworkSource>
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
-        <ObjectList>
           <MultilingualText ID="36" CompositionName="Comment">
             <ObjectList>
               <MultilingualTextItem ID="37" CompositionName="Items">
@@ -994,7 +974,7 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
               <MultilingualTextItem ID="38" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text />
+                  <Text>Pomiar z czujnika B7  "Pompownia" - na wlocie do pompowni </Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1010,7 +990,7 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
               <MultilingualTextItem ID="3B" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>Poziom zbiornik 3</Text>
+                  <Text>Ciśnienie magistrala strafa 1</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1337,7 +1317,126 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
       </SW.Blocks.CompileUnit>
       <SW.Blocks.CompileUnit ID="4A" CompositionName="CompileUnits">
         <AttributeList>
-          <NetworkSource />
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="dbdane" />
+        <Component Name="actSignalTank3" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="dbtags_Sterowanie" />
+        <Component Name="Zbiorniki_sondy" />
+        <Component Name="Pv.LIm_Tank3" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="dbtags_Sterowanie" />
+        <Component Name="Zbiorniki_sondy" />
+        <Component Name="Pv.HIm_Tank3" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="25">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="dbtags_Sterowanie" />
+        <Component Name="Zbiorniki_sondy" />
+        <Component Name="Pv.LIm_Tank3" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="27">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>27648</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="dbtags_Sterowanie" />
+        <Component Name="Zbiorniki_sondy" />
+        <Component Name="Pv.HIm_Tank3" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="dbdane" />
+        <Component Name="actValu_Tank3" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="30" />
+    <Call UId="31">
+      <CallInfo Name="00_S_SclScaleLinearInt" BlockType="FC">
+        <Parameter Name="x" Section="Input" Type="Int" />
+        <Parameter Name="yMin" Section="Input" Type="Int" />
+        <Parameter Name="yMax" Section="Input" Type="Int" />
+        <Parameter Name="x0" Section="Input" Type="Int" />
+        <Parameter Name="y0" Section="Input" Type="Int" />
+        <Parameter Name="x1" Section="Input" Type="Int" />
+        <Parameter Name="y1" Section="Input" Type="Int" />
+        <Parameter Name="Ret_Val" Section="Return" Type="Int" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="32">
+      <Powerrail />
+      <NameCon UId="30" Name="in" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="21" />
+      <NameCon UId="30" Name="operand" />
+    </Wire>
+    <Wire UId="34">
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="31" Name="en" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="22" />
+      <NameCon UId="31" Name="x" />
+    </Wire>
+    <Wire UId="36">
+      <IdentCon UId="23" />
+      <NameCon UId="31" Name="yMin" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="24" />
+      <NameCon UId="31" Name="yMax" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="25" />
+      <NameCon UId="31" Name="x0" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="26" />
+      <NameCon UId="31" Name="y0" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="27" />
+      <NameCon UId="31" Name="x1" />
+    </Wire>
+    <Wire UId="41">
+      <IdentCon UId="28" />
+      <NameCon UId="31" Name="y1" />
+    </Wire>
+    <Wire UId="42">
+      <NameCon UId="31" Name="Ret_Val" />
+      <IdentCon UId="29" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
@@ -1368,6 +1467,46 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
               <MultilingualTextItem ID="50" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
+                  <Text>Poziom zbiornik 3</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="51" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="52" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="53" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="54" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="55" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="56" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="57" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
@@ -1375,15 +1514,15 @@ Na potrzeby wyświetlania wartości Hz podczas awarii komunikacji Modbus RTU</Te
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <MultilingualText ID="51" CompositionName="Title">
+      <MultilingualText ID="58" CompositionName="Title">
         <ObjectList>
-          <MultilingualTextItem ID="52" CompositionName="Items">
+          <MultilingualTextItem ID="59" CompositionName="Items">
             <AttributeList>
               <Culture>en-US</Culture>
               <Text />
             </AttributeList>
           </MultilingualTextItem>
-          <MultilingualTextItem ID="53" CompositionName="Items">
+          <MultilingualTextItem ID="5A" CompositionName="Items">
             <AttributeList>
               <Culture>pl-PL</Culture>
               <Text>Funkcja konwertera analogów</Text>

@@ -26,35 +26,21 @@ BEGIN
 	
 	REGION Q1 przepływomierz
 	  // Adres 0 - bierzący przepływ
-	  "dbModbusRTU_Reg"."Przepływomierz nr1 pompownia".ID6_przeływu_VF_Adres_0 := DWORD_TO_REAL(%DB37.DBD0);
+	 
 	 
 	  "dbdane".Wielkość_przeływu_Q1 := "dbModbusRTU_Reg"."Przepływomierz nr1 pompownia".ID6_przeływu_VF_Adres_0;
 	  
 	  // Adres 2 - Licznik_objętość_VF
-	  "dbModbusRTU_Reg"."Przepływomierz nr1 pompownia".ID6_objętość_VF_Adres_2 := DWORD_TO_REAL(%DB37.DBD4);
+	 
 	  
 	  "dbdane".Licznik_objętość_VF_Q1 := "dbModbusRTU_Reg"."Przepływomierz nr1 pompownia".ID6_objętość_VF_Adres_2;
 	  
 	  // Adres 4- stan bierzący licznika objetości w stecz VR
-	  "dbModbusRTU_Reg"."Przepływomierz nr1 pompownia"."ID6_objętośc RF_Adres_4" := DWORD_TO_REAL(%DB37.DBD8);
+	  
 	  
 	  "dbdane".Licznik_objętość_VR_Q1 := "dbModbusRTU_Reg"."Przepływomierz nr1 pompownia"."ID6_objętośc RF_Adres_4";
 	  
-	  
-	  // Adres 8- główny liczni objetości w przód GF
-	  "dbModbusRTU_Reg"."Przepływomierz nr1 pompownia".ID6_licznik_objętości_GF_Adres_8 := DWORD_TO_REAL(%DB37.DBD16);
-	  
-	  "dbdane".Stan_licz_bjętości_GF_Q1 := "dbModbusRTU_Reg"."Przepływomierz nr1 pompownia".ID6_licznik_objętości_GF_Adres_8;
-	  
-	  // Adres 10- główny liczni objetości w stecz GR
-	  "dbModbusRTU_Reg"."Przepływomierz nr1 pompownia".ID6_Licznik_objętości_GR_Adres_10 := DWORD_TO_REAL(%DB37.DBD20);
-	  
-	  "dbdane".Stan_licz_rózicowego_obj_GD_Q1 := "dbModbusRTU_Reg"."Przepływomierz nr1 pompownia".ID6_Licznik_objętości_GR_Adres_10;
-	  
-	  
-	  // Status MP04 Q1 - pompownia
-	  "dbModbusRTU_Reg"."Przepływomierz nr1 pompownia".ID6_status_przepływomierza_Adres_1000 := "dbModbusRTU_Reg".received_6_Stan_urządzenia_1000.typeDataInverter_int[0];
-	  "dbdane"._Stan_urządzenia_Q1 := "dbModbusRTU_Reg".received_6_Stan_urządzenia_1000.typeDataInverter_int[0];
+	 
 	END_REGION
 	
 	

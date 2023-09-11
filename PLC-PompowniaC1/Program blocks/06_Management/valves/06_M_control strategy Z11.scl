@@ -26,6 +26,10 @@ VERSION : 0.1
 
 
 BEGIN
+	REGION _name_
+	  // Statement section REGION
+	  
+	END_REGION
 	(*
 	//=============================================================================
 	//(JZWiK S.A Radosław Tecmer)
@@ -55,21 +59,23 @@ BEGIN
 	
 	// Z11 Napełnianie zbiorników
 	
-	REGION Przetłaczanie
+	REGION Napełnianie
 	  // OTWIERANIE
-	  // Warunek wystawienia rozkazu na otwarcie Z11 gdy strategia
+	  // Warunek wystawienia rozkazu na otwarcie Z1
 	  // 
-	  IF "db10datablock".actTime = "dbmanagement".instHourStart_Filling 
-	    AND "dbtags_Sterowanie"."Paramaetry _Zbiorniki".set_strategia_sterowania = 3
+	  IF "Data_Czas_synch".actTime = "dbmanagement".instHourStart_Filling
+	    AND "dbtags_Sterowanie"."Paramaetry _Zbiorniki".set_sterowanie_cyklem = 1
 	    AND "bitH_REM_Z11"
 	    AND "bitH_Aut_Man_Z11"
 	    AND "inputOtwartaZ11" = FALSE
 	    AND #bit_alarm_magistrala_min = FALSE
 	  THEN
 	  // 
+	    #bit_hist_close_Z11 := FALSE;
+	    #CMD_Close_Z11 := FALSE;
 	    #bit_hist_open_Z11 := TRUE;
 	  ELSE
-	    #bit_hist_open_Z11 := FALSE;
+	    
 	  ;
 	END_IF;
 	
@@ -92,26 +98,28 @@ BEGIN
 	// lub pompownia wyłączona 0 
 	IF ("maxWaterTank_1" = TRUE OR "maxWaterTank_2" = TRUE  )// poziom max
 	  OR #bit_alarm_magistrala_min OR // awaria niskie ciśnienie na magistrali
-	 ( "db10datablock".actTime = "dbmanagement".instHourStop_Filling) 
+	  ( "Data_Czas_synch".actTime = "dbmanagement".instHourStop_Filling)
 	  AND "bitH_REM_Z11"
 	  AND "bitH_Aut_Man_Z11"
-	  AND "inputOtwartaZ11"
 	THEN
 	  // start zamykanie
+	  #bit_hist_open_Z11 := FALSE;
+	  #CMD_Open_Z11 := FALSE;
 	  #bit_hist_close_Z11:= TRUE;
 	ELSE
-	  #bit_hist_close_Z11 := FALSE;
+	  
 	  ;
 	END_IF;
 	
 	
 	"IEC_Timer_Z11close_DB".TON(IN := #bit_hist_close_Z11,
-	                            PT := T#10S,
+	                            PT := T#5S,
 	                            Q => #bit_set_close_Z11);
 	
 	
 	IF #bit_hist_close_Z11 THEN
 	  // start na zamykanie
+	  #CMD_Open_Z11 := FALSE;
 	  #CMD_Close_Z11 := TRUE;
 	ELSE
 	  #CMD_Close_Z11 := FALSE;
@@ -121,6 +129,34 @@ BEGIN
 	
 	
 	END_REGION
+	
+	REGION Zabezpieczenie przed otwarciem poza czasem napełniania 
+	  // nie dopuszczamy do otwarcia zasuwy poza czasem wyznaczonym zakresami strat/stop napełnianie
+	  IF ( "Data_Czas_synch".actTime = "dbmanagement".instHourStop_Filling) THEN
+	    #bit_hist_open_Z11 := FALSE;
+	    #bit_set_open_Z11 := FALSE;
+	    #CMD_Open_Z11 := FALSE;
+	  
+	  ;
+	END_IF;
+	
+	  
+	END_REGION
+	
+	REGION Zabezpieczenie pzy pracy manualnej
+	  // blokowanie automatu
+	  IF "bitH_Aut_Man_Z11" =  FALSE THEN
+	    #bit_hist_open_Z11 := FALSE;
+	    ;
+	  END_IF;
+	  
+	  
+	END_REGION
+	
+	
+	
+	
+	
 	
 	
 	

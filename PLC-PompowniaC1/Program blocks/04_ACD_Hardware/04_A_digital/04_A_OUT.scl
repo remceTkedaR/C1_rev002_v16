@@ -40,15 +40,52 @@ BEGIN
 	
 	REGION "inverter"
 	  // Start stop inverter
-	  "Q0.6" := "CMD_start_stop_inverter";
+	  IF "CMD_start_stop_inverter" THEN
+	    //Jeśli tylko jeden stycznik dla folowika dołączony
+	    IF ("IsRunInverter_P1" XOR "IsRunInverter_P2" XOR "IsRunInverter_P3" XOR "IsRunInverter_P4") AND
+	      NOT ("IsRunInverter_P1" AND "IsRunInverter_P2") AND
+	      NOT ("IsRunInverter_P1" AND "IsRunInverter_P3") AND
+	      NOT ("IsRunInverter_P1" AND "IsRunInverter_P4") AND
+	      NOT ("IsRunInverter_P2" AND "IsRunInverter_P3") AND
+	      NOT ("IsRunInverter_P2" AND "IsRunInverter_P4") AND
+	      NOT ("IsRunInverter_P3" AND "IsRunInverter_P4") AND
+	      NOT "IsCurrentOverloadInverter"
+	      
+	    THEN
+	      // 
+	      "Q0.6" := TRUE;
+	    ELSE
+	      "Q0.6" := FALSE;
+	      ;
+	    END_IF;
+	  ELSE
+	    "Q0.6" := FALSE;
+	    ;
+	  END_IF;
+	  
+	  // resset alarmu falownika
+	  "Q1.1" := "resetAlarm_Inverter";
 	  
 	END_REGION
 	
 	
 	REGION Styczniki P1
 	  // Uruchamianie wyjść sterujących stycznik pompoy falownik, sieć
-	
-	  "Q0.0" := "CMD_inverter_P1";
+	  IF "CMD_inverter_P1" THEN
+	    // 
+	    IF NOT ("IsRunInverter_P2") AND NOT ("IsRunInverter_P3") AND NOT ("IsRunInverter_P4")AND NOT "IsCurrentOverloadInverter" THEN
+	      // 
+	      "Q0.0" := True;
+	    ELSE
+	      "Q0.0" := FALSE;
+	      ;
+	    END_IF;
+	  ELSE
+	    "Q0.0" := FALSE;
+	    ;
+	  END_IF;
+	  
+	  
 	  "Q0.1" := "CMD_network_P1";
 	  
 	  
@@ -57,8 +94,21 @@ BEGIN
 	
 	REGION Styczniki P2
 	  // Uruchamianie wyjść sterujących stycznik pompoy falownik, sieć
+	  IF "CMD_inverter_P2" THEN
+	    // 
+	    IF NOT ("IsRunInverter_P1") AND NOT ("IsRunInverter_P3") AND NOT ("IsRunInverter_P4")AND NOT "IsCurrentOverloadInverter" THEN
+	      // 
+	      "Q0.2" := True;
+	    ELSE
+	      "Q0.2" := FALSE;
+	      ;
+	    END_IF;
+	  ELSE
+	    "Q0.2" := FALSE;
+	    ;
+	  END_IF;
 	
-	  "Q0.2" := "CMD_inverter_P2";
+	  
 	  "Q0.3" := "CMD_network_P2";
 	  
 	  
@@ -67,8 +117,21 @@ BEGIN
 	
 	REGION Styczniki P3
 	  // Uruchamianie wyjść sterujących stycznik pompoy falownik, sieć
-	
-	  "Q0.4" := "CMD_inverter_P3";
+	  IF "CMD_inverter_P3" THEN
+	    // 
+	    IF NOT ("IsRunInverter_P1") AND NOT ("IsRunInverter_P2") AND NOT ("IsRunInverter_P4") AND NOT "IsCurrentOverloadInverter" THEN
+	      // 
+	      "Q0.4" := True;
+	    ELSE
+	      "Q0.4" := FALSE;
+	      ;
+	    END_IF;
+	  ELSE
+	    "Q0.4" := FALSE;
+	    ;
+	  END_IF;
+	  
+	  
 	  "Q0.5" := "CMD_network_P3";
 	  
 	  

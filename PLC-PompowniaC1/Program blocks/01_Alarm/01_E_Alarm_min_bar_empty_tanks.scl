@@ -18,7 +18,7 @@ VERSION : 0.1
       memTriger_Strategia { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // pamięć zbocza
       bit_normalne_magistrala { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // bit detekcjinormalnego cisnienia magistrala
       bit_niskie_magistrala { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // bit detekcji niskiego cisnienia magistrala
-      memFalling_allarm : Bool;   // pamięć zbocza opadającego allarmu
+      memFalling_allarm : Bool;
    END_VAR
 
 
@@ -44,12 +44,9 @@ BEGIN
 	
 	
 	
-	IF "db10datablock".instB5_bar_act_magistrala < "dbHoldRegSlave_to_MT101".instSetBarMinB9
+	IF "dbHoldRegSlave_to_MT101".instB5bar_act < "dbHoldRegSlave_to_MT101".instSetBarMinB9
 	  AND "dbHoldRegSlave_to_MT101".instSygSter_2 <> 0 AND
-	  ("dbHoldRegSlave_to_MT101".instLevelTank1 <= 100 AND
-	  "dbHoldRegSlave_to_MT101".instLevelTank2 <= 100)
-	  
-	THEN
+	  ("dbHoldRegSlave_to_MT101".instLevelTank1 <= 50 AND "dbHoldRegSlave_to_MT101".instLevelTank2 <= 50 AND "dbHoldRegSlave_to_MT101".instLevelTank3 <= 50) THEN
 	  // Statement section IF
 	  // Ustaw bit za niskie ciśnienie
 	  #bit_niskie_magistrala := TRUE;
@@ -57,7 +54,7 @@ BEGIN
 	  ;
 	END_IF;
 	
-	IF "db10datablock".instB5_bar_act_magistrala < "dbHoldRegSlave_to_MT101".instSetBarMinB9
+	IF "dbHoldRegSlave_to_MT101".instB5bar_act < "dbHoldRegSlave_to_MT101".instSetBarMinB9
 	  AND "dbHoldRegSlave_to_MT101".instSygSter_2 = 0
 	  
 	THEN
@@ -65,7 +62,7 @@ BEGIN
 	  // Ustaw bit za niskie ciśnienie
 	  #bit_niskie_magistrala := TRUE;
 	ELSE
-	  ;
+	   ;
 	END_IF;
 	
 	
@@ -102,17 +99,14 @@ BEGIN
 	
 	// Histereza na ustawienie alarmu "niskie ćiśnienie na magistrali"
 	"IEC_Timer_AlarmMagistrala_Niskie_DB".TON(IN := #bit_niskie_magistrala,
-	                                          PT := T#1M,
+	                                          PT := T#2M,
 	                                          Q => #bit_alarm_magistrala_min);
 	
 	
-	// Histereza na ustawienie alarmu "niskie ćiśnienie na magistrali"
-	"IEC_Timer_AlarmMagistrala_Niskie_DB".TON(IN := #bit_niskie_magistrala,
-	                                          PT := T#1M,
-	                                          Q => #bit_alarm_magistrala_min);
+	
 	
 	// Sprawdzanie powrotu zasilania z magistrali czujnik B5 i (zbiorniki)
-	IF "db10datablock".instB5_bar_act_magistrala > 1.0 OR
+	IF "dbHoldRegSlave_to_MT101".instB5bar_act > 1.0 OR
 	  "dbHoldRegSlave_to_MT101".instLevelTank1 >= 250 OR
 	  "dbHoldRegSlave_to_MT101".instLevelTank2 >= 250
 	THEN

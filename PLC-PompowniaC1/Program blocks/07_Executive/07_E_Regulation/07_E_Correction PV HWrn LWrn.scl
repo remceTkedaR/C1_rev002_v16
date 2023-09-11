@@ -26,9 +26,13 @@ BEGIN
 	"PID_Compact_1".sPid_Cmpt.r_Pv_Llm := "dbdane"."PID_Compact_1_sPid_Cmpt.r_Pv_Llm";
 	
 	//***Wyliczenie ostrzerzeń HWrm i LWrm ***//
-	//
-	"dbdane"."PID_Compact_1_sPid_Cmpt.r_Pv_HWrn" := ("db10datablock".setpoint_SV_bar + #PV_HWrn_correction);
-	"dbdane"."PID_Compact_1_sPid_Cmpt.r_Pv_LWrn" := ("db10datablock".setpoint_SV_bar - #PV_LWrn_correction);
+	IF "dbdane".Setpoint_SV <> 0 THEN
+	  "dbdane"."PID_Compact_1_sPid_Cmpt.r_Pv_HWrn" := ("dbdane".Setpoint_SV + #PV_HWrn_correction);
+	  "dbdane"."PID_Compact_1_sPid_Cmpt.r_Pv_LWrn" := ("dbdane".Setpoint_SV - #PV_LWrn_correction);
+	  ;
+	END_IF;
+	
+	
 	
 	//Ostrzegawczy wysoki
 	"PID_Compact_1".sPid_Cmpt.r_Pv_HWrn := "dbdane"."PID_Compact_1_sPid_Cmpt.r_Pv_HWrn";

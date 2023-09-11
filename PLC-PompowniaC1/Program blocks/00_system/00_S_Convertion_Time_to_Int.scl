@@ -27,7 +27,7 @@ BEGIN
 	"00_S_Clock Converter"(HOUR:="Data_Czas_synch".Time_Local_read.HOUR,
 	                    MINUTE:="Data_Czas_synch".Time_Local_read.MINUTE,
 	                    SECOND:="Data_Czas_synch".Time_Local_read.SECOND,
-	                    Czas_Liczba_conv_Real=>"db10datablock".actTime,
+	                    Czas_Liczba_conv_Real=>"Data_Czas_synch".actTime,
 	                    Zegar_H=>"db10datablock".actHour,
 	                    Zegar_M=>"db10datablock".actMinut,
 	                    Zegar_S=>"db10datablock".actSec);

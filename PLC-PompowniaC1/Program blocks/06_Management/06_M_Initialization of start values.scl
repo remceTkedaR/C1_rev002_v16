@@ -31,15 +31,6 @@ BEGIN
 	
 	
 	REGION Sterowanie 
-	  // przekazanie danych
-	 
-	  "dbtags_Sterowanie".SetupControlPompownia.Time_ONK1 := "db10datablock".Time_ONK1;
-	  "dbtags_Sterowanie".SetupControlPompownia.Time_ONK2 := "db10datablock".Time_ONK2;
-	  "dbtags_Sterowanie".SetupControlPompownia.Time_ONK3 := "db10datablock".Time_ONK3;
-	  "dbtags_Sterowanie".SetupControlPompownia.Time_OFFK1 := "db10datablock".Time_OFFK1;
-	  "dbtags_Sterowanie".SetupControlPompownia.Time_OFFK2 := "db10datablock".Time_OFFK2;
-	  "dbtags_Sterowanie".SetupControlPompownia.Time_OFFK3 := "db10datablock".Time_OFFK3;
-	  "dbtags_Sterowanie".SetupControlPompownia.TimeHz := "db10datablock".TimeHz;
 	  
 	  //Czas oczekiwania na 50Hz 
 	  "dbdane".TMR_Hz := DINT_TO_TIME(#TimeHz_DInt * "MS_TO_S");
@@ -56,8 +47,14 @@ BEGIN
 	  "dbtags_Sterowanie"."Paramaetry _Zbiorniki".rez_alarm_napędów := "dbHoldRegSlave_to_MT101".instClearFault1;
 	  
 	  // zadane ciśnieniea
-	  "dbtags_Sterowanie".SetupControlPompownia.set_barDN500_B5 := "dbHoldRegSlave_to_MT101".instSetbarDN500_B5;
+	 
 	  "dbtags_Sterowanie".SetupControlPompownia.set_barDN225_B6 := "dbHoldRegSlave_to_MT101".instSetbarDN225_B6;
+	  
+	  // zadane min ciśnienie magistrala
+	  "dbtags_Sterowanie".SetupControlPompownia.setBarMinMainLine := "dbHoldRegSlave_to_MT101".instSetBarMinB9;
+	  
+	  // maksymalny dopuszczalny prąd falownika
+	  
 	  
 	END_REGION
 	
@@ -102,21 +99,7 @@ BEGIN
 	  "dbtags_Sterowanie".Zbiorniki_Godziny.Stop_napełnianie.MINUTE := "dbHoldRegSlave_to_MT101".instMinutStopt_Filling;
 	  "dbtags_Sterowanie".Zbiorniki_Godziny.Stop_napełnianie.SECOND := 0;
 	  
-	  "dbtags_Sterowanie".Zbiorniki_Godziny.Start_przetłaczanie_1.HOUR := "dbHoldRegSlave_to_MT101".instHourStart_City;
-	  "dbtags_Sterowanie".Zbiorniki_Godziny.Start_przetłaczanie_1.MINUTE := "dbHoldRegSlave_to_MT101".instMinutStart_City;
-	  "dbtags_Sterowanie".Zbiorniki_Godziny.Start_przetłaczanie_1.SECOND := 0;
-	  
-	  "dbtags_Sterowanie".Zbiorniki_Godziny.Stop_przetłaczanie_1.HOUR := "dbHoldRegSlave_to_MT101".instHourStop_City;
-	  "dbtags_Sterowanie".Zbiorniki_Godziny.Stop_przetłaczanie_1.MINUTE := "dbHoldRegSlave_to_MT101".instMinutStopt_City;
-	  "dbtags_Sterowanie".Zbiorniki_Godziny.Stop_przetłaczanie_1.SECOND := 0;
-	  
-	  "dbtags_Sterowanie".Zbiorniki_Godziny.Start_dosilanie_1.HOUR := "dbHoldRegSlave_to_MT101".instHourStart_Replen;
-	  "dbtags_Sterowanie".Zbiorniki_Godziny.Start_dosilanie_1.MINUTE := "dbHoldRegSlave_to_MT101".instMinutStart_Replen;
-	  "dbtags_Sterowanie".Zbiorniki_Godziny.Start_dosilanie_1.SECOND := 0;
-	  
-	  "dbtags_Sterowanie".Zbiorniki_Godziny.Stop_dosilanie_1.HOUR := "dbHoldRegSlave_to_MT101".instHourStop_Replen;
-	  "dbtags_Sterowanie".Zbiorniki_Godziny.Stop_dosilanie_1.MINUTE := "dbHoldRegSlave_to_MT101".instMinutStopt_Replen;
-	  "dbtags_Sterowanie".Zbiorniki_Godziny.Stop_dosilanie_1.SECOND := 0;
+	
 	  
 	  
 	  

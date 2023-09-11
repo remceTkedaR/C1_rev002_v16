@@ -1,4 +1,4 @@
-﻿FUNCTION_BLOCK "SetActivePump"
+﻿FUNCTION_BLOCK "06_S_SetActivePump"
 TITLE = SetActivePump 
 { S7_Optimized_Access := 'TRUE' }
 AUTHOR : rtecmer
@@ -33,7 +33,7 @@ BEGIN
 	"Set_HWork_P3" := FALSE;
 	"Set_HWork_P4" := FALSE;
 	
-	
+	// zmiena "dbdane".chosenPump  przekazana z funkcji "FindPumpWithMinWorkTime" 
 	CASE "dbdane".chosenPump OF
 	  1:
 	    IF "IsReady_P1" AND "bitH_Aut_Man_P1" AND ("IsRunInverter_P1" = FALSE) THEN

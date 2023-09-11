@@ -1,4 +1,4 @@
-﻿FUNCTION_BLOCK "FindPumpWithMinWorkTime"
+﻿FUNCTION_BLOCK "06_S_FindPumpWithMinWorkTime"
 TITLE = FindPumpWithMinWorkTime
 { S7_Optimized_Access := 'TRUE' }
 AUTHOR : rtecmer
@@ -34,7 +34,9 @@ BEGIN
 	//=============================================================================
 	*)
 	
+	// inicjacja wartości począdkowej maksymalnej
 	#minTime := 2147483647;
+	// zerowanie zmiennej
 	#chosenPump := 0;
 	
 	IF "IsReady_P1" AND "bitH_Aut_Man_P1"AND ("IsRunNetwork_P1" = FALSE) THEN
@@ -65,6 +67,9 @@ BEGIN
 	  END_IF;
 	END_IF;
 	
+	
+	// kontrola czy nie ma załączonej pompy z sieci w wypadku braku wskazanej wiodacej
+	// jeśli tak to wyłącz
 	IF #chosenPump = 0 THEN
 	  // Sprawdz czy jakiaś pracuje na sieci
 	  IF "IsRunNetwork_P1" = TRUE THEN

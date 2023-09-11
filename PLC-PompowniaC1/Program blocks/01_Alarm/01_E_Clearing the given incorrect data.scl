@@ -32,37 +32,26 @@ BEGIN
 	
 	//napełnianie
 	IF "dbHoldRegSlave_to_MT101".instLevelSetFilling < 0
-	  OR "dbHoldRegSlave_to_MT101".instLevelSetFilling > 1000
-	
+	  OR "dbHoldRegSlave_to_MT101".instLevelSetFilling > 500
+	  
 	THEN
-	  // wypełnij zerami
-	  "dbHoldRegSlave_to_MT101".instLevelSetFilling := 0;
-	
+	  // ustaw
+	  "dbHoldRegSlave_to_MT101".instLevelSetFilling := 300; 
+	  
 	  ;
 	END_IF;
 	
 	//opróżnianie
 	IF "dbHoldRegSlave_to_MT101".instLevelSetEmptying < 0
-	  OR "dbHoldRegSlave_to_MT101".instLevelSetEmptying > 1000
+	  OR "dbHoldRegSlave_to_MT101".instLevelSetEmptying > 500
+	  // porónaj jeśli wartość napełninia i opróżniania są takie same lub nie logiczne to ustaw domyślną
 	  OR "dbHoldRegSlave_to_MT101".instLevelSetEmptying >= "dbHoldRegSlave_to_MT101".instLevelSetFilling
 	 
 	THEN
-	  // wypełnij zerami
-	  "dbHoldRegSlave_to_MT101".instLevelSetEmptying := 0;
+	  // ustaw
+	  "dbHoldRegSlave_to_MT101".instLevelSetEmptying := 30;
 	
 	  ;
-	END_IF;
-	
-	
-	// zadane położenie zasuwy Z10
-	IF "dbHoldRegSlave_to_MT101".instPosition_Z10 < 0
-	  OR "dbHoldRegSlave_to_MT101".instPosition_Z10 > 100
-	
-	THEN
-	  // wypełnij zerami
-	  "dbHoldRegSlave_to_MT101".instPosition_Z10 := 0;
-	 
-	  
 	END_IF;
 	
 	
@@ -73,7 +62,7 @@ BEGIN
 	  OR "dbHoldRegSlave_to_MT101".instHourStart_Filling > 23
 	
 	THEN
-	  // wypełnij zerami
+	  // ustaw
 	  "dbHoldRegSlave_to_MT101".instHourStart_Filling := 0;
 	
 	  ;
@@ -83,7 +72,7 @@ BEGIN
 	  OR "dbHoldRegSlave_to_MT101".instMinutStart_Filling > 60
 	
 	  THEN
-	    // wypełnij zerami
+	    // ustaw
 	    "dbHoldRegSlave_to_MT101".instMinutStart_Filling := 0;
 	
 	
@@ -110,92 +99,6 @@ BEGIN
 	
 	  ;
 	END_IF;
-	
-	
-	// przetłaczanie on
-	IF "dbHoldRegSlave_to_MT101".instHourStart_City < 0
-	  OR "dbHoldRegSlave_to_MT101".instHourStart_City > 23
-	
-	THEN
-	  // wypełnij zerami
-	  "dbHoldRegSlave_to_MT101".instHourStart_City := 0;
-	
-	  ;
-	END_IF;
-	
-	IF "dbHoldRegSlave_to_MT101".instMinutStart_City < 0
-	  OR "dbHoldRegSlave_to_MT101".instMinutStart_City > 60
-	
-	THEN
-	  // wypełnij zerami
-	  "dbHoldRegSlave_to_MT101".instMinutStart_City := 0;
-	
-	  ;
-	END_IF;
-	
-	// przetłaczanie off
-	IF "dbHoldRegSlave_to_MT101".instHourStop_City < 0
-	  OR "dbHoldRegSlave_to_MT101".instHourStop_City > 23
-	
-	THEN
-	  // wypełnij zerami
-	  "dbHoldRegSlave_to_MT101".instHourStop_City := 0;
-	
-	  ;
-	END_IF;
-	
-	IF "dbHoldRegSlave_to_MT101".instMinutStopt_City < 0
-	  OR "dbHoldRegSlave_to_MT101".instMinutStopt_City > 60
-	
-	THEN
-	  // wypełnij zerami
-	  "dbHoldRegSlave_to_MT101".instMinutStopt_City := 0;
-	
-	  ;
-	END_IF;
-	
-	//dosilanie on
-	IF "dbHoldRegSlave_to_MT101".instHourStart_Replen < 0
-	  OR "dbHoldRegSlave_to_MT101".instHourStart_Replen > 23
-	
-	THEN
-	  // wypełnij zerami
-	  "dbHoldRegSlave_to_MT101".instHourStart_Replen := 0;
-	
-	  ;
-	END_IF;
-	
-	IF "dbHoldRegSlave_to_MT101".instMinutStart_Replen < 0
-	  OR "dbHoldRegSlave_to_MT101".instMinutStart_Replen > 60
-	
-	THEN
-	  // wypełnij zerami
-	  "dbHoldRegSlave_to_MT101".instMinutStart_Replen := 0;
-	
-	  ;
-	END_IF;
-	
-	//dosilanie off
-	IF "dbHoldRegSlave_to_MT101".instHourStop_Replen < 0
-	  OR "dbHoldRegSlave_to_MT101".instHourStop_Replen > 23
-	
-	THEN
-	  // wypełnij zerami
-	  "dbHoldRegSlave_to_MT101".instHourStop_Replen := 0;
-	
-	  ;
-	END_IF;
-	
-	IF "dbHoldRegSlave_to_MT101".instMinutStopt_Replen < 0
-	  OR "dbHoldRegSlave_to_MT101".instMinutStopt_Replen > 60
-	 
-	THEN
-	  // wypełnij zerami
-	  "dbHoldRegSlave_to_MT101".instMinutStopt_Replen := 0;
-	
-	  ;
-	END_IF;
-	
 	
 	
 	

@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2023-08-28T09:37:31.7997553Z</Created>
+    <Created>2023-09-11T12:14:53.3184861Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -112,8 +112,8 @@
       <Negated Name="operand" />
     </Part>
     <Part Name="Contact" UId="28" />
-    <Part Name="SCoil" UId="29" />
-    <Part Name="SCoil" UId="30" />
+    <Part Name="Coil" UId="29" />
+    <Part Name="Coil" UId="30" />
   </Parts>
   <Wires>
     <Wire UId="31">
@@ -467,6 +467,79 @@ Jeśli brak gotowości to ustaw bity </Text>
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
+        <Component Name="HMI.kasowanie.ekranów_bit_0" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="HMI.kasowanie.ekranów_bit_0" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="23" />
+    <Part Name="SCoil" UId="24" />
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <Powerrail />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="23" Name="out" />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="21" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="22" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="23" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="24" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="25" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="26" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text>kasowanie alarmu ekran pomp</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="27" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
         <Component Name="AlwaysTRUE" />
       </Symbol>
     </Access>
@@ -505,85 +578,96 @@ Jeśli brak gotowości to ustaw bity </Text>
         <Component Name="brak_zasilania_RS" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="30" />
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="resetAlarm_Inverter" />
+      </Symbol>
+    </Access>
     <Part Name="Contact" UId="31" />
-    <Part Name="SCoil" UId="32" />
+    <Part Name="Contact" UId="32" />
     <Part Name="SCoil" UId="33" />
     <Part Name="SCoil" UId="34" />
     <Part Name="SCoil" UId="35" />
-    <Part Name="RCoil" UId="36" />
+    <Part Name="SCoil" UId="36" />
     <Part Name="RCoil" UId="37" />
     <Part Name="RCoil" UId="38" />
+    <Part Name="RCoil" UId="39" />
+    <Part Name="Coil" UId="40" />
   </Parts>
   <Wires>
-    <Wire UId="39">
-      <Powerrail />
-      <NameCon UId="30" Name="in" />
-    </Wire>
-    <Wire UId="40">
-      <IdentCon UId="21" />
-      <NameCon UId="30" Name="operand" />
-    </Wire>
     <Wire UId="41">
-      <NameCon UId="30" Name="out" />
+      <Powerrail />
       <NameCon UId="31" Name="in" />
     </Wire>
     <Wire UId="42">
-      <IdentCon UId="22" />
+      <IdentCon UId="21" />
       <NameCon UId="31" Name="operand" />
     </Wire>
     <Wire UId="43">
       <NameCon UId="31" Name="out" />
       <NameCon UId="32" Name="in" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="22" />
+      <NameCon UId="32" Name="operand" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="32" Name="out" />
       <NameCon UId="33" Name="in" />
       <NameCon UId="34" Name="in" />
       <NameCon UId="35" Name="in" />
       <NameCon UId="36" Name="in" />
       <NameCon UId="37" Name="in" />
       <NameCon UId="38" Name="in" />
-    </Wire>
-    <Wire UId="44">
-      <IdentCon UId="23" />
-      <NameCon UId="32" Name="operand" />
-    </Wire>
-    <Wire UId="45">
-      <IdentCon UId="24" />
-      <NameCon UId="33" Name="operand" />
+      <NameCon UId="39" Name="in" />
+      <NameCon UId="40" Name="in" />
     </Wire>
     <Wire UId="46">
-      <IdentCon UId="25" />
-      <NameCon UId="34" Name="operand" />
+      <IdentCon UId="23" />
+      <NameCon UId="33" Name="operand" />
     </Wire>
     <Wire UId="47">
-      <IdentCon UId="26" />
-      <NameCon UId="35" Name="operand" />
+      <IdentCon UId="24" />
+      <NameCon UId="34" Name="operand" />
     </Wire>
     <Wire UId="48">
-      <IdentCon UId="27" />
-      <NameCon UId="36" Name="operand" />
+      <IdentCon UId="25" />
+      <NameCon UId="35" Name="operand" />
     </Wire>
     <Wire UId="49">
-      <IdentCon UId="28" />
-      <NameCon UId="37" Name="operand" />
+      <IdentCon UId="26" />
+      <NameCon UId="36" Name="operand" />
     </Wire>
     <Wire UId="50">
-      <IdentCon UId="29" />
+      <IdentCon UId="27" />
+      <NameCon UId="37" Name="operand" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="28" />
       <NameCon UId="38" Name="operand" />
+    </Wire>
+    <Wire UId="52">
+      <IdentCon UId="29" />
+      <NameCon UId="39" Name="operand" />
+    </Wire>
+    <Wire UId="53">
+      <IdentCon UId="30" />
+      <NameCon UId="40" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="21" CompositionName="Comment">
+          <MultilingualText ID="28" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="22" CompositionName="Items">
+              <MultilingualTextItem ID="29" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="23" CompositionName="Items">
+              <MultilingualTextItem ID="2A" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -591,15 +675,15 @@ Jeśli brak gotowości to ustaw bity </Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="24" CompositionName="Title">
+          <MultilingualText ID="2B" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="25" CompositionName="Items">
+              <MultilingualTextItem ID="2C" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="26" CompositionName="Items">
+              <MultilingualTextItem ID="2D" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Procedura kasowania alarmu - interakcja z SCADA P1 P2 P3 P4</Text>
@@ -609,7 +693,7 @@ Jeśli brak gotowości to ustaw bity </Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="27" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="2E" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -681,15 +765,15 @@ Jeśli brak gotowości to ustaw bity </Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="28" CompositionName="Comment">
+          <MultilingualText ID="2F" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="29" CompositionName="Items">
+              <MultilingualTextItem ID="30" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="2A" CompositionName="Items">
+              <MultilingualTextItem ID="31" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -697,15 +781,15 @@ Jeśli brak gotowości to ustaw bity </Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="2B" CompositionName="Title">
+          <MultilingualText ID="32" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="2C" CompositionName="Items">
+              <MultilingualTextItem ID="33" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="2D" CompositionName="Items">
+              <MultilingualTextItem ID="34" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Reset błędu Soft-Start</Text>
@@ -715,7 +799,80 @@ Jeśli brak gotowości to ustaw bity </Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="2E" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="35" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="HMI.kasowanie.ekranów_bit_1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="HMI.kasowanie.ekranów_bit_1" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="23" />
+    <Part Name="SCoil" UId="24" />
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <Powerrail />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="23" Name="out" />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="36" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="37" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="38" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="39" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="3A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text>kasowanie alarmu ekran zasów</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="3C" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -761,15 +918,15 @@ Jeśli brak gotowości to ustaw bity </Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="2F" CompositionName="Comment">
+          <MultilingualText ID="3D" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="30" CompositionName="Items">
+              <MultilingualTextItem ID="3E" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="31" CompositionName="Items">
+              <MultilingualTextItem ID="3F" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -777,15 +934,15 @@ Jeśli brak gotowości to ustaw bity </Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="32" CompositionName="Title">
+          <MultilingualText ID="40" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="33" CompositionName="Items">
+              <MultilingualTextItem ID="41" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="34" CompositionName="Items">
+              <MultilingualTextItem ID="42" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Procedura kasowania alarmu - interakcja z SCADA Z11 Z12</Text>
@@ -795,7 +952,7 @@ Jeśli brak gotowości to ustaw bity </Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="35" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="43" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -881,15 +1038,15 @@ Jeśli brak gotowości to ustaw bity </Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="36" CompositionName="Comment">
+          <MultilingualText ID="44" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="37" CompositionName="Items">
+              <MultilingualTextItem ID="45" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="38" CompositionName="Items">
+              <MultilingualTextItem ID="46" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Alarm błędu komunikacji modbus </Text>
@@ -897,15 +1054,15 @@ Jeśli brak gotowości to ustaw bity </Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="39" CompositionName="Title">
+          <MultilingualText ID="47" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="3A" CompositionName="Items">
+              <MultilingualTextItem ID="48" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="3B" CompositionName="Items">
+              <MultilingualTextItem ID="49" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Alarm Fault Modbus RTU</Text>
@@ -915,7 +1072,7 @@ Jeśli brak gotowości to ustaw bity </Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="3C" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="4A" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -1045,15 +1202,15 @@ Jeśli brak gotowości to ustaw bity </Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="3D" CompositionName="Comment">
+          <MultilingualText ID="4B" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="3E" CompositionName="Items">
+              <MultilingualTextItem ID="4C" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="3F" CompositionName="Items">
+              <MultilingualTextItem ID="4D" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -1061,15 +1218,15 @@ Jeśli brak gotowości to ustaw bity </Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="40" CompositionName="Title">
+          <MultilingualText ID="4E" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="41" CompositionName="Items">
+              <MultilingualTextItem ID="4F" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="42" CompositionName="Items">
+              <MultilingualTextItem ID="50" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Zasuwa Z11 - Awaria</Text>
@@ -1079,7 +1236,7 @@ Jeśli brak gotowości to ustaw bity </Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="43" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="51" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><StructuredText xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StructuredText/v3">
   <Token Text="IF" UId="21" />
@@ -1149,15 +1306,15 @@ Jeśli brak gotowości to ustaw bity </Text>
           <ProgrammingLanguage>SCL</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="44" CompositionName="Comment">
+          <MultilingualText ID="52" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="45" CompositionName="Items">
+              <MultilingualTextItem ID="53" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="46" CompositionName="Items">
+              <MultilingualTextItem ID="54" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -1165,15 +1322,15 @@ Jeśli brak gotowości to ustaw bity </Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="47" CompositionName="Title">
+          <MultilingualText ID="55" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="48" CompositionName="Items">
+              <MultilingualTextItem ID="56" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="49" CompositionName="Items">
+              <MultilingualTextItem ID="57" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Z11 znacznik alarmu od momentówki w trybie zdalnym (aut/mamnual)</Text>
@@ -1183,7 +1340,7 @@ Jeśli brak gotowości to ustaw bity </Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="4A" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="58" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><StructuredText xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StructuredText/v3">
   <Token Text="IF" UId="21" />
@@ -1245,15 +1402,15 @@ Jeśli brak gotowości to ustaw bity </Text>
           <ProgrammingLanguage>SCL</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="4B" CompositionName="Comment">
+          <MultilingualText ID="59" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="4C" CompositionName="Items">
+              <MultilingualTextItem ID="5A" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="4D" CompositionName="Items">
+              <MultilingualTextItem ID="5B" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -1261,15 +1418,15 @@ Jeśli brak gotowości to ustaw bity </Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="4E" CompositionName="Title">
+          <MultilingualText ID="5C" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="4F" CompositionName="Items">
+              <MultilingualTextItem ID="5D" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="50" CompositionName="Items">
+              <MultilingualTextItem ID="5E" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Ustaw brak gotowości Z11</Text>
@@ -1279,7 +1436,7 @@ Jeśli brak gotowości to ustaw bity </Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="51" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="5F" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -1340,15 +1497,15 @@ Jeśli brak gotowości to ustaw bity </Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="52" CompositionName="Comment">
+          <MultilingualText ID="60" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="53" CompositionName="Items">
+              <MultilingualTextItem ID="61" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="54" CompositionName="Items">
+              <MultilingualTextItem ID="62" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Ustaw znacznik w przypadku gdy:
@@ -1359,15 +1516,15 @@ Braku pompy ustawionegoznacznika załaczenia  dodatkowych a pompa pracuje z falo
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="55" CompositionName="Title">
+          <MultilingualText ID="63" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="56" CompositionName="Items">
+              <MultilingualTextItem ID="64" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="57" CompositionName="Items">
+              <MultilingualTextItem ID="65" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Znacznik wyłączenia awaryjnego pompy dodatkowej </Text>
@@ -1377,7 +1534,7 @@ Braku pompy ustawionegoznacznika załaczenia  dodatkowych a pompa pracuje z falo
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="58" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="66" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -1438,15 +1595,15 @@ Braku pompy ustawionegoznacznika załaczenia  dodatkowych a pompa pracuje z falo
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="59" CompositionName="Comment">
+          <MultilingualText ID="67" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="5A" CompositionName="Items">
+              <MultilingualTextItem ID="68" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="5B" CompositionName="Items">
+              <MultilingualTextItem ID="69" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Ustawienie w przypadku:
@@ -1457,15 +1614,15 @@ Braku pompy dodatkowych</Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="5C" CompositionName="Title">
+          <MultilingualText ID="6A" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="5D" CompositionName="Items">
+              <MultilingualTextItem ID="6B" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="5E" CompositionName="Items">
+              <MultilingualTextItem ID="6C" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Znacznik wyłączenia awaryjnego pompy dodatkowej </Text>
@@ -1475,7 +1632,7 @@ Braku pompy dodatkowych</Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="5F" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="6D" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -1536,175 +1693,6 @@ Braku pompy dodatkowych</Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="60" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="61" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="62" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text>Ustawienie w przypadku:
-Ciśnienia max
-Przeciążenia prądowego
-Braku pompy dodatkowych</Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="63" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="64" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="65" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text>Znacznik wyłączenia awaryjnego pompy dodatkowej </Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="66" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
-  <Parts>
-    <Access Scope="Address" UId="21">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="6" />
-    </Access>
-    <Access Scope="Address" UId="22">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="0" />
-    </Access>
-    <Access Scope="Address" UId="23">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="6" />
-    </Access>
-    <Part Name="Contact" UId="24" />
-    <Part Name="Contact" UId="25">
-      <Negated Name="operand" />
-    </Part>
-    <Part Name="RCoil" UId="26" />
-  </Parts>
-  <Wires>
-    <Wire UId="27">
-      <Powerrail />
-      <NameCon UId="24" Name="in" />
-    </Wire>
-    <Wire UId="28">
-      <IdentCon UId="21" />
-      <NameCon UId="24" Name="operand" />
-    </Wire>
-    <Wire UId="29">
-      <NameCon UId="24" Name="out" />
-      <NameCon UId="25" Name="in" />
-    </Wire>
-    <Wire UId="30">
-      <IdentCon UId="22" />
-      <NameCon UId="25" Name="operand" />
-    </Wire>
-    <Wire UId="31">
-      <NameCon UId="25" Name="out" />
-      <NameCon UId="26" Name="in" />
-    </Wire>
-    <Wire UId="32">
-      <IdentCon UId="23" />
-      <NameCon UId="26" Name="operand" />
-    </Wire>
-  </Wires>
-</FlgNet></NetworkSource>
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
-        <ObjectList>
-          <MultilingualText ID="67" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="68" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="69" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text>kasowanie bitu czyszczenia alarmu po wykonaniu czyszczenia</Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="6A" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="6B" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="6C" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text> reset bit P1</Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="6D" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
-  <Parts>
-    <Access Scope="Address" UId="21">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="22" />
-    </Access>
-    <Access Scope="Address" UId="22">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="16" />
-    </Access>
-    <Access Scope="Address" UId="23">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="22" />
-    </Access>
-    <Part Name="Contact" UId="24" />
-    <Part Name="Contact" UId="25">
-      <Negated Name="operand" />
-    </Part>
-    <Part Name="RCoil" UId="26" />
-  </Parts>
-  <Wires>
-    <Wire UId="27">
-      <Powerrail />
-      <NameCon UId="24" Name="in" />
-    </Wire>
-    <Wire UId="28">
-      <IdentCon UId="21" />
-      <NameCon UId="24" Name="operand" />
-    </Wire>
-    <Wire UId="29">
-      <NameCon UId="24" Name="out" />
-      <NameCon UId="25" Name="in" />
-    </Wire>
-    <Wire UId="30">
-      <IdentCon UId="22" />
-      <NameCon UId="25" Name="operand" />
-    </Wire>
-    <Wire UId="31">
-      <NameCon UId="25" Name="out" />
-      <NameCon UId="26" Name="in" />
-    </Wire>
-    <Wire UId="32">
-      <IdentCon UId="23" />
-      <NameCon UId="26" Name="operand" />
-    </Wire>
-  </Wires>
-</FlgNet></NetworkSource>
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
-        <ObjectList>
           <MultilingualText ID="6E" CompositionName="Comment">
             <ObjectList>
               <MultilingualTextItem ID="6F" CompositionName="Items">
@@ -1716,7 +1704,10 @@ Braku pompy dodatkowych</Text>
               <MultilingualTextItem ID="70" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>kasowanie bitu czyszczenia alarmu po wykonaniu czyszczenia</Text>
+                  <Text>Ustawienie w przypadku:
+Ciśnienia max
+Przeciążenia prądowego
+Braku pompy dodatkowych</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1732,7 +1723,7 @@ Braku pompy dodatkowych</Text>
               <MultilingualTextItem ID="73" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text> reset bit P2</Text>
+                  <Text>Znacznik wyłączenia awaryjnego pompy dodatkowej </Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1744,13 +1735,13 @@ Braku pompy dodatkowych</Text>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
     <Access Scope="Address" UId="21">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="38" />
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="6" />
     </Access>
     <Access Scope="Address" UId="22">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="32" />
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="0" />
     </Access>
     <Access Scope="Address" UId="23">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="38" />
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="6" />
     </Access>
     <Part Name="Contact" UId="24" />
     <Part Name="Contact" UId="25">
@@ -1815,7 +1806,7 @@ Braku pompy dodatkowych</Text>
               <MultilingualTextItem ID="7A" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text> reset bit P3</Text>
+                  <Text> reset bit P1</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1827,13 +1818,13 @@ Braku pompy dodatkowych</Text>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
     <Access Scope="Address" UId="21">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="54" />
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="22" />
     </Access>
     <Access Scope="Address" UId="22">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="48" />
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="16" />
     </Access>
     <Access Scope="Address" UId="23">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="54" />
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="22" />
     </Access>
     <Part Name="Contact" UId="24" />
     <Part Name="Contact" UId="25">
@@ -1882,7 +1873,7 @@ Braku pompy dodatkowych</Text>
               <MultilingualTextItem ID="7E" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text />
+                  <Text>kasowanie bitu czyszczenia alarmu po wykonaniu czyszczenia</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1898,7 +1889,7 @@ Braku pompy dodatkowych</Text>
               <MultilingualTextItem ID="81" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text> reset bit P4 </Text>
+                  <Text> reset bit P2</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1910,13 +1901,13 @@ Braku pompy dodatkowych</Text>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
     <Access Scope="Address" UId="21">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="238" />
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="38" />
     </Access>
     <Access Scope="Address" UId="22">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="224" />
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="32" />
     </Access>
     <Access Scope="Address" UId="23">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="238" />
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="38" />
     </Access>
     <Part Name="Contact" UId="24" />
     <Part Name="Contact" UId="25">
@@ -1981,7 +1972,7 @@ Braku pompy dodatkowych</Text>
               <MultilingualTextItem ID="88" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text> reset bit Z11</Text>
+                  <Text> reset bit P3</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1993,13 +1984,13 @@ Braku pompy dodatkowych</Text>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
     <Access Scope="Address" UId="21">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="254" />
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="54" />
     </Access>
     <Access Scope="Address" UId="22">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="240" />
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="48" />
     </Access>
     <Access Scope="Address" UId="23">
-      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="254" />
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="54" />
     </Access>
     <Part Name="Contact" UId="24" />
     <Part Name="Contact" UId="25">
@@ -2048,7 +2039,7 @@ Braku pompy dodatkowych</Text>
               <MultilingualTextItem ID="8C" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>kasowanie bitu czyszczenia alarmu po wykonaniu czyszczenia</Text>
+                  <Text />
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2064,7 +2055,7 @@ Braku pompy dodatkowych</Text>
               <MultilingualTextItem ID="8F" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text> reset bit Z12</Text>
+                  <Text> reset bit P4 </Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2075,26 +2066,20 @@ Braku pompy dodatkowych</Text>
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
-    <Access Scope="GlobalVariable" UId="21">
-      <Symbol>
-        <Component Name="Clock_0.5Hz" />
-      </Symbol>
+    <Access Scope="Address" UId="21">
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="238" />
     </Access>
-    <Access Scope="GlobalVariable" UId="22">
-      <Symbol>
-        <Component Name="IsReady_P1" />
-      </Symbol>
+    <Access Scope="Address" UId="22">
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="224" />
     </Access>
-    <Access Scope="GlobalVariable" UId="23">
-      <Symbol>
-        <Component Name="CMD_faultP1" />
-      </Symbol>
+    <Access Scope="Address" UId="23">
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="238" />
     </Access>
     <Part Name="Contact" UId="24" />
     <Part Name="Contact" UId="25">
       <Negated Name="operand" />
     </Part>
-    <Part Name="Coil" UId="26" />
+    <Part Name="RCoil" UId="26" />
   </Parts>
   <Wires>
     <Wire UId="27">
@@ -2137,7 +2122,7 @@ Braku pompy dodatkowych</Text>
               <MultilingualTextItem ID="93" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text />
+                  <Text>kasowanie bitu czyszczenia alarmu po wykonaniu czyszczenia</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2153,7 +2138,7 @@ Braku pompy dodatkowych</Text>
               <MultilingualTextItem ID="96" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text />
+                  <Text> reset bit Z11</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2164,26 +2149,20 @@ Braku pompy dodatkowych</Text>
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
-    <Access Scope="GlobalVariable" UId="21">
-      <Symbol>
-        <Component Name="Clock_0.5Hz" />
-      </Symbol>
+    <Access Scope="Address" UId="21">
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="254" />
     </Access>
-    <Access Scope="GlobalVariable" UId="22">
-      <Symbol>
-        <Component Name="IsReady_P2" />
-      </Symbol>
+    <Access Scope="Address" UId="22">
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="240" />
     </Access>
-    <Access Scope="GlobalVariable" UId="23">
-      <Symbol>
-        <Component Name="CMD_faultP2" />
-      </Symbol>
+    <Access Scope="Address" UId="23">
+      <Address Area="DB" Type="Bool" BlockNumber="100" BitOffset="254" />
     </Access>
     <Part Name="Contact" UId="24" />
     <Part Name="Contact" UId="25">
       <Negated Name="operand" />
     </Part>
-    <Part Name="Coil" UId="26" />
+    <Part Name="RCoil" UId="26" />
   </Parts>
   <Wires>
     <Wire UId="27">
@@ -2226,7 +2205,7 @@ Braku pompy dodatkowych</Text>
               <MultilingualTextItem ID="9A" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text />
+                  <Text>kasowanie bitu czyszczenia alarmu po wykonaniu czyszczenia</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2242,7 +2221,7 @@ Braku pompy dodatkowych</Text>
               <MultilingualTextItem ID="9D" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text />
+                  <Text> reset bit Z12</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2260,12 +2239,12 @@ Braku pompy dodatkowych</Text>
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
-        <Component Name="IsReady_P3" />
+        <Component Name="IsReady_P1" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="23">
       <Symbol>
-        <Component Name="CMD_faultP3" />
+        <Component Name="CMD_faultP1" />
       </Symbol>
     </Access>
     <Part Name="Contact" UId="24" />
@@ -2349,12 +2328,12 @@ Braku pompy dodatkowych</Text>
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
-        <Component Name="IsReady_P4" />
+        <Component Name="IsReady_P2" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="23">
       <Symbol>
-        <Component Name="CMD_faultP4" />
+        <Component Name="CMD_faultP2" />
       </Symbol>
     </Access>
     <Part Name="Contact" UId="24" />
@@ -2428,6 +2407,184 @@ Braku pompy dodatkowych</Text>
         </ObjectList>
       </SW.Blocks.CompileUnit>
       <SW.Blocks.CompileUnit ID="AC" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="Clock_0.5Hz" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="IsReady_P3" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="CMD_faultP3" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="24" />
+    <Part Name="Contact" UId="25">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Coil" UId="26" />
+  </Parts>
+  <Wires>
+    <Wire UId="27">
+      <Powerrail />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+    <Wire UId="29">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+    <Wire UId="31">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="in" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="AD" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="AE" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="AF" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="B0" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="B1" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="B2" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="B3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="Clock_0.5Hz" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="IsReady_P4" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="CMD_faultP4" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="24" />
+    <Part Name="Contact" UId="25">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Coil" UId="26" />
+  </Parts>
+  <Wires>
+    <Wire UId="27">
+      <Powerrail />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+    <Wire UId="29">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+    <Wire UId="31">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="in" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="B4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="B5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="B6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="B7" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="B8" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="B9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="BA" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -2538,15 +2695,15 @@ Braku pompy dodatkowych</Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="AD" CompositionName="Comment">
+          <MultilingualText ID="BB" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="AE" CompositionName="Items">
+              <MultilingualTextItem ID="BC" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="AF" CompositionName="Items">
+              <MultilingualTextItem ID="BD" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Jesli awaria Modbus RTU aktualna wartość Hz pobierana bedzie z wejścia analogowego falownia (wyjście AQ PLC) </Text>
@@ -2554,15 +2711,15 @@ Braku pompy dodatkowych</Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="B0" CompositionName="Title">
+          <MultilingualText ID="BE" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="B1" CompositionName="Items">
+              <MultilingualTextItem ID="BF" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="B2" CompositionName="Items">
+              <MultilingualTextItem ID="C0" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Przełączanie pomiary Hz Modba / Analog </Text>
@@ -2572,7 +2729,7 @@ Braku pompy dodatkowych</Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="B3" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="C1" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -2632,15 +2789,15 @@ Braku pompy dodatkowych</Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="B4" CompositionName="Comment">
+          <MultilingualText ID="C2" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="B5" CompositionName="Items">
+              <MultilingualTextItem ID="C3" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="B6" CompositionName="Items">
+              <MultilingualTextItem ID="C4" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>zerowanie przepływu chwilowego gdy błąd komunikacji modbus z przepływomierzem</Text>
@@ -2648,15 +2805,15 @@ Braku pompy dodatkowych</Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="B7" CompositionName="Title">
+          <MultilingualText ID="C5" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="B8" CompositionName="Items">
+              <MultilingualTextItem ID="C6" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="B9" CompositionName="Items">
+              <MultilingualTextItem ID="C7" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Q1 przepływomierz pompownia</Text>
@@ -2666,7 +2823,7 @@ Braku pompy dodatkowych</Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="BA" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="C8" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -2768,15 +2925,15 @@ Braku pompy dodatkowych</Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="BB" CompositionName="Comment">
+          <MultilingualText ID="C9" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="BC" CompositionName="Items">
+              <MultilingualTextItem ID="CA" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="BD" CompositionName="Items">
+              <MultilingualTextItem ID="CB" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Alarm do HMI</Text>
@@ -2784,15 +2941,15 @@ Braku pompy dodatkowych</Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="BE" CompositionName="Title">
+          <MultilingualText ID="CC" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="BF" CompositionName="Items">
+              <MultilingualTextItem ID="CD" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="C0" CompositionName="Items">
+              <MultilingualTextItem ID="CE" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>16#0002: Niepoprawna wartość w parametrze "Input_PER". Sprawdź, czy na wejściu analogowym występuje błąd.</Text>
@@ -2802,7 +2959,7 @@ Braku pompy dodatkowych</Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="C1" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="CF" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -2853,15 +3010,15 @@ Braku pompy dodatkowych</Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="C2" CompositionName="Comment">
+          <MultilingualText ID="D0" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="C3" CompositionName="Items">
+              <MultilingualTextItem ID="D1" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="C4" CompositionName="Items">
+              <MultilingualTextItem ID="D2" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -2869,15 +3026,15 @@ Braku pompy dodatkowych</Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="C5" CompositionName="Title">
+          <MultilingualText ID="D3" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="C6" CompositionName="Items">
+              <MultilingualTextItem ID="D4" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="C7" CompositionName="Items">
+              <MultilingualTextItem ID="D5" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>16#0080: Niepoprawna wartość w trybie pracy PID. Tryb pracy nie ulega zmianie.</Text>
@@ -2887,7 +3044,7 @@ Braku pompy dodatkowych</Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="C8" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="D6" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -2989,15 +3146,15 @@ Braku pompy dodatkowych</Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="C9" CompositionName="Comment">
+          <MultilingualText ID="D7" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="CA" CompositionName="Items">
+              <MultilingualTextItem ID="D8" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="CB" CompositionName="Items">
+              <MultilingualTextItem ID="D9" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -3005,15 +3162,15 @@ Braku pompy dodatkowych</Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="CC" CompositionName="Title">
+          <MultilingualText ID="DA" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="CD" CompositionName="Items">
+              <MultilingualTextItem ID="DB" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="CE" CompositionName="Items">
+              <MultilingualTextItem ID="DC" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>16#1000: Niepoprawna wartość w parametrze "Wartość zadana": Wartość nie ma prawidłowego formatu liczbowego.</Text>
@@ -3023,21 +3180,68 @@ Braku pompy dodatkowych</Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="CF" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="DD" CompositionName="CompileUnits">
         <AttributeList>
-          <NetworkSource />
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="alarmMagistrala_niskie_bar" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="tags_HMI_Fault_main_line_bar" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="24" />
+    <Part Name="Contact" UId="25" />
+    <Part Name="Coil" UId="26" />
+  </Parts>
+  <Wires>
+    <Wire UId="27">
+      <Powerrail />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+    <Wire UId="29">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+    <Wire UId="31">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="in" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="D0" CompositionName="Comment">
+          <MultilingualText ID="DE" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="D1" CompositionName="Items">
+              <MultilingualTextItem ID="DF" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="D2" CompositionName="Items">
+              <MultilingualTextItem ID="E0" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -3045,15 +3249,55 @@ Braku pompy dodatkowych</Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="D3" CompositionName="Title">
+          <MultilingualText ID="E1" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="D4" CompositionName="Items">
+              <MultilingualTextItem ID="E2" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="D5" CompositionName="Items">
+              <MultilingualTextItem ID="E3" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text>alarm magistrala niskie ciśnienie</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="E4" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="E5" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="E6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="E7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="E8" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="E9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="EA" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -3063,15 +3307,15 @@ Braku pompy dodatkowych</Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <MultilingualText ID="D6" CompositionName="Title">
+      <MultilingualText ID="EB" CompositionName="Title">
         <ObjectList>
-          <MultilingualTextItem ID="D7" CompositionName="Items">
+          <MultilingualTextItem ID="EC" CompositionName="Items">
             <AttributeList>
               <Culture>en-US</Culture>
               <Text />
             </AttributeList>
           </MultilingualTextItem>
-          <MultilingualTextItem ID="D8" CompositionName="Items">
+          <MultilingualTextItem ID="ED" CompositionName="Items">
             <AttributeList>
               <Culture>pl-PL</Culture>
               <Text>Boks Ready</Text>

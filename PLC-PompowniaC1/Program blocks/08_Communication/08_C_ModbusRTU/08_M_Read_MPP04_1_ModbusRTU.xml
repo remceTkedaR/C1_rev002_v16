@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2023-08-28T09:37:37.5316795Z</Created>
+    <Created>2023-09-11T12:14:54.3314544Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -660,269 +660,7 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
       <Symbol>
         <Component Name="dbTags_master_ABB_1" />
         <Component Name="modbusMaster" />
-        <Component Name="done" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="24">
-      <Symbol>
-        <Component Name="dbMasterData" />
-        <Component Name="ID6_aktualny_przeływu_Adres_33057" />
-        <Component Name="data" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="25">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="received_6_Wielkość_przeływu_Adres_0" />
-        <Component Name="typeDataInverter_Dword" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="26">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="received_6_Wielkość_przeływu_Adres_0" />
-        <Component Name="typeDataInverter_Dword" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="LiteralConstant" UId="27">
-      <Constant>
-        <ConstantType>UInt</ConstantType>
-        <ConstantValue>16</ConstantValue>
-      </Constant>
-    </Access>
-    <Access Scope="GlobalVariable" UId="28">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="received_ROL_aktualny_przeływu_Adres_0" />
-        <Component Name="typeDataInverter_Dword" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="29">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="received_ROL_aktualny_przeływu_Adres_0" />
-        <Component Name="typeDataInverter_Dword" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="30">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="Przepływomierz nr1 pompownia" />
-        <Component Name="ID6_przeływu_VF_Adres_0" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="31">
-      <Symbol>
-        <Component Name="dbTags_master_ABB_1" />
-        <Component Name="modbusMaster" />
-        <Component Name="req" />
-      </Symbol>
-    </Access>
-    <Access Scope="LiteralConstant" UId="32">
-      <Constant>
-        <ConstantType>USInt</ConstantType>
-        <ConstantValue>3</ConstantValue>
-      </Constant>
-    </Access>
-    <Access Scope="GlobalVariable" UId="33">
-      <Symbol>
-        <Component Name="dbTags_master_ABB_1" />
-        <Component Name="step" />
-      </Symbol>
-    </Access>
-    <Part Name="Eq" UId="34">
-      <TemplateValue Name="SrcType" Type="Type">USInt</TemplateValue>
-    </Part>
-    <Part Name="Contact" UId="35" />
-    <Part Name="Convert" UId="36" DisabledENO="true">
-      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
-      <TemplateValue Name="DestType" Type="Type">DWord</TemplateValue>
-    </Part>
-    <Part Name="Rl" UId="37" DisabledENO="true">
-      <TemplateValue Name="SrcType" Type="Type">DWord</TemplateValue>
-    </Part>
-    <Part Name="Convert" UId="38" DisabledENO="true">
-      <TemplateValue Name="SrcType" Type="Type">DWord</TemplateValue>
-      <TemplateValue Name="DestType" Type="Type">Real</TemplateValue>
-    </Part>
-    <Part Name="RCoil" UId="39" />
-    <Part Name="Move" UId="40" DisabledENO="false">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
-    </Part>
-  </Parts>
-  <Wires>
-    <Wire UId="41">
-      <Powerrail />
-      <NameCon UId="34" Name="pre" />
-    </Wire>
-    <Wire UId="42">
-      <IdentCon UId="21" />
-      <NameCon UId="34" Name="in1" />
-    </Wire>
-    <Wire UId="43">
-      <IdentCon UId="22" />
-      <NameCon UId="34" Name="in2" />
-    </Wire>
-    <Wire UId="44">
-      <NameCon UId="34" Name="out" />
-      <NameCon UId="35" Name="in" />
-    </Wire>
-    <Wire UId="45">
-      <IdentCon UId="23" />
-      <NameCon UId="35" Name="operand" />
-    </Wire>
-    <Wire UId="46">
-      <NameCon UId="35" Name="out" />
-      <NameCon UId="36" Name="en" />
-      <NameCon UId="40" Name="en" />
-    </Wire>
-    <Wire UId="47">
-      <IdentCon UId="24" />
-      <NameCon UId="36" Name="in" />
-    </Wire>
-    <Wire UId="48">
-      <NameCon UId="36" Name="eno" />
-      <NameCon UId="37" Name="en" />
-    </Wire>
-    <Wire UId="49">
-      <NameCon UId="36" Name="out" />
-      <IdentCon UId="25" />
-    </Wire>
-    <Wire UId="50">
-      <IdentCon UId="26" />
-      <NameCon UId="37" Name="in" />
-    </Wire>
-    <Wire UId="51">
-      <IdentCon UId="27" />
-      <NameCon UId="37" Name="n" />
-    </Wire>
-    <Wire UId="52">
-      <NameCon UId="37" Name="eno" />
-      <NameCon UId="38" Name="en" />
-    </Wire>
-    <Wire UId="53">
-      <NameCon UId="37" Name="out" />
-      <IdentCon UId="28" />
-    </Wire>
-    <Wire UId="54">
-      <IdentCon UId="29" />
-      <NameCon UId="38" Name="in" />
-    </Wire>
-    <Wire UId="55">
-      <NameCon UId="38" Name="eno" />
-      <NameCon UId="39" Name="in" />
-    </Wire>
-    <Wire UId="56">
-      <NameCon UId="38" Name="out" />
-      <IdentCon UId="30" />
-    </Wire>
-    <Wire UId="57">
-      <IdentCon UId="31" />
-      <NameCon UId="39" Name="operand" />
-    </Wire>
-    <Wire UId="58">
-      <IdentCon UId="32" />
-      <NameCon UId="40" Name="in" />
-    </Wire>
-    <Wire UId="59">
-      <NameCon UId="40" Name="out1" />
-      <IdentCon UId="33" />
-    </Wire>
-  </Wires>
-</FlgNet></NetworkSource>
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
-        <ObjectList>
-          <MultilingualText ID="1A" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="1B" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="1C" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="1D" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="1E" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="1F" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text>step 2: save received data 3056</Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="20" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
-  <Parts>
-    <Access Scope="GlobalVariable" UId="21">
-      <Symbol>
-        <Component Name="dbTags_master_ABB_1" />
-        <Component Name="step" />
-      </Symbol>
-    </Access>
-    <Access Scope="LiteralConstant" UId="22">
-      <Constant>
-        <ConstantType>USInt</ConstantType>
-        <ConstantValue>2</ConstantValue>
-      </Constant>
-    </Access>
-    <Access Scope="GlobalVariable" UId="23">
-      <Symbol>
-        <Component Name="dbTags_master_MPP04_2" />
-        <Component Name="modbusMaster" />
-        <Component Name="errorStatus" />
+        <Component Name="status" />
       </Symbol>
     </Access>
     <Access Scope="LiteralConstant" UId="24">
@@ -938,13 +676,7 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
         <Component Name="done" />
       </Symbol>
     </Access>
-    <Access Scope="LiteralConstant" UId="26">
-      <Constant>
-        <ConstantType>Real</ConstantType>
-        <ConstantValue>0.0</ConstantValue>
-      </Constant>
-    </Access>
-    <Access Scope="GlobalVariable" UId="27">
+    <Access Scope="GlobalVariable" UId="26">
       <Symbol>
         <Component Name="dbMasterData" />
         <Component Name="ID6_aktualny_przeływu_Adres_33057" />
@@ -956,6 +688,13 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
             </Constant>
           </Access>
         </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="dbModbusRTU_Reg" />
+        <Component Name="Przepływomierz nr1 pompownia" />
+        <Component Name="ID6_przeływu_VF_Adres_0" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="28">
@@ -984,7 +723,7 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
       <TemplateValue Name="SrcType" Type="Type">Word</TemplateValue>
     </Part>
     <Part Name="Contact" UId="33" />
-    <Part Name="Move" UId="34" DisabledENO="false">
+    <Part Name="Move" UId="34" DisabledENO="true">
       <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
     </Part>
     <Part Name="RCoil" UId="35" />
@@ -1059,41 +798,41 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="21" CompositionName="Comment">
+          <MultilingualText ID="1A" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="22" CompositionName="Items">
+              <MultilingualTextItem ID="1B" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="23" CompositionName="Items">
+              <MultilingualTextItem ID="1C" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>Jęśli błąd pętli modbus lub błąd statusu przepływomierza toustaw 0</Text>
+                  <Text />
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="24" CompositionName="Title">
+          <MultilingualText ID="1D" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="25" CompositionName="Items">
+              <MultilingualTextItem ID="1E" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="26" CompositionName="Items">
+              <MultilingualTextItem ID="1F" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>reakcja na błąd</Text>
+                  <Text>step 2: save received data 3056</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="27" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="20" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -1272,15 +1011,15 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="28" CompositionName="Comment">
+          <MultilingualText ID="21" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="29" CompositionName="Items">
+              <MultilingualTextItem ID="22" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="2A" CompositionName="Items">
+              <MultilingualTextItem ID="23" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Suma przepływu w przód</Text>
@@ -1288,15 +1027,15 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="2B" CompositionName="Title">
+          <MultilingualText ID="24" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="2C" CompositionName="Items">
+              <MultilingualTextItem ID="25" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="2D" CompositionName="Items">
+              <MultilingualTextItem ID="26" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>MODBUS RTU  adress ******step 3: read from slave 3063</Text>
@@ -1306,7 +1045,7 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="2E" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="27" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -1550,6 +1289,198 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
+          <MultilingualText ID="28" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="29" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="2B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="2C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text>Odczyt 3062</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="2E" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="dbTags_master_ABB_1" />
+        <Component Name="step" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="22">
+      <Constant>
+        <ConstantType>USInt</ConstantType>
+        <ConstantValue>4</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="dbTags_master_ABB_1" />
+        <Component Name="modbusMaster" />
+        <Component Name="status" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="24">
+      <Constant>
+        <ConstantType>Word</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="dbTags_master_ABB_1" />
+        <Component Name="modbusMaster" />
+        <Component Name="done" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="dbMasterData" />
+        <Component Name="ID6_Licznik_suma_VF_Adres_33063" />
+        <Component Name="data" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>0</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="dbModbusRTU_Reg" />
+        <Component Name="Przepływomierz nr1 pompownia" />
+        <Component Name="ID6_objętość_VF_Adres_2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="dbTags_master_ABB_1" />
+        <Component Name="modbusMaster" />
+        <Component Name="req" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="29">
+      <Constant>
+        <ConstantType>USInt</ConstantType>
+        <ConstantValue>5</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="dbTags_master_ABB_1" />
+        <Component Name="step" />
+      </Symbol>
+    </Access>
+    <Part Name="Eq" UId="31">
+      <TemplateValue Name="SrcType" Type="Type">USInt</TemplateValue>
+    </Part>
+    <Part Name="Eq" UId="32">
+      <TemplateValue Name="SrcType" Type="Type">Word</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="33" />
+    <Part Name="Move" UId="34" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    </Part>
+    <Part Name="RCoil" UId="35" />
+    <Part Name="Move" UId="36" DisabledENO="false">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="37">
+      <Powerrail />
+      <NameCon UId="31" Name="pre" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="21" />
+      <NameCon UId="31" Name="in1" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="22" />
+      <NameCon UId="31" Name="in2" />
+    </Wire>
+    <Wire UId="40">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="pre" />
+    </Wire>
+    <Wire UId="41">
+      <IdentCon UId="23" />
+      <NameCon UId="32" Name="in1" />
+    </Wire>
+    <Wire UId="42">
+      <IdentCon UId="24" />
+      <NameCon UId="32" Name="in2" />
+    </Wire>
+    <Wire UId="43">
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="in" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="25" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="33" Name="out" />
+      <NameCon UId="34" Name="en" />
+      <NameCon UId="36" Name="en" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="26" />
+      <NameCon UId="34" Name="in" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="34" Name="eno" />
+      <NameCon UId="35" Name="in" />
+    </Wire>
+    <Wire UId="48">
+      <NameCon UId="34" Name="out1" />
+      <IdentCon UId="27" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="28" />
+      <NameCon UId="35" Name="operand" />
+    </Wire>
+    <Wire UId="50">
+      <IdentCon UId="29" />
+      <NameCon UId="36" Name="in" />
+    </Wire>
+    <Wire UId="51">
+      <NameCon UId="36" Name="out1" />
+      <IdentCon UId="30" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
           <MultilingualText ID="2F" CompositionName="Comment">
             <ObjectList>
               <MultilingualTextItem ID="30" CompositionName="Items">
@@ -1577,268 +1508,6 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
               <MultilingualTextItem ID="34" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>Odczyt 3062</Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="35" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
-  <Parts>
-    <Access Scope="GlobalVariable" UId="21">
-      <Symbol>
-        <Component Name="dbTags_master_ABB_1" />
-        <Component Name="step" />
-      </Symbol>
-    </Access>
-    <Access Scope="LiteralConstant" UId="22">
-      <Constant>
-        <ConstantType>USInt</ConstantType>
-        <ConstantValue>4</ConstantValue>
-      </Constant>
-    </Access>
-    <Access Scope="GlobalVariable" UId="23">
-      <Symbol>
-        <Component Name="dbTags_master_ABB_1" />
-        <Component Name="modbusMaster" />
-        <Component Name="done" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="24">
-      <Symbol>
-        <Component Name="dbMasterData" />
-        <Component Name="ID6_Licznik_suma_VF_Adres_33063" />
-        <Component Name="data" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="25">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="received_6_Licznik_objętość_VF_Adres_2" />
-        <Component Name="typeDataInverter_Dword" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="26">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="received_6_Licznik_objętość_VF_Adres_2" />
-        <Component Name="typeDataInverter_Dword" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="LiteralConstant" UId="27">
-      <Constant>
-        <ConstantType>UInt</ConstantType>
-        <ConstantValue>16</ConstantValue>
-      </Constant>
-    </Access>
-    <Access Scope="GlobalVariable" UId="28">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="received_ROL_suma_objętość_VF_Adres_2" />
-        <Component Name="typeDataInverter_Dword" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="29">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="received_ROL_suma_objętość_VF_Adres_2" />
-        <Component Name="typeDataInverter_Dword" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="30">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="Przepływomierz nr1 pompownia" />
-        <Component Name="ID6_objętość_VF_Adres_2" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="31">
-      <Symbol>
-        <Component Name="dbTags_master_ABB_1" />
-        <Component Name="modbusMaster" />
-        <Component Name="req" />
-      </Symbol>
-    </Access>
-    <Access Scope="LiteralConstant" UId="32">
-      <Constant>
-        <ConstantType>USInt</ConstantType>
-        <ConstantValue>5</ConstantValue>
-      </Constant>
-    </Access>
-    <Access Scope="GlobalVariable" UId="33">
-      <Symbol>
-        <Component Name="dbTags_master_ABB_1" />
-        <Component Name="step" />
-      </Symbol>
-    </Access>
-    <Part Name="Eq" UId="34">
-      <TemplateValue Name="SrcType" Type="Type">USInt</TemplateValue>
-    </Part>
-    <Part Name="Contact" UId="35" />
-    <Part Name="Convert" UId="36" DisabledENO="true">
-      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
-      <TemplateValue Name="DestType" Type="Type">DWord</TemplateValue>
-    </Part>
-    <Part Name="Rl" UId="37" DisabledENO="true">
-      <TemplateValue Name="SrcType" Type="Type">DWord</TemplateValue>
-    </Part>
-    <Part Name="Convert" UId="38" DisabledENO="true">
-      <TemplateValue Name="SrcType" Type="Type">DWord</TemplateValue>
-      <TemplateValue Name="DestType" Type="Type">Real</TemplateValue>
-    </Part>
-    <Part Name="RCoil" UId="39" />
-    <Part Name="Move" UId="40" DisabledENO="false">
-      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
-    </Part>
-  </Parts>
-  <Wires>
-    <Wire UId="41">
-      <Powerrail />
-      <NameCon UId="34" Name="pre" />
-    </Wire>
-    <Wire UId="42">
-      <IdentCon UId="21" />
-      <NameCon UId="34" Name="in1" />
-    </Wire>
-    <Wire UId="43">
-      <IdentCon UId="22" />
-      <NameCon UId="34" Name="in2" />
-    </Wire>
-    <Wire UId="44">
-      <NameCon UId="34" Name="out" />
-      <NameCon UId="35" Name="in" />
-    </Wire>
-    <Wire UId="45">
-      <IdentCon UId="23" />
-      <NameCon UId="35" Name="operand" />
-    </Wire>
-    <Wire UId="46">
-      <NameCon UId="35" Name="out" />
-      <NameCon UId="36" Name="en" />
-      <NameCon UId="40" Name="en" />
-    </Wire>
-    <Wire UId="47">
-      <IdentCon UId="24" />
-      <NameCon UId="36" Name="in" />
-    </Wire>
-    <Wire UId="48">
-      <NameCon UId="36" Name="eno" />
-      <NameCon UId="37" Name="en" />
-    </Wire>
-    <Wire UId="49">
-      <NameCon UId="36" Name="out" />
-      <IdentCon UId="25" />
-    </Wire>
-    <Wire UId="50">
-      <IdentCon UId="26" />
-      <NameCon UId="37" Name="in" />
-    </Wire>
-    <Wire UId="51">
-      <IdentCon UId="27" />
-      <NameCon UId="37" Name="n" />
-    </Wire>
-    <Wire UId="52">
-      <NameCon UId="37" Name="eno" />
-      <NameCon UId="38" Name="en" />
-    </Wire>
-    <Wire UId="53">
-      <NameCon UId="37" Name="out" />
-      <IdentCon UId="28" />
-    </Wire>
-    <Wire UId="54">
-      <IdentCon UId="29" />
-      <NameCon UId="38" Name="in" />
-    </Wire>
-    <Wire UId="55">
-      <NameCon UId="38" Name="eno" />
-      <NameCon UId="39" Name="in" />
-    </Wire>
-    <Wire UId="56">
-      <NameCon UId="38" Name="out" />
-      <IdentCon UId="30" />
-    </Wire>
-    <Wire UId="57">
-      <IdentCon UId="31" />
-      <NameCon UId="39" Name="operand" />
-    </Wire>
-    <Wire UId="58">
-      <IdentCon UId="32" />
-      <NameCon UId="40" Name="in" />
-    </Wire>
-    <Wire UId="59">
-      <NameCon UId="40" Name="out1" />
-      <IdentCon UId="33" />
-    </Wire>
-  </Wires>
-</FlgNet></NetworkSource>
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
-        <ObjectList>
-          <MultilingualText ID="36" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="37" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="38" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="39" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="3A" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="3B" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
                   <Text>step 4: save received data 3056</Text>
                 </AttributeList>
               </MultilingualTextItem>
@@ -1846,7 +1515,7 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="3C" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="35" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -2025,15 +1694,15 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="3D" CompositionName="Comment">
+          <MultilingualText ID="36" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="3E" CompositionName="Items">
+              <MultilingualTextItem ID="37" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="3F" CompositionName="Items">
+              <MultilingualTextItem ID="38" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sma przepływ wsteczny  GF</Text>
@@ -2041,15 +1710,15 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="40" CompositionName="Title">
+          <MultilingualText ID="39" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="41" CompositionName="Items">
+              <MultilingualTextItem ID="3A" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="42" CompositionName="Items">
+              <MultilingualTextItem ID="3B" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>MODBUS RTU  adress ******step 5: read from slave 3065</Text>
@@ -2059,7 +1728,7 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="43" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="3C" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -2303,6 +1972,122 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
+          <MultilingualText ID="3D" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="3E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="40" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="41" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="42" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text>Odczyt 3065</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="43" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="dbTags_master_ABB_1" />
+        <Component Name="step" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="22">
+      <Constant>
+        <ConstantType>USInt</ConstantType>
+        <ConstantValue>6</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="dbTags_master_ABB_1" />
+        <Component Name="modbusMaster" />
+        <Component Name="done" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="24">
+      <Constant>
+        <ConstantType>Word</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="dbTags_master_ABB_1" />
+        <Component Name="modbusMaster" />
+        <Component Name="errorStatus" />
+      </Symbol>
+    </Access>
+    <Part Name="Eq" UId="26">
+      <TemplateValue Name="SrcType" Type="Type">USInt</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="27" />
+    <Part Name="Move" UId="28" DisabledENO="false">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="29">
+      <Powerrail />
+      <NameCon UId="26" Name="pre" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="21" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in2" />
+    </Wire>
+    <Wire UId="32">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="27" Name="in" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+    <Wire UId="34">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="en" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="24" />
+      <NameCon UId="28" Name="in" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="28" Name="out1" />
+      <IdentCon UId="25" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
           <MultilingualText ID="44" CompositionName="Comment">
             <ObjectList>
               <MultilingualTextItem ID="45" CompositionName="Items">
@@ -2330,7 +2115,7 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
               <MultilingualTextItem ID="49" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>Odczyt 3065</Text>
+                  <Text />
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2357,10 +2142,23 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
       <Symbol>
         <Component Name="dbTags_master_ABB_1" />
         <Component Name="modbusMaster" />
+        <Component Name="status" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="24">
+      <Constant>
+        <ConstantType>Word</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="dbTags_master_ABB_1" />
+        <Component Name="modbusMaster" />
         <Component Name="done" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="24">
+    <Access Scope="GlobalVariable" UId="26">
       <Symbol>
         <Component Name="dbMasterData" />
         <Component Name="ID6_Licznik_suma_VR_Adres_33065" />
@@ -2374,191 +2172,108 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
         </Component>
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="25">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="received_6_Licznik_objętość_VR_Adres_4" />
-        <Component Name="typeDataInverter_Dword" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="26">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="received_6_Licznik_objętość_VR_Adres_4" />
-        <Component Name="typeDataInverter_Dword" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="LiteralConstant" UId="27">
-      <Constant>
-        <ConstantType>UInt</ConstantType>
-        <ConstantValue>16</ConstantValue>
-      </Constant>
-    </Access>
-    <Access Scope="GlobalVariable" UId="28">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="received_ROL_suma_objętość_VR_Adres_4" />
-        <Component Name="typeDataInverter_Dword" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="29">
-      <Symbol>
-        <Component Name="dbModbusRTU_Reg" />
-        <Component Name="received_ROL_suma_objętość_VR_Adres_4" />
-        <Component Name="typeDataInverter_Dword" AccessModifier="Array">
-          <Access Scope="LiteralConstant">
-            <Constant>
-              <ConstantType>DInt</ConstantType>
-              <ConstantValue>0</ConstantValue>
-            </Constant>
-          </Access>
-        </Component>
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="30">
+    <Access Scope="GlobalVariable" UId="27">
       <Symbol>
         <Component Name="dbModbusRTU_Reg" />
         <Component Name="Przepływomierz nr1 pompownia" />
         <Component Name="ID6_objętośc RF_Adres_4" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="31">
+    <Access Scope="GlobalVariable" UId="28">
       <Symbol>
         <Component Name="dbTags_master_ABB_1" />
         <Component Name="modbusMaster" />
         <Component Name="req" />
       </Symbol>
     </Access>
-    <Access Scope="LiteralConstant" UId="32">
+    <Access Scope="LiteralConstant" UId="29">
       <Constant>
         <ConstantType>USInt</ConstantType>
         <ConstantValue>25</ConstantValue>
       </Constant>
     </Access>
-    <Access Scope="GlobalVariable" UId="33">
+    <Access Scope="GlobalVariable" UId="30">
       <Symbol>
         <Component Name="dbTags_master_ABB_1" />
         <Component Name="step" />
       </Symbol>
     </Access>
-    <Part Name="Eq" UId="34">
+    <Part Name="Eq" UId="31">
       <TemplateValue Name="SrcType" Type="Type">USInt</TemplateValue>
     </Part>
-    <Part Name="Contact" UId="35" />
-    <Part Name="Convert" UId="36" DisabledENO="true">
-      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
-      <TemplateValue Name="DestType" Type="Type">DWord</TemplateValue>
+    <Part Name="Eq" UId="32">
+      <TemplateValue Name="SrcType" Type="Type">Word</TemplateValue>
     </Part>
-    <Part Name="Rl" UId="37" DisabledENO="true">
-      <TemplateValue Name="SrcType" Type="Type">DWord</TemplateValue>
+    <Part Name="Contact" UId="33" />
+    <Part Name="Move" UId="34" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
     </Part>
-    <Part Name="Convert" UId="38" DisabledENO="true">
-      <TemplateValue Name="SrcType" Type="Type">DWord</TemplateValue>
-      <TemplateValue Name="DestType" Type="Type">Real</TemplateValue>
-    </Part>
-    <Part Name="RCoil" UId="39" />
-    <Part Name="Move" UId="40" DisabledENO="false">
+    <Part Name="RCoil" UId="35" />
+    <Part Name="Move" UId="36" DisabledENO="false">
       <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
     </Part>
   </Parts>
   <Wires>
-    <Wire UId="41">
+    <Wire UId="37">
       <Powerrail />
-      <NameCon UId="34" Name="pre" />
+      <NameCon UId="31" Name="pre" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="21" />
+      <NameCon UId="31" Name="in1" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="22" />
+      <NameCon UId="31" Name="in2" />
+    </Wire>
+    <Wire UId="40">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="pre" />
+    </Wire>
+    <Wire UId="41">
+      <IdentCon UId="23" />
+      <NameCon UId="32" Name="in1" />
     </Wire>
     <Wire UId="42">
-      <IdentCon UId="21" />
-      <NameCon UId="34" Name="in1" />
+      <IdentCon UId="24" />
+      <NameCon UId="32" Name="in2" />
     </Wire>
     <Wire UId="43">
-      <IdentCon UId="22" />
-      <NameCon UId="34" Name="in2" />
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="in" />
     </Wire>
     <Wire UId="44">
-      <NameCon UId="34" Name="out" />
-      <NameCon UId="35" Name="in" />
+      <IdentCon UId="25" />
+      <NameCon UId="33" Name="operand" />
     </Wire>
     <Wire UId="45">
-      <IdentCon UId="23" />
-      <NameCon UId="35" Name="operand" />
+      <NameCon UId="33" Name="out" />
+      <NameCon UId="34" Name="en" />
+      <NameCon UId="36" Name="en" />
     </Wire>
     <Wire UId="46">
-      <NameCon UId="35" Name="out" />
-      <NameCon UId="36" Name="en" />
-      <NameCon UId="40" Name="en" />
+      <IdentCon UId="26" />
+      <NameCon UId="34" Name="in" />
     </Wire>
     <Wire UId="47">
-      <IdentCon UId="24" />
-      <NameCon UId="36" Name="in" />
+      <NameCon UId="34" Name="eno" />
+      <NameCon UId="35" Name="in" />
     </Wire>
     <Wire UId="48">
-      <NameCon UId="36" Name="eno" />
-      <NameCon UId="37" Name="en" />
+      <NameCon UId="34" Name="out1" />
+      <IdentCon UId="27" />
     </Wire>
     <Wire UId="49">
-      <NameCon UId="36" Name="out" />
-      <IdentCon UId="25" />
+      <IdentCon UId="28" />
+      <NameCon UId="35" Name="operand" />
     </Wire>
     <Wire UId="50">
-      <IdentCon UId="26" />
-      <NameCon UId="37" Name="in" />
+      <IdentCon UId="29" />
+      <NameCon UId="36" Name="in" />
     </Wire>
     <Wire UId="51">
-      <IdentCon UId="27" />
-      <NameCon UId="37" Name="n" />
-    </Wire>
-    <Wire UId="52">
-      <NameCon UId="37" Name="eno" />
-      <NameCon UId="38" Name="en" />
-    </Wire>
-    <Wire UId="53">
-      <NameCon UId="37" Name="out" />
-      <IdentCon UId="28" />
-    </Wire>
-    <Wire UId="54">
-      <IdentCon UId="29" />
-      <NameCon UId="38" Name="in" />
-    </Wire>
-    <Wire UId="55">
-      <NameCon UId="38" Name="eno" />
-      <NameCon UId="39" Name="in" />
-    </Wire>
-    <Wire UId="56">
-      <NameCon UId="38" Name="out" />
+      <NameCon UId="36" Name="out1" />
       <IdentCon UId="30" />
-    </Wire>
-    <Wire UId="57">
-      <IdentCon UId="31" />
-      <NameCon UId="39" Name="operand" />
-    </Wire>
-    <Wire UId="58">
-      <IdentCon UId="32" />
-      <NameCon UId="40" Name="in" />
-    </Wire>
-    <Wire UId="59">
-      <NameCon UId="40" Name="out1" />
-      <IdentCon UId="33" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -2763,9 +2478,9 @@ Obsługa protokołu Master Modbus RTU.  Odczyt pomiarów  przepływomierza ABB</
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
-        <Component Name="dbTags_master_Fal_1" />
+        <Component Name="dbTags_master_ABB_1" />
         <Component Name="modbusMaster" />
-        <Component Name="errorStatus" />
+        <Component Name="status" />
       </Symbol>
     </Access>
     <Access Scope="LiteralConstant" UId="23">
@@ -2935,7 +2650,7 @@ Uwolnienie linni modbus</Text>
       <Symbol>
         <Component Name="dbTags_master_ABB_1" />
         <Component Name="modbusMaster" />
-        <Component Name="errorStatus" />
+        <Component Name="status" />
       </Symbol>
     </Access>
     <Access Scope="LiteralConstant" UId="23">
@@ -3140,55 +2855,82 @@ Uwolnienie linni modbus</Text>
     </Access>
     <Access Scope="GlobalVariable" UId="26">
       <Symbol>
+        <Component Name="dbTags_master_Fal_1" />
+        <Component Name="step" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="27">
+      <Constant>
+        <ConstantType>USInt</ConstantType>
+        <ConstantValue>1</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
         <Component Name="setErrorModbsmasterFal" />
       </Symbol>
     </Access>
-    <Part Name="Eq" UId="27">
+    <Part Name="Eq" UId="29">
       <TemplateValue Name="SrcType" Type="Type">USInt</TemplateValue>
     </Part>
-    <Part Name="PBox" UId="28" />
-    <Part Name="Move" UId="29" DisabledENO="false">
+    <Part Name="PBox" UId="30" />
+    <Part Name="Move" UId="31" DisabledENO="false">
       <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
     </Part>
-    <Part Name="RCoil" UId="30" />
+    <Part Name="Eq" UId="32">
+      <TemplateValue Name="SrcType" Type="Type">USInt</TemplateValue>
+    </Part>
+    <Part Name="RCoil" UId="33" />
   </Parts>
   <Wires>
-    <Wire UId="31">
-      <Powerrail />
-      <NameCon UId="27" Name="pre" />
-    </Wire>
-    <Wire UId="32">
-      <IdentCon UId="21" />
-      <NameCon UId="27" Name="in1" />
-    </Wire>
-    <Wire UId="33">
-      <IdentCon UId="22" />
-      <NameCon UId="27" Name="in2" />
-    </Wire>
     <Wire UId="34">
-      <NameCon UId="27" Name="out" />
-      <NameCon UId="28" Name="in" />
-      <NameCon UId="30" Name="in" />
+      <Powerrail />
+      <NameCon UId="29" Name="pre" />
     </Wire>
     <Wire UId="35">
-      <IdentCon UId="23" />
-      <NameCon UId="28" Name="bit" />
+      <IdentCon UId="21" />
+      <NameCon UId="29" Name="in1" />
     </Wire>
     <Wire UId="36">
-      <NameCon UId="28" Name="out" />
-      <NameCon UId="29" Name="en" />
+      <IdentCon UId="22" />
+      <NameCon UId="29" Name="in2" />
     </Wire>
     <Wire UId="37">
-      <IdentCon UId="24" />
-      <NameCon UId="29" Name="in" />
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="in" />
+      <NameCon UId="32" Name="pre" />
     </Wire>
     <Wire UId="38">
-      <NameCon UId="29" Name="out1" />
-      <IdentCon UId="25" />
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="bit" />
     </Wire>
     <Wire UId="39">
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="31" Name="en" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="24" />
+      <NameCon UId="31" Name="in" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="31" Name="out1" />
+      <IdentCon UId="25" />
+    </Wire>
+    <Wire UId="42">
       <IdentCon UId="26" />
-      <NameCon UId="30" Name="operand" />
+      <NameCon UId="32" Name="in1" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="27" />
+      <NameCon UId="32" Name="in2" />
+    </Wire>
+    <Wire UId="44">
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="in" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="28" />
+      <NameCon UId="33" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -3461,7 +3203,7 @@ Uwolnienie linni modbus</Text>
       <Symbol>
         <Component Name="dbTags_master_ABB_1" />
         <Component Name="modbusMaster" />
-        <Component Name="errorStatus" />
+        <Component Name="status" />
       </Symbol>
     </Access>
     <Access Scope="LiteralConstant" UId="23">

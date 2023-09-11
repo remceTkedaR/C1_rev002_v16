@@ -146,7 +146,8 @@ BEGIN
 	
 	// Gotowość falownika
 	"inputready_Inverter_P1-P4" := "I1.5":P;
-	IF "inputready_Inverter_P1-P4" AND ("dbmanagement".awaria_falownika_F1 = False) THEN
+	
+	IF "inputready_Inverter_P1-P4"  THEN
 	  // Ustaw gotowość
 	  "IsReady_Inverter" :=TRUE;
 	ELSE

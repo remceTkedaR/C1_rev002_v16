@@ -1,4 +1,4 @@
-﻿FUNCTION_BLOCK "MainControlSetPump"
+﻿FUNCTION_BLOCK "06_S_MainControlSetPump"
 TITLE = MainControlSetPump
 { S7_Optimized_Access := 'TRUE' }
 AUTHOR : vrtecmer

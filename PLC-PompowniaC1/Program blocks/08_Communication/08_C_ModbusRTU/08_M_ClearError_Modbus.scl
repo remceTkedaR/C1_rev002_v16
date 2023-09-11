@@ -151,6 +151,7 @@ BEGIN
 	    
 	    // Zerowanie kodu błędu
 	    "dbTags_master_ABB_1".modbusMaster.errorStatus := 0;
+	    "dbTags_master_Fal_1".modbusMaster.errorStatus := 0;
 	    "dbTags_slave_RTU".modbusMaster.errorStatus := 0;
 	    
 	    "db10datablock".RTU_stepRESET := 0;
