@@ -28,30 +28,34 @@ BEGIN
 	//01.00.00 23.09.2023 (Tecmer Radosław - twórca) Pieresza wersja 01.00.00
 	//=============================================================================
 	*)
-	"Set_HWork_P1" := FALSE;
-	"Set_HWork_P2" := FALSE;
-	"Set_HWork_P3" := FALSE;
-	"Set_HWork_P4" := FALSE;
+	
+	
+	  "Set_HWork_P1" := FALSE;
+	  "Set_HWork_P2" := FALSE;
+	  "Set_HWork_P3" := FALSE;
+	  "Set_HWork_P4" := FALSE;
+	
+	//"setSUPV_FP2"
 	
 	// zmiena "dbdane".chosenPump  przekazana z funkcji "FindPumpWithMinWorkTime" 
 	CASE "dbdane".chosenPump OF
 	  1:
-	    IF "IsReady_P1" AND "bitH_Aut_Man_P1" AND ("IsRunInverter_P1" = FALSE) THEN
+	    IF "IsReady_P1" AND "bitH_Aut_Man_P1" AND ("IsRunInverter_P1" = FALSE) AND "IsRunInverter_P1" = FALSE THEN
 	      "Set_HWork_P1" := TRUE;
 	      #ActivePump := 1;
 	    END_IF;
 	  2:
-	    IF "IsReady_P2" AND "bitH_Aut_Man_P2"AND ("IsRunInverter_P2" = FALSE) THEN
+	    IF "IsReady_P2" AND "bitH_Aut_Man_P2"AND ("IsRunInverter_P2" = FALSE) AND "IsRunInverter_P2" = FALSE THEN
 	      "Set_HWork_P2" := TRUE;
 	      #ActivePump := 2;
 	    END_IF;
 	  3:
-	    IF "IsReady_P3" AND "bitH_Aut_Man_P3" AND ("IsRunInverter_P3" = FALSE) THEN
+	    IF "IsReady_P3" AND "bitH_Aut_Man_P3" AND ("IsRunInverter_P3" = FALSE) AND "IsRunInverter_P3" = FALSE THEN
 	      "Set_HWork_P3" := TRUE;
 	      #ActivePump := 3;
 	    END_IF;
 	  4:
-	    IF "IsReady_P4" AND "bitH_Aut_Man_P4" AND ("IsRunInverter_P4" = FALSE) THEN
+	    IF "IsReady_P4" AND "bitH_Aut_Man_P4" AND ("IsRunInverter_P4" = FALSE) AND "IsRunInverter_P4" = FALSE THEN
 	      "Set_HWork_P4" := TRUE;
 	      #ActivePump := 4;
 	    END_IF;

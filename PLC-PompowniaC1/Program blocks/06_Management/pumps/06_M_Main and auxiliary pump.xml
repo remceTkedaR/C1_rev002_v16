@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2023-08-28T09:37:42.2517903Z</Created>
+    <Created>2023-09-25T11:31:53.5122955Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -46,24 +46,12 @@
     <Member Name="set_Motor3" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">pomocniczy bit ustawiania pompę dodatkową nr2</MultiLanguageText></Comment></Member>
     <Member Name="set_Motor4" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">pomocniczy bit ustawiania pompę dodatkową nr3</MultiLanguageText></Comment></Member>
   </Section>
-  <Section Name="Static" />
-  <Section Name="Temp">
-    <Member Name="tmp_Res_Motor2" Datatype="Bool">
-      <Comment>
-        <MultiLanguageText Lang="pl-PL">pomocniczy bit kasowania znacznika dodatkowej  nr1</MultiLanguageText>
-      </Comment>
-    </Member>
-    <Member Name="tmp_Res_Motor3" Datatype="Bool">
-      <Comment>
-        <MultiLanguageText Lang="pl-PL">pomocniczy bit kasowania znacznika dodatkowej  nr2</MultiLanguageText>
-      </Comment>
-    </Member>
-    <Member Name="tmp_Res_Motor4" Datatype="Bool">
-      <Comment>
-        <MultiLanguageText Lang="pl-PL">pomocniczy bit kasowania znacznika dodatkowej  nr3</MultiLanguageText>
-      </Comment>
-    </Member>
+  <Section Name="Static">
+    <Member Name="tmp_Res_Motor2" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">pomocniczy bit kasowania znacznika dodatkowej  nr1</MultiLanguageText></Comment></Member>
+    <Member Name="tmp_Res_Motor3" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">pomocniczy bit kasowania znacznika dodatkowej  nr2</MultiLanguageText></Comment></Member>
+    <Member Name="tmp_Res_Motor4" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">pomocniczy bit kasowania znacznika dodatkowej  nr3</MultiLanguageText></Comment></Member>
   </Section>
+  <Section Name="Temp" />
   <Section Name="Constant" />
 </Sections></Interface>
       <IsIECCheckEnabled>false</IsIECCheckEnabled>
@@ -848,47 +836,64 @@
         <Component Name="Is_extras_K1" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="23">
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="IsReady_Inverter" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
       <Symbol>
         <Component Name="set_Motor2" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="24" />
     <Part Name="Contact" UId="25" />
-    <Part Name="O" UId="26">
-      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    <Part Name="Contact" UId="26" />
+    <Part Name="Contact" UId="27">
+      <Negated Name="operand" />
     </Part>
-    <Part Name="RCoil" UId="27" />
+    <Part Name="O" UId="28">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+    </Part>
+    <Part Name="RCoil" UId="29" />
   </Parts>
   <Wires>
-    <Wire UId="28">
-      <Powerrail />
-      <NameCon UId="24" Name="in" />
-      <NameCon UId="25" Name="in" />
-    </Wire>
-    <Wire UId="29">
-      <IdentCon UId="21" />
-      <NameCon UId="24" Name="operand" />
-    </Wire>
     <Wire UId="30">
-      <NameCon UId="24" Name="out" />
-      <NameCon UId="26" Name="in1" />
+      <Powerrail />
+      <NameCon UId="25" Name="in" />
+      <NameCon UId="26" Name="in" />
+      <NameCon UId="27" Name="in" />
     </Wire>
     <Wire UId="31">
-      <IdentCon UId="22" />
+      <IdentCon UId="21" />
       <NameCon UId="25" Name="operand" />
     </Wire>
     <Wire UId="32">
       <NameCon UId="25" Name="out" />
-      <NameCon UId="26" Name="in2" />
+      <NameCon UId="28" Name="in1" />
     </Wire>
     <Wire UId="33">
-      <NameCon UId="26" Name="out" />
-      <NameCon UId="27" Name="in" />
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="operand" />
     </Wire>
     <Wire UId="34">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="28" Name="in2" />
+    </Wire>
+    <Wire UId="35">
       <IdentCon UId="23" />
       <NameCon UId="27" Name="operand" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in3" />
+    </Wire>
+    <Wire UId="37">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1058,47 +1063,64 @@
         <Component Name="Is_extras_K2" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="23">
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="IsReady_Inverter" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
       <Symbol>
         <Component Name="set_Motor3" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="24" />
     <Part Name="Contact" UId="25" />
-    <Part Name="O" UId="26">
-      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    <Part Name="Contact" UId="26" />
+    <Part Name="Contact" UId="27">
+      <Negated Name="operand" />
     </Part>
-    <Part Name="RCoil" UId="27" />
+    <Part Name="O" UId="28">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+    </Part>
+    <Part Name="RCoil" UId="29" />
   </Parts>
   <Wires>
-    <Wire UId="28">
-      <Powerrail />
-      <NameCon UId="24" Name="in" />
-      <NameCon UId="25" Name="in" />
-    </Wire>
-    <Wire UId="29">
-      <IdentCon UId="21" />
-      <NameCon UId="24" Name="operand" />
-    </Wire>
     <Wire UId="30">
-      <NameCon UId="24" Name="out" />
-      <NameCon UId="26" Name="in1" />
+      <Powerrail />
+      <NameCon UId="25" Name="in" />
+      <NameCon UId="26" Name="in" />
+      <NameCon UId="27" Name="in" />
     </Wire>
     <Wire UId="31">
-      <IdentCon UId="22" />
+      <IdentCon UId="21" />
       <NameCon UId="25" Name="operand" />
     </Wire>
     <Wire UId="32">
       <NameCon UId="25" Name="out" />
-      <NameCon UId="26" Name="in2" />
+      <NameCon UId="28" Name="in1" />
     </Wire>
     <Wire UId="33">
-      <NameCon UId="26" Name="out" />
-      <NameCon UId="27" Name="in" />
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="operand" />
     </Wire>
     <Wire UId="34">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="28" Name="in2" />
+    </Wire>
+    <Wire UId="35">
       <IdentCon UId="23" />
       <NameCon UId="27" Name="operand" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in3" />
+    </Wire>
+    <Wire UId="37">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1268,47 +1290,64 @@
         <Component Name="Is_extras_K3" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="23">
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="IsReady_Inverter" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
       <Symbol>
         <Component Name="set_Motor4" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="24" />
     <Part Name="Contact" UId="25" />
-    <Part Name="O" UId="26">
-      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    <Part Name="Contact" UId="26" />
+    <Part Name="Contact" UId="27">
+      <Negated Name="operand" />
     </Part>
-    <Part Name="RCoil" UId="27" />
+    <Part Name="O" UId="28">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+    </Part>
+    <Part Name="RCoil" UId="29" />
   </Parts>
   <Wires>
-    <Wire UId="28">
-      <Powerrail />
-      <NameCon UId="24" Name="in" />
-      <NameCon UId="25" Name="in" />
-    </Wire>
-    <Wire UId="29">
-      <IdentCon UId="21" />
-      <NameCon UId="24" Name="operand" />
-    </Wire>
     <Wire UId="30">
-      <NameCon UId="24" Name="out" />
-      <NameCon UId="26" Name="in1" />
+      <Powerrail />
+      <NameCon UId="25" Name="in" />
+      <NameCon UId="26" Name="in" />
+      <NameCon UId="27" Name="in" />
     </Wire>
     <Wire UId="31">
-      <IdentCon UId="22" />
+      <IdentCon UId="21" />
       <NameCon UId="25" Name="operand" />
     </Wire>
     <Wire UId="32">
       <NameCon UId="25" Name="out" />
-      <NameCon UId="26" Name="in2" />
+      <NameCon UId="28" Name="in1" />
     </Wire>
     <Wire UId="33">
-      <NameCon UId="26" Name="out" />
-      <NameCon UId="27" Name="in" />
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="operand" />
     </Wire>
     <Wire UId="34">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="28" Name="in2" />
+    </Wire>
+    <Wire UId="35">
       <IdentCon UId="23" />
       <NameCon UId="27" Name="operand" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in3" />
+    </Wire>
+    <Wire UId="37">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>

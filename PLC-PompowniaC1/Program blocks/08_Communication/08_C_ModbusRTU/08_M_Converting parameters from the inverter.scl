@@ -23,17 +23,17 @@ VERSION : 0.1
       OverVolta_Inverter { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Word;
    END_VAR
 
-   VAR_TEMP 
-      tmp_1 : Real;
-      tmp_2 : Real;
-      tmp_3 : Real;
-      tmp_4 : Real;
-      tmp_5 : Real;
-      tmp_6 : Real;
-      tmp_7 : Real;
-      tmp_8 : Real;
-      tmp_9 : Real;
-      tmp_10 : Real;
+   VAR 
+      tmp_1 { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
+      tmp_2 { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
+      tmp_3 { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
+      tmp_4 { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
+      tmp_5 { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
+      tmp_6 { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
+      tmp_7 { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
+      tmp_8 { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
+      tmp_9 { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
+      tmp_10 { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
    END_VAR
 
 

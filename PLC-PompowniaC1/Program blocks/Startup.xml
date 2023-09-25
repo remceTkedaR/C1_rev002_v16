@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2023-09-11T12:14:50.3136772Z</Created>
+    <Created>2023-09-25T11:31:50.6356015Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -94,7 +94,7 @@
     <Access Scope="LiteralConstant" UId="23">
       <Constant>
         <ConstantType>UDInt</ConstantType>
-        <ConstantValue>9600</ConstantValue>
+        <ConstantValue>19200</ConstantValue>
       </Constant>
     </Access>
     <Access Scope="LiteralConstant" UId="24">
@@ -106,7 +106,7 @@
     <Access Scope="LiteralConstant" UId="25">
       <Constant>
         <ConstantType>UInt</ConstantType>
-        <ConstantValue>800</ConstantValue>
+        <ConstantValue>1000</ConstantValue>
       </Constant>
     </Access>
     <Access Scope="GlobalVariable" UId="26">

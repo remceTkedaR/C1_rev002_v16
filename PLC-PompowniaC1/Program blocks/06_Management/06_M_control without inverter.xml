@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2023-08-28T09:37:40.6819003Z</Created>
+    <Created>2023-09-25T11:31:52.4105529Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -48,7 +48,7 @@
     <Member Name="InputWarning_H_PID" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">Oszczerzenie górny limit</MultiLanguageText></Comment></Member>
     <Member Name="InputWarning_L_PID" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">Oczszczerzenie dolny limit</MultiLanguageText></Comment></Member>
     <Member Name="IsReady_Inverter" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">Gotowość falownika </MultiLanguageText></Comment></Member>
-    <Member Name="PV_max" Datatype="Real" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">Wartość górnego progu ostrzegawczego</MultiLanguageText></Comment></Member>
+    <Member Name="SV_bar" Datatype="Real" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">Zadana wartość ciśnienia</MultiLanguageText></Comment></Member>
     <Member Name="Act_B3ciśnienie" Datatype="Real" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">Aktualna wartość bar</MultiLanguageText></Comment></Member>
     <Member Name="Rst_Driver_Max_presure" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">Znacznika awaryjnego wyłączenia od max ciśnienia napędu pracującego w trybie awaryjnym</MultiLanguageText></Comment></Member>
   </Section>
@@ -60,20 +60,11 @@
   </Section>
   <Section Name="InOut" />
   <Section Name="Static">
-    <Member Name="stc_PV" Datatype="Real" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">Ustalona wartość pomniejszenia PV</MultiLanguageText></Comment><StartValue>0.2</StartValue></Member>
+    <Member Name="set_Motor" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">pomocniczy bit ustawiający pompę</MultiLanguageText></Comment></Member>
+    <Member Name="tmp_SVoff" Datatype="Real" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">Tymczasowa  ustalona wartość progu górnego bar</MultiLanguageText></Comment></Member>
+    <Member Name="stc_SV" Datatype="Real" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="pl-PL">Ustalona wartość pomniejszenia PV</MultiLanguageText></Comment><StartValue>0.2</StartValue></Member>
   </Section>
-  <Section Name="Temp">
-    <Member Name="set_Motor" Datatype="Bool">
-      <Comment>
-        <MultiLanguageText Lang="pl-PL">pomocniczy bit ustawiający pompę</MultiLanguageText>
-      </Comment>
-    </Member>
-    <Member Name="tmp_PVmax" Datatype="Real">
-      <Comment>
-        <MultiLanguageText Lang="pl-PL">Tymczasowa  ustalona wartość progu górnego bar</MultiLanguageText>
-      </Comment>
-    </Member>
-  </Section>
+  <Section Name="Temp" />
   <Section Name="Constant" />
 </Sections></Interface>
       <IsIECCheckEnabled>false</IsIECCheckEnabled>
@@ -155,20 +146,21 @@ Jednocześnie pracuje tylko jeden kompresor. </Text>
   <Parts>
     <Access Scope="LocalVariable" UId="21">
       <Symbol>
-        <Component Name="PV_max" />
+        <Component Name="SV_bar" />
       </Symbol>
     </Access>
     <Access Scope="LocalVariable" UId="22">
       <Symbol>
-        <Component Name="stc_PV" />
+        <Component Name="stc_SV" />
       </Symbol>
     </Access>
     <Access Scope="LocalVariable" UId="23">
       <Symbol>
-        <Component Name="tmp_PVmax" />
+        <Component Name="tmp_SVoff" />
       </Symbol>
     </Access>
-    <Part Name="Sub" UId="24" DisabledENO="true">
+    <Part Name="Add" UId="24" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
       <AutomaticTyped Name="SrcType" />
     </Part>
   </Parts>
@@ -347,7 +339,7 @@ Jednocześnie pracuje tylko jeden kompresor. </Text>
     </Access>
     <Access Scope="LocalVariable" UId="23">
       <Symbol>
-        <Component Name="tmp_PVmax" />
+        <Component Name="tmp_SVoff" />
       </Symbol>
     </Access>
     <Access Scope="LocalVariable" UId="24">
@@ -355,63 +347,78 @@ Jednocześnie pracuje tylko jeden kompresor. </Text>
         <Component Name="Rst_Driver_Max_presure" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="25">
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="IsReady_Inverter" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
       <Symbol>
         <Component Name="set_Motor" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="26" />
-    <Part Name="Ge" UId="27">
+    <Part Name="Contact" UId="27" />
+    <Part Name="Ge" UId="28">
       <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
     </Part>
-    <Part Name="Contact" UId="28" />
-    <Part Name="O" UId="29">
-      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+    <Part Name="Contact" UId="29" />
+    <Part Name="Contact" UId="30" />
+    <Part Name="O" UId="31">
+      <TemplateValue Name="Card" Type="Cardinality">4</TemplateValue>
     </Part>
-    <Part Name="RCoil" UId="30" />
+    <Part Name="RCoil" UId="32" />
   </Parts>
   <Wires>
-    <Wire UId="31">
-      <Powerrail />
-      <NameCon UId="26" Name="in" />
-      <NameCon UId="27" Name="pre" />
-      <NameCon UId="28" Name="in" />
-    </Wire>
-    <Wire UId="32">
-      <IdentCon UId="21" />
-      <NameCon UId="26" Name="operand" />
-    </Wire>
     <Wire UId="33">
-      <NameCon UId="26" Name="out" />
-      <NameCon UId="29" Name="in1" />
+      <Powerrail />
+      <NameCon UId="27" Name="in" />
+      <NameCon UId="28" Name="pre" />
+      <NameCon UId="29" Name="in" />
+      <NameCon UId="30" Name="in" />
     </Wire>
     <Wire UId="34">
-      <IdentCon UId="22" />
-      <NameCon UId="27" Name="in1" />
+      <IdentCon UId="21" />
+      <NameCon UId="27" Name="operand" />
     </Wire>
     <Wire UId="35">
-      <IdentCon UId="23" />
-      <NameCon UId="27" Name="in2" />
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="31" Name="in1" />
     </Wire>
     <Wire UId="36">
-      <NameCon UId="27" Name="out" />
-      <NameCon UId="29" Name="in2" />
+      <IdentCon UId="22" />
+      <NameCon UId="28" Name="in1" />
     </Wire>
     <Wire UId="37">
-      <IdentCon UId="24" />
-      <NameCon UId="28" Name="operand" />
+      <IdentCon UId="23" />
+      <NameCon UId="28" Name="in2" />
     </Wire>
     <Wire UId="38">
       <NameCon UId="28" Name="out" />
-      <NameCon UId="29" Name="in3" />
+      <NameCon UId="31" Name="in2" />
     </Wire>
     <Wire UId="39">
-      <NameCon UId="29" Name="out" />
-      <NameCon UId="30" Name="in" />
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="operand" />
     </Wire>
     <Wire UId="40">
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="31" Name="in3" />
+    </Wire>
+    <Wire UId="41">
       <IdentCon UId="25" />
       <NameCon UId="30" Name="operand" />
+    </Wire>
+    <Wire UId="42">
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="31" Name="in4" />
+    </Wire>
+    <Wire UId="43">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="in" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="26" />
+      <NameCon UId="32" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -464,59 +471,57 @@ Max ciśnienie w przewodzie </Text>
         <Component Name="Set_HWork_P1" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="22">
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="bitH_Aut_Man_P1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
       <Symbol>
         <Component Name="set_Motor" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="23">
+    <Access Scope="GlobalVariable" UId="24">
       <Symbol>
         <Component Name="IsRunNetwork_P2" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="24">
+    <Access Scope="GlobalVariable" UId="25">
       <Symbol>
         <Component Name="IsRunNetwork_P3" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="25">
+    <Access Scope="GlobalVariable" UId="26">
       <Symbol>
         <Component Name="IsRunNetwork_P4" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="26">
+    <Access Scope="LocalVariable" UId="27">
       <Symbol>
         <Component Name="CMD_A_Network_P1" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="27" />
     <Part Name="Contact" UId="28" />
-    <Part Name="Contact" UId="29">
-      <Negated Name="operand" />
-    </Part>
-    <Part Name="Contact" UId="30">
-      <Negated Name="operand" />
-    </Part>
+    <Part Name="Contact" UId="29" />
+    <Part Name="Contact" UId="30" />
     <Part Name="Contact" UId="31">
       <Negated Name="operand" />
     </Part>
-    <Part Name="SCoil" UId="32" />
+    <Part Name="Contact" UId="32">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="33">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="SCoil" UId="34" />
   </Parts>
   <Wires>
-    <Wire UId="33">
-      <Powerrail />
-      <NameCon UId="27" Name="in" />
-    </Wire>
-    <Wire UId="34">
-      <IdentCon UId="21" />
-      <NameCon UId="27" Name="operand" />
-    </Wire>
     <Wire UId="35">
-      <NameCon UId="27" Name="out" />
+      <Powerrail />
       <NameCon UId="28" Name="in" />
     </Wire>
     <Wire UId="36">
-      <IdentCon UId="22" />
+      <IdentCon UId="21" />
       <NameCon UId="28" Name="operand" />
     </Wire>
     <Wire UId="37">
@@ -524,7 +529,7 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="29" Name="in" />
     </Wire>
     <Wire UId="38">
-      <IdentCon UId="23" />
+      <IdentCon UId="22" />
       <NameCon UId="29" Name="operand" />
     </Wire>
     <Wire UId="39">
@@ -532,7 +537,7 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="30" Name="in" />
     </Wire>
     <Wire UId="40">
-      <IdentCon UId="24" />
+      <IdentCon UId="23" />
       <NameCon UId="30" Name="operand" />
     </Wire>
     <Wire UId="41">
@@ -540,7 +545,7 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="31" Name="in" />
     </Wire>
     <Wire UId="42">
-      <IdentCon UId="25" />
+      <IdentCon UId="24" />
       <NameCon UId="31" Name="operand" />
     </Wire>
     <Wire UId="43">
@@ -548,8 +553,24 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="32" Name="in" />
     </Wire>
     <Wire UId="44">
-      <IdentCon UId="26" />
+      <IdentCon UId="25" />
       <NameCon UId="32" Name="operand" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="in" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="26" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="33" Name="out" />
+      <NameCon UId="34" Name="in" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="27" />
+      <NameCon UId="34" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -599,32 +620,73 @@ Max ciśnienie w przewodzie </Text>
         <Component Name="set_Motor" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="22">
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="bitH_Aut_Man_P1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="IsReadyP1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
       <Symbol>
         <Component Name="CMD_A_Network_P1" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="23">
+    <Part Name="Contact" UId="25">
       <Negated Name="operand" />
     </Part>
-    <Part Name="RCoil" UId="24" />
+    <Part Name="Contact" UId="26">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="27">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="O" UId="28">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+    </Part>
+    <Part Name="RCoil" UId="29" />
   </Parts>
   <Wires>
-    <Wire UId="25">
+    <Wire UId="30">
       <Powerrail />
-      <NameCon UId="23" Name="in" />
+      <NameCon UId="25" Name="in" />
+      <NameCon UId="26" Name="in" />
+      <NameCon UId="27" Name="in" />
     </Wire>
-    <Wire UId="26">
+    <Wire UId="31">
       <IdentCon UId="21" />
-      <NameCon UId="23" Name="operand" />
+      <NameCon UId="25" Name="operand" />
     </Wire>
-    <Wire UId="27">
-      <NameCon UId="23" Name="out" />
-      <NameCon UId="24" Name="in" />
+    <Wire UId="32">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="28" Name="in1" />
     </Wire>
-    <Wire UId="28">
+    <Wire UId="33">
       <IdentCon UId="22" />
-      <NameCon UId="24" Name="operand" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+    <Wire UId="34">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="28" Name="in2" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in3" />
+    </Wire>
+    <Wire UId="37">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -674,59 +736,57 @@ Max ciśnienie w przewodzie </Text>
         <Component Name="Set_HWork_P2" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="22">
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="bitH_Aut_Man_P1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
       <Symbol>
         <Component Name="set_Motor" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="23">
+    <Access Scope="GlobalVariable" UId="24">
       <Symbol>
         <Component Name="IsRunNetwork_P1" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="24">
+    <Access Scope="GlobalVariable" UId="25">
       <Symbol>
         <Component Name="IsRunNetwork_P3" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="25">
+    <Access Scope="GlobalVariable" UId="26">
       <Symbol>
         <Component Name="IsRunNetwork_P4" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="26">
+    <Access Scope="LocalVariable" UId="27">
       <Symbol>
         <Component Name="CMD_A_Network_P2" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="27" />
     <Part Name="Contact" UId="28" />
-    <Part Name="Contact" UId="29">
-      <Negated Name="operand" />
-    </Part>
-    <Part Name="Contact" UId="30">
-      <Negated Name="operand" />
-    </Part>
+    <Part Name="Contact" UId="29" />
+    <Part Name="Contact" UId="30" />
     <Part Name="Contact" UId="31">
       <Negated Name="operand" />
     </Part>
-    <Part Name="SCoil" UId="32" />
+    <Part Name="Contact" UId="32">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="33">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="SCoil" UId="34" />
   </Parts>
   <Wires>
-    <Wire UId="33">
-      <Powerrail />
-      <NameCon UId="27" Name="in" />
-    </Wire>
-    <Wire UId="34">
-      <IdentCon UId="21" />
-      <NameCon UId="27" Name="operand" />
-    </Wire>
     <Wire UId="35">
-      <NameCon UId="27" Name="out" />
+      <Powerrail />
       <NameCon UId="28" Name="in" />
     </Wire>
     <Wire UId="36">
-      <IdentCon UId="22" />
+      <IdentCon UId="21" />
       <NameCon UId="28" Name="operand" />
     </Wire>
     <Wire UId="37">
@@ -734,7 +794,7 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="29" Name="in" />
     </Wire>
     <Wire UId="38">
-      <IdentCon UId="23" />
+      <IdentCon UId="22" />
       <NameCon UId="29" Name="operand" />
     </Wire>
     <Wire UId="39">
@@ -742,7 +802,7 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="30" Name="in" />
     </Wire>
     <Wire UId="40">
-      <IdentCon UId="24" />
+      <IdentCon UId="23" />
       <NameCon UId="30" Name="operand" />
     </Wire>
     <Wire UId="41">
@@ -750,7 +810,7 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="31" Name="in" />
     </Wire>
     <Wire UId="42">
-      <IdentCon UId="25" />
+      <IdentCon UId="24" />
       <NameCon UId="31" Name="operand" />
     </Wire>
     <Wire UId="43">
@@ -758,8 +818,24 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="32" Name="in" />
     </Wire>
     <Wire UId="44">
-      <IdentCon UId="26" />
+      <IdentCon UId="25" />
       <NameCon UId="32" Name="operand" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="in" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="26" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="33" Name="out" />
+      <NameCon UId="34" Name="in" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="27" />
+      <NameCon UId="34" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -809,32 +885,73 @@ Max ciśnienie w przewodzie </Text>
         <Component Name="set_Motor" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="22">
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="bitH_Aut_Man_P2" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="IsReadyP2" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
       <Symbol>
         <Component Name="CMD_A_Network_P2" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="23">
+    <Part Name="Contact" UId="25">
       <Negated Name="operand" />
     </Part>
-    <Part Name="RCoil" UId="24" />
+    <Part Name="Contact" UId="26">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="27">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="O" UId="28">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+    </Part>
+    <Part Name="RCoil" UId="29" />
   </Parts>
   <Wires>
-    <Wire UId="25">
+    <Wire UId="30">
       <Powerrail />
-      <NameCon UId="23" Name="in" />
+      <NameCon UId="25" Name="in" />
+      <NameCon UId="26" Name="in" />
+      <NameCon UId="27" Name="in" />
     </Wire>
-    <Wire UId="26">
+    <Wire UId="31">
       <IdentCon UId="21" />
-      <NameCon UId="23" Name="operand" />
+      <NameCon UId="25" Name="operand" />
     </Wire>
-    <Wire UId="27">
-      <NameCon UId="23" Name="out" />
-      <NameCon UId="24" Name="in" />
+    <Wire UId="32">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="28" Name="in1" />
     </Wire>
-    <Wire UId="28">
+    <Wire UId="33">
       <IdentCon UId="22" />
-      <NameCon UId="24" Name="operand" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+    <Wire UId="34">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="28" Name="in2" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in3" />
+    </Wire>
+    <Wire UId="37">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -884,59 +1001,57 @@ Max ciśnienie w przewodzie </Text>
         <Component Name="Set_HWork_P3" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="22">
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="bitH_Aut_Man_P3" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
       <Symbol>
         <Component Name="set_Motor" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="23">
+    <Access Scope="GlobalVariable" UId="24">
       <Symbol>
         <Component Name="IsRunNetwork_P2" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="24">
+    <Access Scope="GlobalVariable" UId="25">
       <Symbol>
         <Component Name="IsRunNetwork_P1" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="25">
+    <Access Scope="GlobalVariable" UId="26">
       <Symbol>
         <Component Name="IsRunNetwork_P4" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="26">
+    <Access Scope="LocalVariable" UId="27">
       <Symbol>
         <Component Name="CMD_A_Network_P3" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="27" />
     <Part Name="Contact" UId="28" />
-    <Part Name="Contact" UId="29">
-      <Negated Name="operand" />
-    </Part>
-    <Part Name="Contact" UId="30">
-      <Negated Name="operand" />
-    </Part>
+    <Part Name="Contact" UId="29" />
+    <Part Name="Contact" UId="30" />
     <Part Name="Contact" UId="31">
       <Negated Name="operand" />
     </Part>
-    <Part Name="SCoil" UId="32" />
+    <Part Name="Contact" UId="32">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="33">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="SCoil" UId="34" />
   </Parts>
   <Wires>
-    <Wire UId="33">
-      <Powerrail />
-      <NameCon UId="27" Name="in" />
-    </Wire>
-    <Wire UId="34">
-      <IdentCon UId="21" />
-      <NameCon UId="27" Name="operand" />
-    </Wire>
     <Wire UId="35">
-      <NameCon UId="27" Name="out" />
+      <Powerrail />
       <NameCon UId="28" Name="in" />
     </Wire>
     <Wire UId="36">
-      <IdentCon UId="22" />
+      <IdentCon UId="21" />
       <NameCon UId="28" Name="operand" />
     </Wire>
     <Wire UId="37">
@@ -944,7 +1059,7 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="29" Name="in" />
     </Wire>
     <Wire UId="38">
-      <IdentCon UId="23" />
+      <IdentCon UId="22" />
       <NameCon UId="29" Name="operand" />
     </Wire>
     <Wire UId="39">
@@ -952,7 +1067,7 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="30" Name="in" />
     </Wire>
     <Wire UId="40">
-      <IdentCon UId="24" />
+      <IdentCon UId="23" />
       <NameCon UId="30" Name="operand" />
     </Wire>
     <Wire UId="41">
@@ -960,7 +1075,7 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="31" Name="in" />
     </Wire>
     <Wire UId="42">
-      <IdentCon UId="25" />
+      <IdentCon UId="24" />
       <NameCon UId="31" Name="operand" />
     </Wire>
     <Wire UId="43">
@@ -968,8 +1083,24 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="32" Name="in" />
     </Wire>
     <Wire UId="44">
-      <IdentCon UId="26" />
+      <IdentCon UId="25" />
       <NameCon UId="32" Name="operand" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="in" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="26" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="33" Name="out" />
+      <NameCon UId="34" Name="in" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="27" />
+      <NameCon UId="34" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1019,32 +1150,73 @@ Max ciśnienie w przewodzie </Text>
         <Component Name="set_Motor" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="22">
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="bitH_Aut_Man_P3" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="IsReadyP3" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
       <Symbol>
         <Component Name="CMD_A_Network_P3" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="23">
+    <Part Name="Contact" UId="25">
       <Negated Name="operand" />
     </Part>
-    <Part Name="RCoil" UId="24" />
+    <Part Name="Contact" UId="26">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="27">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="O" UId="28">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+    </Part>
+    <Part Name="RCoil" UId="29" />
   </Parts>
   <Wires>
-    <Wire UId="25">
+    <Wire UId="30">
       <Powerrail />
-      <NameCon UId="23" Name="in" />
+      <NameCon UId="25" Name="in" />
+      <NameCon UId="26" Name="in" />
+      <NameCon UId="27" Name="in" />
     </Wire>
-    <Wire UId="26">
+    <Wire UId="31">
       <IdentCon UId="21" />
-      <NameCon UId="23" Name="operand" />
+      <NameCon UId="25" Name="operand" />
     </Wire>
-    <Wire UId="27">
-      <NameCon UId="23" Name="out" />
-      <NameCon UId="24" Name="in" />
+    <Wire UId="32">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="28" Name="in1" />
     </Wire>
-    <Wire UId="28">
+    <Wire UId="33">
       <IdentCon UId="22" />
-      <NameCon UId="24" Name="operand" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+    <Wire UId="34">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="28" Name="in2" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in3" />
+    </Wire>
+    <Wire UId="37">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1094,59 +1266,57 @@ Max ciśnienie w przewodzie </Text>
         <Component Name="Set_HWork_P4" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="22">
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="bitH_Aut_Man_P4" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
       <Symbol>
         <Component Name="set_Motor" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="23">
+    <Access Scope="GlobalVariable" UId="24">
       <Symbol>
         <Component Name="IsRunNetwork_P2" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="24">
+    <Access Scope="GlobalVariable" UId="25">
       <Symbol>
         <Component Name="IsRunNetwork_P1" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="25">
+    <Access Scope="GlobalVariable" UId="26">
       <Symbol>
         <Component Name="IsRunNetwork_P3" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="26">
+    <Access Scope="LocalVariable" UId="27">
       <Symbol>
         <Component Name="CMD_A_Network_P4" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="27" />
     <Part Name="Contact" UId="28" />
-    <Part Name="Contact" UId="29">
-      <Negated Name="operand" />
-    </Part>
-    <Part Name="Contact" UId="30">
-      <Negated Name="operand" />
-    </Part>
+    <Part Name="Contact" UId="29" />
+    <Part Name="Contact" UId="30" />
     <Part Name="Contact" UId="31">
       <Negated Name="operand" />
     </Part>
-    <Part Name="SCoil" UId="32" />
+    <Part Name="Contact" UId="32">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="33">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="SCoil" UId="34" />
   </Parts>
   <Wires>
-    <Wire UId="33">
-      <Powerrail />
-      <NameCon UId="27" Name="in" />
-    </Wire>
-    <Wire UId="34">
-      <IdentCon UId="21" />
-      <NameCon UId="27" Name="operand" />
-    </Wire>
     <Wire UId="35">
-      <NameCon UId="27" Name="out" />
+      <Powerrail />
       <NameCon UId="28" Name="in" />
     </Wire>
     <Wire UId="36">
-      <IdentCon UId="22" />
+      <IdentCon UId="21" />
       <NameCon UId="28" Name="operand" />
     </Wire>
     <Wire UId="37">
@@ -1154,7 +1324,7 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="29" Name="in" />
     </Wire>
     <Wire UId="38">
-      <IdentCon UId="23" />
+      <IdentCon UId="22" />
       <NameCon UId="29" Name="operand" />
     </Wire>
     <Wire UId="39">
@@ -1162,7 +1332,7 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="30" Name="in" />
     </Wire>
     <Wire UId="40">
-      <IdentCon UId="24" />
+      <IdentCon UId="23" />
       <NameCon UId="30" Name="operand" />
     </Wire>
     <Wire UId="41">
@@ -1170,7 +1340,7 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="31" Name="in" />
     </Wire>
     <Wire UId="42">
-      <IdentCon UId="25" />
+      <IdentCon UId="24" />
       <NameCon UId="31" Name="operand" />
     </Wire>
     <Wire UId="43">
@@ -1178,8 +1348,24 @@ Max ciśnienie w przewodzie </Text>
       <NameCon UId="32" Name="in" />
     </Wire>
     <Wire UId="44">
-      <IdentCon UId="26" />
+      <IdentCon UId="25" />
       <NameCon UId="32" Name="operand" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="in" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="26" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="33" Name="out" />
+      <NameCon UId="34" Name="in" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="27" />
+      <NameCon UId="34" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1229,32 +1415,73 @@ Max ciśnienie w przewodzie </Text>
         <Component Name="set_Motor" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="22">
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="bitH_Aut_Man_P4" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="IsReadyP4" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
       <Symbol>
         <Component Name="CMD_A_Network_P4" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="23">
+    <Part Name="Contact" UId="25">
       <Negated Name="operand" />
     </Part>
-    <Part Name="RCoil" UId="24" />
+    <Part Name="Contact" UId="26">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="27">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="O" UId="28">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+    </Part>
+    <Part Name="RCoil" UId="29" />
   </Parts>
   <Wires>
-    <Wire UId="25">
+    <Wire UId="30">
       <Powerrail />
-      <NameCon UId="23" Name="in" />
+      <NameCon UId="25" Name="in" />
+      <NameCon UId="26" Name="in" />
+      <NameCon UId="27" Name="in" />
     </Wire>
-    <Wire UId="26">
+    <Wire UId="31">
       <IdentCon UId="21" />
-      <NameCon UId="23" Name="operand" />
+      <NameCon UId="25" Name="operand" />
     </Wire>
-    <Wire UId="27">
-      <NameCon UId="23" Name="out" />
-      <NameCon UId="24" Name="in" />
+    <Wire UId="32">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="28" Name="in1" />
     </Wire>
-    <Wire UId="28">
+    <Wire UId="33">
       <IdentCon UId="22" />
-      <NameCon UId="24" Name="operand" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+    <Wire UId="34">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="28" Name="in2" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in3" />
+    </Wire>
+    <Wire UId="37">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>

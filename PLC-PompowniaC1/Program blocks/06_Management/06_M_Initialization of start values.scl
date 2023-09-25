@@ -4,8 +4,8 @@ TITLE = Setup Write Parameters_KDN
 AUTHOR : rtecmer
 VERSION : 0.1
 //Pobranie parametrów technologicznych i przekazanie ich do instancji "tags" w celu zachowania i wprowadzeni po resecie PLC
-   VAR_TEMP 
-      TimeHz_DInt : DInt;
+   VAR 
+      TimeHz_DInt { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : DInt;
    END_VAR
 
 

@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2023-09-11T12:14:50.8020676Z</Created>
+    <Created>2023-09-25T11:31:51.2256701Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -2037,40 +2037,22 @@
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
-        <Component Name="Reset_HWork_errer" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="23">
-      <Symbol>
-        <Component Name="AlwaysTRUE" />
-      </Symbol>
-    </Access>
-    <Access Scope="GlobalVariable" UId="24">
-      <Symbol>
         <Component Name="FirstScan" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="25">
+    <Access Scope="GlobalVariable" UId="23">
       <Symbol>
         <Component Name="dbdane" />
         <Component Name="chosenPump" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="26">
+    <Part Name="Contact" UId="24" />
+    <Part Name="Contact" UId="25">
       <Negated Name="operand" />
     </Part>
-    <Call UId="27">
-      <CallInfo Name="06_M_active pump selection" BlockType="FC">
-        <Parameter Name="Reset" Section="InOut" Type="Bool" />
-      </CallInfo>
-    </Call>
-    <Part Name="Contact" UId="28" />
-    <Part Name="Contact" UId="29">
-      <Negated Name="operand" />
-    </Part>
-    <Call UId="30">
+    <Call UId="26">
       <CallInfo Name="06_S_MainControlSetPump" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="31">
+        <Instance Scope="GlobalVariable" UId="27">
           <Component Name="MainControlSetPump_DB" />
         </Instance>
         <Parameter Name="chosenPump" Section="InOut" Type="Int" />
@@ -2078,42 +2060,29 @@
     </Call>
   </Parts>
   <Wires>
-    <Wire UId="32">
+    <Wire UId="28">
       <Powerrail />
-      <NameCon UId="26" Name="in" />
-      <NameCon UId="28" Name="in" />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+    <Wire UId="30">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+    <Wire UId="32">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="en" />
     </Wire>
     <Wire UId="33">
-      <IdentCon UId="21" />
-      <NameCon UId="26" Name="operand" />
-    </Wire>
-    <Wire UId="34">
-      <NameCon UId="26" Name="out" />
-      <NameCon UId="27" Name="en" />
-    </Wire>
-    <Wire UId="35">
-      <IdentCon UId="22" />
-      <NameCon UId="27" Name="Reset" />
-    </Wire>
-    <Wire UId="36">
       <IdentCon UId="23" />
-      <NameCon UId="28" Name="operand" />
-    </Wire>
-    <Wire UId="37">
-      <NameCon UId="28" Name="out" />
-      <NameCon UId="29" Name="in" />
-    </Wire>
-    <Wire UId="38">
-      <IdentCon UId="24" />
-      <NameCon UId="29" Name="operand" />
-    </Wire>
-    <Wire UId="39">
-      <NameCon UId="29" Name="out" />
-      <NameCon UId="30" Name="en" />
-    </Wire>
-    <Wire UId="40">
-      <IdentCon UId="25" />
-      <NameCon UId="30" Name="chosenPump" />
+      <NameCon UId="26" Name="chosenPump" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -3091,8 +3060,8 @@
     </Access>
     <Access Scope="GlobalVariable" UId="31">
       <Symbol>
-        <Component Name="db10datablock" />
-        <Component Name="set_press_bar_Max" />
+        <Component Name="dbdane" />
+        <Component Name="Setpoint_SV" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="32">
@@ -3143,7 +3112,7 @@
         <Parameter Name="InputWarning_H_PID" Section="Input" Type="Bool" />
         <Parameter Name="InputWarning_L_PID" Section="Input" Type="Bool" />
         <Parameter Name="IsReady_Inverter" Section="Input" Type="Bool" />
-        <Parameter Name="PV_max" Section="Input" Type="Real" />
+        <Parameter Name="SV_bar" Section="Input" Type="Real" />
         <Parameter Name="Act_B3ciśnienie" Section="Input" Type="Real" />
         <Parameter Name="Rst_Driver_Max_presure" Section="Input" Type="Bool" />
         <Parameter Name="CMD_A_Network_P1" Section="Output" Type="Bool" />
@@ -3208,7 +3177,7 @@
     </Wire>
     <Wire UId="55">
       <IdentCon UId="31" />
-      <NameCon UId="40" Name="PV_max" />
+      <NameCon UId="40" Name="SV_bar" />
     </Wire>
     <Wire UId="56">
       <IdentCon UId="32" />
@@ -3930,78 +3899,6 @@
         <Component Name="FirstScan" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="22">
-      <Negated Name="operand" />
-    </Part>
-    <Call UId="23">
-      <CallInfo Name="01_E_Inverter current overload control" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="24">
-          <Component Name="Control Current Overload_DB" />
-        </Instance>
-      </CallInfo>
-    </Call>
-  </Parts>
-  <Wires>
-    <Wire UId="25">
-      <Powerrail />
-      <NameCon UId="22" Name="in" />
-    </Wire>
-    <Wire UId="26">
-      <IdentCon UId="21" />
-      <NameCon UId="22" Name="operand" />
-    </Wire>
-    <Wire UId="27">
-      <NameCon UId="22" Name="out" />
-      <NameCon UId="23" Name="en" />
-    </Wire>
-  </Wires>
-</FlgNet></NetworkSource>
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
-        <ObjectList>
-          <MultilingualText ID="12B" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="12C" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="12D" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="12E" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="12F" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="130" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text>Kontrola przeciążenie invertera </Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="131" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
-  <Parts>
-    <Access Scope="GlobalVariable" UId="21">
-      <Symbol>
-        <Component Name="FirstScan" />
-      </Symbol>
-    </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
         <Component Name="AlwaysTRUE" />
@@ -4077,6 +3974,111 @@
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
+          <MultilingualText ID="12B" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="12C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="12D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text>Ciśnienie mierzone w kierunku tłoczenia
+Jeśli max ustaw alarm</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="12E" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="12F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="130" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text>Controla ciśnienia na rurociągu tłoczenia</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="131" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="FirstScan" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="dbdane" />
+        <Component Name="PV" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="dbHoldRegSlave_to_MT101" />
+        <Component Name="instB5bar_act" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="pipe_failure" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="25">
+      <Negated Name="operand" />
+    </Part>
+    <Call UId="26">
+      <CallInfo Name="01_E_bar mini_pipe failure" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="27">
+          <Component Name="01_E_bar mini_pipe failure_DB" />
+        </Instance>
+        <Parameter Name="dane_Pressure_bar" Section="Input" Type="Real" />
+        <Parameter Name="Press_Min" Section="Input" Type="Real" />
+        <Parameter Name="pipe_failure" Section="Output" Type="Bool" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="28">
+      <Powerrail />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="21" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+    <Wire UId="30">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="en" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="dane_Pressure_bar" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="Press_Min" />
+    </Wire>
+    <Wire UId="33">
+      <NameCon UId="26" Name="pipe_failure" />
+      <IdentCon UId="24" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
           <MultilingualText ID="132" CompositionName="Comment">
             <ObjectList>
               <MultilingualTextItem ID="133" CompositionName="Items">
@@ -4088,8 +4090,7 @@
               <MultilingualTextItem ID="134" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>Ciśnienie mierzone w kierunku tłoczenia
-Jeśli max ustaw alarm</Text>
+                  <Text>Jeśli ciśnienie tłoczenia </Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -4105,7 +4106,7 @@ Jeśli max ustaw alarm</Text>
               <MultilingualTextItem ID="137" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>Controla ciśnienia na rurociągu tłoczenia</Text>
+                  <Text>Kontrla awarii rurociągu </Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -4469,6 +4470,78 @@ Jeśli max ustaw alarm</Text>
         <Component Name="FirstScan" />
       </Symbol>
     </Access>
+    <Part Name="Contact" UId="22">
+      <Negated Name="operand" />
+    </Part>
+    <Call UId="23">
+      <CallInfo Name="01_E_Inverter current overload control" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="24">
+          <Component Name="Control Current Overload_DB" />
+        </Instance>
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <Powerrail />
+      <NameCon UId="22" Name="in" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="22" Name="operand" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="22" Name="out" />
+      <NameCon UId="23" Name="en" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="147" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="148" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="149" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="14A" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="14B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="14C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text>Kontrola przeciążenie invertera </Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="14D" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="FirstScan" />
+      </Symbol>
+    </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
         <Component Name="AlwaysTRUE" />
@@ -4630,15 +4703,15 @@ Jeśli max ustaw alarm</Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="147" CompositionName="Comment">
+          <MultilingualText ID="14E" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="148" CompositionName="Items">
+              <MultilingualTextItem ID="14F" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="149" CompositionName="Items">
+              <MultilingualTextItem ID="150" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sterowanie wydajnością invertera  w trybie awarii od przeciążenia</Text>
@@ -4646,15 +4719,15 @@ Jeśli max ustaw alarm</Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="14A" CompositionName="Title">
+          <MultilingualText ID="151" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="14B" CompositionName="Items">
+              <MultilingualTextItem ID="152" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="14C" CompositionName="Items">
+              <MultilingualTextItem ID="153" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Alarm - Overload Current [A]</Text>
@@ -4664,7 +4737,7 @@ Jeśli max ustaw alarm</Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="14D" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="154" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4702,15 +4775,15 @@ Jeśli max ustaw alarm</Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="14E" CompositionName="Comment">
+          <MultilingualText ID="155" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="14F" CompositionName="Items">
+              <MultilingualTextItem ID="156" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="150" CompositionName="Items">
+              <MultilingualTextItem ID="157" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -4718,15 +4791,15 @@ Jeśli max ustaw alarm</Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="151" CompositionName="Title">
+          <MultilingualText ID="158" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="152" CompositionName="Items">
+              <MultilingualTextItem ID="159" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="153" CompositionName="Items">
+              <MultilingualTextItem ID="15A" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Reset znacznika kasowania alarmów z HMI</Text>
@@ -4736,7 +4809,7 @@ Jeśli max ustaw alarm</Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="154" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="15B" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4770,15 +4843,15 @@ Jeśli max ustaw alarm</Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="155" CompositionName="Comment">
+          <MultilingualText ID="15C" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="156" CompositionName="Items">
+              <MultilingualTextItem ID="15D" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="157" CompositionName="Items">
+              <MultilingualTextItem ID="15E" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -4786,15 +4859,15 @@ Jeśli max ustaw alarm</Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="158" CompositionName="Title">
+          <MultilingualText ID="15F" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="159" CompositionName="Items">
+              <MultilingualTextItem ID="160" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="15A" CompositionName="Items">
+              <MultilingualTextItem ID="161" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Obsługa błędu Modbus TCP</Text>
@@ -4804,7 +4877,7 @@ Jeśli max ustaw alarm</Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="15B" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="162" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4853,15 +4926,15 @@ Jeśli max ustaw alarm</Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="15C" CompositionName="Comment">
+          <MultilingualText ID="163" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="15D" CompositionName="Items">
+              <MultilingualTextItem ID="164" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="15E" CompositionName="Items">
+              <MultilingualTextItem ID="165" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -4869,15 +4942,15 @@ Jeśli max ustaw alarm</Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="15F" CompositionName="Title">
+          <MultilingualText ID="166" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="160" CompositionName="Items">
+              <MultilingualTextItem ID="167" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="161" CompositionName="Items">
+              <MultilingualTextItem ID="168" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Konversja Zmiennych</Text>
@@ -4887,7 +4960,7 @@ Jeśli max ustaw alarm</Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="162" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="169" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4921,15 +4994,15 @@ Jeśli max ustaw alarm</Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="163" CompositionName="Comment">
+          <MultilingualText ID="16A" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="164" CompositionName="Items">
+              <MultilingualTextItem ID="16B" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="165" CompositionName="Items">
+              <MultilingualTextItem ID="16C" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -4937,15 +5010,15 @@ Jeśli max ustaw alarm</Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="166" CompositionName="Title">
+          <MultilingualText ID="16D" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="167" CompositionName="Items">
+              <MultilingualTextItem ID="16E" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="168" CompositionName="Items">
+              <MultilingualTextItem ID="16F" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Konwersja zmiennej DLT czas na wartość liczbową</Text>
@@ -4955,7 +5028,7 @@ Jeśli max ustaw alarm</Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="169" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="170" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -5015,15 +5088,15 @@ Jeśli max ustaw alarm</Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="16A" CompositionName="Comment">
+          <MultilingualText ID="171" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="16B" CompositionName="Items">
+              <MultilingualTextItem ID="172" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="16C" CompositionName="Items">
+              <MultilingualTextItem ID="173" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -5031,15 +5104,15 @@ Jeśli max ustaw alarm</Text>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="16D" CompositionName="Title">
+          <MultilingualText ID="174" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="16E" CompositionName="Items">
+              <MultilingualTextItem ID="175" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="16F" CompositionName="Items">
+              <MultilingualTextItem ID="176" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Kontrola modelu sterowania pompownią</Text>
@@ -5049,7 +5122,7 @@ Jeśli max ustaw alarm</Text>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="170" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="177" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -5193,15 +5266,15 @@ Jeśli max ustaw alarm</Text>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="171" CompositionName="Comment">
+          <MultilingualText ID="178" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="172" CompositionName="Items">
+              <MultilingualTextItem ID="179" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="173" CompositionName="Items">
+              <MultilingualTextItem ID="17A" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Funkcja w interwale czsowy sprawdza czy następuje przyrost czy spadekciśnienia
@@ -5210,15 +5283,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="174" CompositionName="Title">
+          <MultilingualText ID="17B" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="175" CompositionName="Items">
+              <MultilingualTextItem ID="17C" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="176" CompositionName="Items">
+              <MultilingualTextItem ID="17D" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Kontrola przyrostu ciśnienia</Text>
@@ -5228,7 +5301,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="177" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="17E" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -5266,15 +5339,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="178" CompositionName="Comment">
+          <MultilingualText ID="17F" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="179" CompositionName="Items">
+              <MultilingualTextItem ID="180" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="17A" CompositionName="Items">
+              <MultilingualTextItem ID="181" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>-- - - - - - - - W opracowaniu !!!!!! 
@@ -5284,15 +5357,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="17B" CompositionName="Title">
+          <MultilingualText ID="182" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="17C" CompositionName="Items">
+              <MultilingualTextItem ID="183" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="17D" CompositionName="Items">
+              <MultilingualTextItem ID="184" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Status napędu pomp  </Text>
@@ -5302,7 +5375,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="17E" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="185" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -5753,15 +5826,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="17F" CompositionName="Comment">
+          <MultilingualText ID="186" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="180" CompositionName="Items">
+              <MultilingualTextItem ID="187" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="181" CompositionName="Items">
+              <MultilingualTextItem ID="188" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>"dbdane".OUT_PURE_Real</Text>
@@ -5769,15 +5842,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="182" CompositionName="Title">
+          <MultilingualText ID="189" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="183" CompositionName="Items">
+              <MultilingualTextItem ID="18A" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="184" CompositionName="Items">
+              <MultilingualTextItem ID="18B" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sterowanie dołączeniem dodatkowych pomp</Text>
@@ -5787,7 +5860,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="185" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="18C" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -5870,15 +5943,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="186" CompositionName="Comment">
+          <MultilingualText ID="18D" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="187" CompositionName="Items">
+              <MultilingualTextItem ID="18E" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="188" CompositionName="Items">
+              <MultilingualTextItem ID="18F" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Funkcja ustala czy pracuje wiodący i dodatkowa</Text>
@@ -5886,15 +5959,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="189" CompositionName="Title">
+          <MultilingualText ID="190" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="18A" CompositionName="Items">
+              <MultilingualTextItem ID="191" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="18B" CompositionName="Items">
+              <MultilingualTextItem ID="192" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Kontrola  dołączaniem dodatkowej pompy</Text>
@@ -5904,7 +5977,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="18C" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="193" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -6369,15 +6442,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="18D" CompositionName="Comment">
+          <MultilingualText ID="194" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="18E" CompositionName="Items">
+              <MultilingualTextItem ID="195" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="18F" CompositionName="Items">
+              <MultilingualTextItem ID="196" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sterowaniem pracy z falownika. Sterowanie napędem na pozycji MC </Text>
@@ -6385,15 +6458,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="190" CompositionName="Title">
+          <MultilingualText ID="197" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="191" CompositionName="Items">
+              <MultilingualTextItem ID="198" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="192" CompositionName="Items">
+              <MultilingualTextItem ID="199" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Falownik P1</Text>
@@ -6403,7 +6476,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="193" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="19A" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -6868,15 +6941,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="194" CompositionName="Comment">
+          <MultilingualText ID="19B" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="195" CompositionName="Items">
+              <MultilingualTextItem ID="19C" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="196" CompositionName="Items">
+              <MultilingualTextItem ID="19D" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sterowaniem pracy z falownika. Sterowanie napędem na pozycji MC </Text>
@@ -6884,15 +6957,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="197" CompositionName="Title">
+          <MultilingualText ID="19E" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="198" CompositionName="Items">
+              <MultilingualTextItem ID="19F" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="199" CompositionName="Items">
+              <MultilingualTextItem ID="1A0" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Falownik P2</Text>
@@ -6902,7 +6975,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="19A" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="1A1" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -7367,15 +7440,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="19B" CompositionName="Comment">
+          <MultilingualText ID="1A2" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="19C" CompositionName="Items">
+              <MultilingualTextItem ID="1A3" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="19D" CompositionName="Items">
+              <MultilingualTextItem ID="1A4" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sterowaniem pracy z falownika. Sterowanie napędem na pozycji MC </Text>
@@ -7383,15 +7456,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="19E" CompositionName="Title">
+          <MultilingualText ID="1A5" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="19F" CompositionName="Items">
+              <MultilingualTextItem ID="1A6" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1A0" CompositionName="Items">
+              <MultilingualTextItem ID="1A7" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Falownik P3</Text>
@@ -7401,7 +7474,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="1A1" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="1A8" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -7866,15 +7939,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="1A2" CompositionName="Comment">
+          <MultilingualText ID="1A9" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="1A3" CompositionName="Items">
+              <MultilingualTextItem ID="1AA" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1A4" CompositionName="Items">
+              <MultilingualTextItem ID="1AB" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sterowaniem pracy z falownika. Sterowanie napędem na pozycji MC </Text>
@@ -7882,15 +7955,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="1A5" CompositionName="Title">
+          <MultilingualText ID="1AC" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="1A6" CompositionName="Items">
+              <MultilingualTextItem ID="1AD" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1A7" CompositionName="Items">
+              <MultilingualTextItem ID="1AE" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Falownik P4</Text>
@@ -7900,7 +7973,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="1A8" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="1AF" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -7948,15 +8021,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="1A9" CompositionName="Comment">
+          <MultilingualText ID="1B0" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="1AA" CompositionName="Items">
+              <MultilingualTextItem ID="1B1" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1AB" CompositionName="Items">
+              <MultilingualTextItem ID="1B2" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Zabezpieczenie przed zmianami na wypadek anomali </Text>
@@ -7964,15 +8037,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="1AC" CompositionName="Title">
+          <MultilingualText ID="1B3" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="1AD" CompositionName="Items">
+              <MultilingualTextItem ID="1B4" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1AE" CompositionName="Items">
+              <MultilingualTextItem ID="1B5" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text> Aktualizacja Trybu PRacy</Text>
@@ -7982,7 +8055,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="1AF" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="1B6" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -8230,15 +8303,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="1B0" CompositionName="Comment">
+          <MultilingualText ID="1B7" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="1B1" CompositionName="Items">
+              <MultilingualTextItem ID="1B8" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1B2" CompositionName="Items">
+              <MultilingualTextItem ID="1B9" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sterowanie załaczaniem falownika</Text>
@@ -8246,15 +8319,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="1B3" CompositionName="Title">
+          <MultilingualText ID="1BA" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="1B4" CompositionName="Items">
+              <MultilingualTextItem ID="1BB" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1B5" CompositionName="Items">
+              <MultilingualTextItem ID="1BC" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sterowanie falownikiem</Text>
@@ -8264,7 +8337,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="1B6" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="1BD" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -8501,15 +8574,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="1B7" CompositionName="Comment">
+          <MultilingualText ID="1BE" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="1B8" CompositionName="Items">
+              <MultilingualTextItem ID="1BF" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1B9" CompositionName="Items">
+              <MultilingualTextItem ID="1C0" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sterowanie stycznikiem sieć </Text>
@@ -8517,15 +8590,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="1BA" CompositionName="Title">
+          <MultilingualText ID="1C1" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="1BB" CompositionName="Items">
+              <MultilingualTextItem ID="1C2" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1BC" CompositionName="Items">
+              <MultilingualTextItem ID="1C3" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sieć P1</Text>
@@ -8535,7 +8608,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="1BD" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="1C4" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -8766,15 +8839,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="1BE" CompositionName="Comment">
+          <MultilingualText ID="1C5" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="1BF" CompositionName="Items">
+              <MultilingualTextItem ID="1C6" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1C0" CompositionName="Items">
+              <MultilingualTextItem ID="1C7" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sterowanie stycznikiem sieć </Text>
@@ -8782,15 +8855,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="1C1" CompositionName="Title">
+          <MultilingualText ID="1C8" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="1C2" CompositionName="Items">
+              <MultilingualTextItem ID="1C9" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1C3" CompositionName="Items">
+              <MultilingualTextItem ID="1CA" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sieć P2</Text>
@@ -8800,7 +8873,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="1C4" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="1CB" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -9031,15 +9104,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="1C5" CompositionName="Comment">
+          <MultilingualText ID="1CC" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="1C6" CompositionName="Items">
+              <MultilingualTextItem ID="1CD" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1C7" CompositionName="Items">
+              <MultilingualTextItem ID="1CE" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sterowanie stycznikiem sieć </Text>
@@ -9047,15 +9120,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="1C8" CompositionName="Title">
+          <MultilingualText ID="1CF" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="1C9" CompositionName="Items">
+              <MultilingualTextItem ID="1D0" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1CA" CompositionName="Items">
+              <MultilingualTextItem ID="1D1" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Sieć P3</Text>
@@ -9065,7 +9138,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="1CB" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="1D2" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -9310,74 +9383,6 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="1CC" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="1CD" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="1CE" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text>!!!!!!!!!!!!!!!!!!!!! ------------------ Brak pompy --------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="1CF" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="1D0" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="1D1" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text>Sieć P4</Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="1D2" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
-  <Parts>
-    <Access Scope="GlobalVariable" UId="21">
-      <Symbol>
-        <Component Name="FirstScan" />
-      </Symbol>
-    </Access>
-    <Part Name="Contact" UId="22">
-      <Negated Name="operand" />
-    </Part>
-    <Call UId="23">
-      <CallInfo Name="04_A_OUT" BlockType="FC" />
-    </Call>
-  </Parts>
-  <Wires>
-    <Wire UId="24">
-      <Powerrail />
-      <NameCon UId="22" Name="in" />
-    </Wire>
-    <Wire UId="25">
-      <IdentCon UId="21" />
-      <NameCon UId="22" Name="operand" />
-    </Wire>
-    <Wire UId="26">
-      <NameCon UId="22" Name="out" />
-      <NameCon UId="23" Name="en" />
-    </Wire>
-  </Wires>
-</FlgNet></NetworkSource>
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
-        <ObjectList>
           <MultilingualText ID="1D3" CompositionName="Comment">
             <ObjectList>
               <MultilingualTextItem ID="1D4" CompositionName="Items">
@@ -9389,7 +9394,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               <MultilingualTextItem ID="1D5" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text />
+                  <Text>!!!!!!!!!!!!!!!!!!!!! ------------------ Brak pompy --------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -9405,7 +9410,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               <MultilingualTextItem ID="1D8" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>Output maping</Text>
+                  <Text>Sieć P4</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -9425,7 +9430,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
       <Negated Name="operand" />
     </Part>
     <Call UId="23">
-      <CallInfo Name="08_M_Conroll_from_ModbusRTU" BlockType="FC" />
+      <CallInfo Name="04_A_OUT" BlockType="FC" />
     </Call>
   </Parts>
   <Wires>
@@ -9473,7 +9478,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               <MultilingualTextItem ID="1DF" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
-                  <Text>Formowanie danych przepływów z MP04 Pompownia</Text>
+                  <Text>Output maping</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -9481,6 +9486,74 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
         </ObjectList>
       </SW.Blocks.CompileUnit>
       <SW.Blocks.CompileUnit ID="1E0" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="FirstScan" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="22">
+      <Negated Name="operand" />
+    </Part>
+    <Call UId="23">
+      <CallInfo Name="08_M_Conroll_from_ModbusRTU" BlockType="FC" />
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="24">
+      <Powerrail />
+      <NameCon UId="22" Name="in" />
+    </Wire>
+    <Wire UId="25">
+      <IdentCon UId="21" />
+      <NameCon UId="22" Name="operand" />
+    </Wire>
+    <Wire UId="26">
+      <NameCon UId="22" Name="out" />
+      <NameCon UId="23" Name="en" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1E1" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="1E2" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1E3" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="1E4" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="1E5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1E6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text>Formowanie danych przepływów z MP04 Pompownia</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="1E7" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -9561,15 +9634,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="1E1" CompositionName="Comment">
+          <MultilingualText ID="1E8" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="1E2" CompositionName="Items">
+              <MultilingualTextItem ID="1E9" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1E3" CompositionName="Items">
+              <MultilingualTextItem ID="1EA" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text />
@@ -9577,15 +9650,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="1E4" CompositionName="Title">
+          <MultilingualText ID="1EB" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="1E5" CompositionName="Items">
+              <MultilingualTextItem ID="1EC" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
-              <MultilingualTextItem ID="1E6" CompositionName="Items">
+              <MultilingualTextItem ID="1ED" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
                   <Text>Alarm minimalne bar magistrala</Text>
@@ -9595,7 +9668,7 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="1E7" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="1EE" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -9662,46 +9735,6 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="1E8" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="1E9" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="1EA" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="1EB" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="1EC" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-              <MultilingualTextItem ID="1ED" CompositionName="Items">
-                <AttributeList>
-                  <Culture>pl-PL</Culture>
-                  <Text>Inicjacja wartości startowych</Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="1EE" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource />
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
-        <ObjectList>
           <MultilingualText ID="1EF" CompositionName="Comment">
             <ObjectList>
               <MultilingualTextItem ID="1F0" CompositionName="Items">
@@ -9729,6 +9762,46 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
               <MultilingualTextItem ID="1F4" CompositionName="Items">
                 <AttributeList>
                   <Culture>pl-PL</Culture>
+                  <Text>Inicjacja wartości startowych</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="1F5" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1F6" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="1F7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1F8" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="1F9" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="1FA" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1FB" CompositionName="Items">
+                <AttributeList>
+                  <Culture>pl-PL</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
@@ -9736,15 +9809,15 @@ Wynik podawany jest do funkcji s"Sterowania dodatkową pompą" (Funkacja steruj�
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <MultilingualText ID="1F5" CompositionName="Title">
+      <MultilingualText ID="1FC" CompositionName="Title">
         <ObjectList>
-          <MultilingualTextItem ID="1F6" CompositionName="Items">
+          <MultilingualTextItem ID="1FD" CompositionName="Items">
             <AttributeList>
               <Culture>en-US</Culture>
               <Text />
             </AttributeList>
           </MultilingualTextItem>
-          <MultilingualTextItem ID="1F7" CompositionName="Items">
+          <MultilingualTextItem ID="1FE" CompositionName="Items">
             <AttributeList>
               <Culture>pl-PL</Culture>
               <Text>Głowny blok </Text>

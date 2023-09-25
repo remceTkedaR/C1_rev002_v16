@@ -22,18 +22,18 @@ VERSION : 0.1
       Rst_Driver : Bool := false;   // Znacznik wyłaczenia awayjnego
    END_VAR
 
-   VAR_TEMP 
-      set_NewValue : Bool;
-      index : Bool;
-      CV : Int;
-      load_cunt : Bool;
-      tmp_Hz : Real;   // Wartość Hz zatrzaśnięta do obliczeń
-      cnt_Hz : Real;   // Zmienna Hz do przeliczania w procesie sterowani podczas awarii
-      mem_Triger_Alarm : Bool;   // Pamięć zbocza narastającego wytąpienia alarmu
+   VAR 
+      set_NewValue { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      index { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      CV { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Int;
+      load_cunt { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      tmp_Hz { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;   // Wartość Hz zatrzaśnięta do obliczeń
+      cnt_Hz { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;   // Zmienna Hz do przeliczania w procesie sterowani podczas awarii
+      mem_Triger_Alarm { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Pamięć zbocza narastającego wytąpienia alarmu
    END_VAR
 
    VAR CONSTANT 
-      PV : Int := 30;   // Wartość procentowa licznika ładowanego dla Generacji wartości [%] Hz
+      PV : Int := 5;   // Wartość procentowa licznika ładowanego dla Generacji wartości [%] Hz
    END_VAR
 
 
@@ -43,10 +43,29 @@ BEGIN
 	ciśnienia  w przewodzie
 	*)
 	
+	// wyłączenie pomp pracujących z falownika 
+	IF #Value_Max = TRUE THEN
+	  "setCMD_FP1" := FALSE;
+	  "setCMD_FP2" := FALSE;
+	  "setCMD_FP3" := FALSE;
+	  "setCMD_FP4" := FALSE;
+	  "setSUPV_FP1" := FALSE;
+	  "setSUPV_FP2" := FALSE;
+	  "setSUPV_FP3" := FALSE;
+	  "setSUPV_FP4" := FALSE;
+	  "Set_HWork_P1" := FALSE;
+	  "Set_HWork_P2" := FALSE;
+	  "Set_HWork_P3" := FALSE;
+	  "Set_HWork_P4" := FALSE;
+	  ;
+	END_IF;
+	
+	
 	// Wyłączenie pompy pracującej w trybie sterowania awaryjnego bez falownika
 	IF #IsReadyinverter1 = FALSE AND #Value_Max = TRUE THEN
 	  // Ustaw znacznik wyłączenie awaryjnego
 	  #Rst_Driver := TRUE;
+	
 	ELSE
 	  #Rst_Driver := FALSE;
 	END_IF;
@@ -60,13 +79,13 @@ BEGIN
 	// Selektywne wyłączanie pomp dodatkowych w wypadku przeciążenie falownika
 	// Zabespieczenie przed samodzielną pracą pompy z sieci
 	
-	IF #Value_Max AND #IsMotor2Set AND (#IsMotor3Set = FALSE) AND (#IsMotor4Set = FALSE) THEN
+	IF #Value_Max AND #IsMotor2Set   THEN
 	  #Rst_Motor2 := TRUE;
 	ELSE
 	  #Rst_Motor2 := FALSE;
 	END_IF;
 	
-	IF #Value_Max AND #IsMotor3Set AND #IsMotor2Set THEN
+	IF #Value_Max AND #IsMotor3Set THEN
 	  #Rst_Motor3 := TRUE;
 	ELSE
 	  #Rst_Motor3 := FALSE;
@@ -103,10 +122,10 @@ BEGIN
 	    
 	    
 	    // Przekazanie nowej naliczonej wartości
-	    IF #set_NewValue = FALSE AND #Value_Max AND  (#IsMotor2Set= FALSE) AND (#IsMotor3Set= FALSE)  THEN
+	    IF #set_NewValue = FALSE AND #Value_Max   THEN
 	      // Przekazanie do bloku danych nowej wartości
 	      
-	        #Value_Manual_Hz := #CV;
+	        #Value_Manual_Hz := 10.0;
 	        "dbdane".tmp_Hz_ModeAlarm :=  #Value_Manual_Hz;
 	        
 	      ELSE
