@@ -39,28 +39,28 @@ BEGIN
 	// zerowanie zmiennej
 	#chosenPump := 0;
 	
-	IF "IsReady_P1" AND "bitH_Aut_Man_P1"AND ("IsRunNetwork_P1" = FALSE) THEN
+	IF "IsReady_P1" AND "bitH_Aut_Man_P1"AND ("IsRunNetwork_P1" = FALSE) AND "TurnOffPump"<> 1 THEN
 	  IF "hourWork_setData".Sum_sek_hur_P1 < #minTime THEN
 	    #minTime := "hourWork_setData".Sum_sek_hur_P1;
 	    #chosenPump := 1;
 	  END_IF;
 	END_IF;
 	
-	IF "IsReady_P2" AND "bitH_Aut_Man_P2" AND ("IsRunNetwork_P2" = FALSE) THEN
+	IF "IsReady_P2" AND "bitH_Aut_Man_P2" AND ("IsRunNetwork_P2" = FALSE) AND "TurnOffPump" <> 2 THEN
 	  IF "hourWork_setData".Sum_sek_hur_P2 < #minTime THEN
 	    #minTime := "hourWork_setData".Sum_sek_hur_P2;
 	    #chosenPump := 2;
 	  END_IF;
 	END_IF;
 	
-	IF "IsReady_P3" AND "bitH_Aut_Man_P3" AND ("IsRunNetwork_P3" = FALSE) THEN
+	IF "IsReady_P3" AND "bitH_Aut_Man_P3" AND ("IsRunNetwork_P3" = FALSE) AND "TurnOffPump" <> 3 THEN
 	  IF "hourWork_setData".Sum_sek_hur_P3 < #minTime THEN
 	    #minTime := "hourWork_setData".Sum_sek_hur_P3;
 	    #chosenPump := 3;
 	  END_IF;
 	END_IF;
 	
-	IF "IsReady_P4" AND "bitH_Aut_Man_P4" AND ("IsRunNetwork_P4" = FALSE) THEN
+	IF "IsReady_P4" AND "bitH_Aut_Man_P4" AND ("IsRunNetwork_P4" = FALSE) AND "TurnOffPump" <> 4 THEN
 	  IF "hourWork_setData".Sum_sek_hur_P4 < #minTime THEN
 	    #minTime := "hourWork_setData".Sum_sek_hur_P4;
 	    #chosenPump := 4;

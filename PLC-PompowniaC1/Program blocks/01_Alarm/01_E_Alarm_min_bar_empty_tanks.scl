@@ -99,7 +99,7 @@ BEGIN
 	
 	// Histereza na ustawienie alarmu "niskie ćiśnienie na magistrali"
 	"IEC_Timer_AlarmMagistrala_Niskie_DB".TON(IN := #bit_niskie_magistrala,
-	                                          PT := T#2M,
+	                                          PT := T#30S,
 	                                          Q => #bit_alarm_magistrala_min);
 	
 	
